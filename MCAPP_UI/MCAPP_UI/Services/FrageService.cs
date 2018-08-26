@@ -10,7 +10,7 @@ using MCAPP_UI.Repositories;
 
 namespace MCAPP_UI.Services
 {
-    class FrageService : IFragenService
+    public class FrageService : IFragenService
     {
         readonly IFragenRepository repository;
 
@@ -19,9 +19,9 @@ namespace MCAPP_UI.Services
             this.repository = repository;
         }
 
-        public Task<Frage> AddNewFrage(string frageText)
+        public Task AddNewFrage(Frage frage)
         {
-            throw new NotImplementedException();
+            return repository.Save(frage);
         }
 
         public Task<List<Frage>> GetAllFragen()

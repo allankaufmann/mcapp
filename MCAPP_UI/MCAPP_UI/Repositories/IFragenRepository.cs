@@ -13,8 +13,8 @@ namespace MCAPP_UI.Repositories
     public interface IFragenRepository
     {
 
-        Task<List<Frage>> GetAllFragen(); 
-
+        Task<List<Frage>> GetAllFragen();
+        Task Save(Frage frage);
 
 
     }

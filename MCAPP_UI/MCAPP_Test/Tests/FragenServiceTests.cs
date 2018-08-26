@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Foundation;
-using UIKit;
 using MCAPP_UI.Services;
 using MCAPP_UI.Models;
 using NUnit.Framework;
@@ -32,7 +30,7 @@ namespace MCAPP_UI.Tests
         [Test]
         public async Task TestSomething()
         {
-            await service.AddNewFrage("LaLa");
+            Task f = service.AddNewFrage(new Frage());
 
             Assert.AreEqual(1, service.GetAllFragen().Result.Count);
         }

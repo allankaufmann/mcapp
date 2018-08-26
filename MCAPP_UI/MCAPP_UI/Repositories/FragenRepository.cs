@@ -34,5 +34,12 @@ namespace MCAPP_UI.Repositories
         {
             return connection.Table<Frage>().ToListAsync();
         }
+
+        public Task Save(Frage frage)
+        {
+            return connection.InsertOrReplaceAsync(frage);
+        }
+
+
     }
 }

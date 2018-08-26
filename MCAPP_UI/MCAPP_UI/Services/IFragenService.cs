@@ -13,7 +13,7 @@ namespace MCAPP_UI.Services
 {
     public interface IFragenService
     {
-        Task<Frage> AddNewFrage(string frageText);
+        Task AddNewFrage(Frage frage);
 
         Task<List<Frage>> GetAllFragen();
     }

@@ -186,7 +186,6 @@
     <Compile Include="Repositories\IFragenRepository.cs" />
     <Compile Include="Services\FrageService.cs" />
     <Compile Include="Services\IFragenService.cs" />
-    <Compile Include="Tests\FragenServiceTests.cs" />
     <Compile Include="ViewController.cs" />
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
