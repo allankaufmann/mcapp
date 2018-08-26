@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Foundation;
+using UIKit;
+using PCLStorage;
+using SQLite;
+using System.IO;
+using MCAPP_UI.Models;
+using System.Threading.Tasks;
+
+namespace MCAPP_UI.Repositories
+{
+    /*
+     * Repository um Fragen aus der Datenbank zu laden.
+     */
+    public class FragenRepository : IFragenRepository
+    {
+
+        readonly SQLiteAsyncConnection connection;
+
+
+        public FragenRepository()
+        {
+            var local = FileSystem.Current.LocalStorage.Path;
+            var datafile = Path.Combine(local, "mcapp.db3");
+            connection = new SQLiteAsyncConnection(datafile);
+            connection.GetConnection().CreateTable<Frage>();
+        }
+
+        public Task<List<Frage>> GetAllFragen()
+        {
+            return connection.Table<Frage>().ToListAsync();
+        }
+    }
+}
