@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-using Foundation;
-using UIKit;
 using PCLStorage;
 using SQLite;
 using System.IO;
-using MCAPP_UI.Models;
+using MCAPP_CROSS.Core.Models;
 using System.Threading.Tasks;
 
-namespace MCAPP_UI.Repositories
+namespace MCAPP_CROSS.Core.Repositories
 {
     /*
      * Repository um Fragen aus der Datenbank zu laden.

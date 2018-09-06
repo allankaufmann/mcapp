@@ -17,13 +17,20 @@ namespace MCAPP_UI.Tests
     {
         IFragenService service;
 
-        Mock<IFragenRepository> repo;
+        //Mock<IFragenRepository> repo;
+        IFragenRepository repo;
 
         [SetUp]
         public void SetUp()
         {
-            repo = new Mock<IFragenRepository>();
-            service = new FrageService(repo.Object);
+            //repo = new Mock<IFragenRepository>();
+            repo = new FragenRepository();
+            service = new FrageService(repo);
+
+            var fragen = new List<Frage>
+                { new Frage() };
+
+            //repo.Setup(r => r.GetAllFragen()).ReturnsAsync(fragen);
         }
 
 
