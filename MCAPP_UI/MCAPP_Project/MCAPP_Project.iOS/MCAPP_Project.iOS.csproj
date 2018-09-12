@@ -105,13 +105,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
-    <Compile Include="Views\FirstView.designer.cs">
-      <DependentUpon>FirstView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FirstView.cs" />
-    <InterfaceDefinition Include="Views\FirstView.storyboard">
-      <SubType>Designer</SubType>
-    </InterfaceDefinition>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
   </ItemGroup>
   <ItemGroup>
