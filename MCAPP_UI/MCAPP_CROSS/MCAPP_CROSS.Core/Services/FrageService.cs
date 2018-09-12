@@ -26,5 +26,12 @@ namespace MCAPP_CROSS.Core.Services
         {
             return repository.GetAllFragen();
         }
+
+        public Frage GetSampleFrage()
+        {
+            Frage beispiel = new Frage();
+            beispiel.Fragetext = "Wie hoch ist die MWSt in Deutschland?";
+            return beispiel;
+        }
     }
 }

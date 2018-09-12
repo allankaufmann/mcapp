@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using PCLStorage;
-using SQLite;
+//using PCLStorage;
+//using SQLite;
 using System.IO;
 using MCAPP_CROSS.Core.Models;
 using System.Threading.Tasks;
@@ -16,23 +16,25 @@ namespace MCAPP_CROSS.Core.Repositories
     public class FragenRepository : IFragenRepository
     {
 
-        readonly SQLiteAsyncConnection connection;
+        //readonly SQLiteAsyncConnection connection;
 
 
         public FragenRepository()
         {
-            connection = new SQLiteAsyncConnection("test.db");
-            connection.GetConnection().CreateTable<Frage>();
+            //connection = new SQLiteAsyncConnection("test.db");
+            //connection.GetConnection().CreateTable<Frage>();
         }
 
         public Task<List<Frage>> GetAllFragen()
         {
-            return connection.Table<Frage>().ToListAsync();
+            //return connection.Table<Frage>().ToListAsync();
+            return null;
         }
 
         public Task Save(Frage frage)
         {
-            return connection.InsertOrReplaceAsync(frage);
+            //return connection.InsertOrReplaceAsync(frage);
+            return null;
         }
 
 

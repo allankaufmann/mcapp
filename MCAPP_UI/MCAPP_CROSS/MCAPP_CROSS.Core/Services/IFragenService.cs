@@ -13,5 +13,9 @@ namespace MCAPP_CROSS.Core.Services
         Task AddNewFrage(Frage frage);
 
         Task<List<Frage>> GetAllFragen();
+
+        Frage GetSampleFrage();
+
+
     }
 }

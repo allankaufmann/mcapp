@@ -11,7 +11,11 @@ namespace MCAPP_CROSS.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
+            
+            
             RegisterNavigationServiceAppStart<ViewModels.FirstViewModel>();
+            //RegisterNavigationServiceAppStart<ViewModels.SampleQuestionViewModel>();
+            
         }
     }
 }

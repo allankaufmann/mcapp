@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 
-using SQLite;
+//using SQLite;
 
 namespace MCAPP_CROSS.Core.Models
 {
@@ -21,14 +21,11 @@ namespace MCAPP_CROSS.Core.Models
         /*
          * ID der Frage. Dient der Identifikation der Frage sowohl client- als auch serverseitig.
          */
-        [PrimaryKey, AutoIncrement]
+   //     [PrimaryKey, AutoIncrement]
         private long FrageId { get; set; }
 
-        /*
-         * Die eigentliche Fragestellung in Textform. 
-         */
 
-        private string Fragetext { get; set; }
+        public string Fragetext { get; set; }
 
 
 
