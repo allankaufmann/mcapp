@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 
 
-//using SQLite;
+using SQLite;
+
 
 namespace MCAPP_Project.Core.Models
 {
@@ -21,7 +22,7 @@ namespace MCAPP_Project.Core.Models
         /*
          * ID der Frage. Dient der Identifikation der Frage sowohl client- als auch serverseitig.
          */
-   //     [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement]
         private long FrageId { get; set; }
 
 
