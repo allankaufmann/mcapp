@@ -32,7 +32,7 @@ namespace MCAPP_Project.iOS.Views
             base.ViewDidLoad();
 
             var set = this.CreateBindingSet<SampleQuestion, SampleQuestionViewModel>();
-            set.Bind(Ergebnis).To(vm => vm.Hello);
+            set.Bind(Ergebnis).To(vm => vm.FrageText);
             set.Apply();
 
             // Perform any additional setup after loading the view, typically from a nib.

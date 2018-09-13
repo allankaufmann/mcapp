@@ -30,6 +30,11 @@ namespace MCAPP_Project.Core.Repositories
             return connection.Table<Frage>().ToListAsync();      
         }
 
+        public Frage GetSampleFrage()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task Save(Frage frage)
         {
             return connection.InsertOrReplaceAsync(frage);         

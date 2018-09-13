@@ -13,6 +13,8 @@ namespace MCAPP_Project.Core.Repositories
         Task<List<Frage>> GetAllFragen();
         Task Save(Frage frage);
 
+        Frage GetSampleFrage();
+
 
     }
 }
