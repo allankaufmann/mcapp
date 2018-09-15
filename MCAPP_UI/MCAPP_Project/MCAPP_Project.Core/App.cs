@@ -11,7 +11,8 @@ namespace MCAPP_Project.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
-            RegisterNavigationServiceAppStart<ViewModels.SampleQuestionViewModel>();
+            //RegisterNavigationServiceAppStart<ViewModels.SampleQuestionViewModel>();
+            RegisterNavigationServiceAppStart<ViewModels.QuestionTableViewModel>();
         }
     }
 }

@@ -95,6 +95,11 @@
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Views\QuestionTableView.cs" />
+    <Compile Include="Views\QuestionTableView.designer.cs">
+      <DependentUpon>QuestionTableView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuestionTableViewSource.cs" />
     <Compile Include="Views\SampleQuestion.cs" />
     <Compile Include="Views\SampleQuestion.designer.cs">
       <DependentUpon>SampleQuestion.cs</DependentUpon>
@@ -102,6 +107,7 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <InterfaceDefinition Include="Views\SampleQuestion.storyboard" />
+    <InterfaceDefinition Include="Views\QuestionTableView.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />

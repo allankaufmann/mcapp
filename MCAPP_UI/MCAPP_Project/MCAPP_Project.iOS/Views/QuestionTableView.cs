@@ -11,9 +11,9 @@ using UIKit;
 namespace MCAPP_Project.iOS.Views
 {
     [MvxFromStoryboard]
-    public partial class SampleQuestion : MvxViewController
+    public partial class QuestionTableView : MvxTableViewController
     {
-        public SampleQuestion(IntPtr handle) : base(handle)
+        public QuestionTableView(IntPtr handle) : base(handle)
         {
         }
 
@@ -21,6 +21,13 @@ namespace MCAPP_Project.iOS.Views
         {
             // Releases the view if it doesn't have a superview.
             base.DidReceiveMemoryWarning();
+
+            var source = new QuestionTableViewSource(Tabelle);
+            Tabelle.Source = source;
+
+            var set = this.CreateBindingSet<QuestionTableView, QuestionTableViewModel>();
+            set.Bind(source).To(vm => vm.Tables);
+            set.Apply();
 
             // Release any cached data, images, etc that aren't in use.
         }
@@ -31,21 +38,10 @@ namespace MCAPP_Project.iOS.Views
         {
             base.ViewDidLoad();
 
-            //Tabelle.Source = 
-
-
-            var set = this.CreateBindingSet<SampleQuestion, SampleQuestionViewModel>();
-            set.Bind(Ergebnis).To(vm => vm.FrageText);
-
-            //set.Bind(Tabelle).To(vm => vm.FrageText);
-
+            var source = new QuestionTableViewSource(TableView);
+            TableView.Source = source;
+            var set = this.CreateBindingSet<QuestionTableView, QuestionTableViewModel>();
             set.Apply();
-
-
-            
-
-
-
             // Perform any additional setup after loading the view, typically from a nib.
         }
 
