@@ -99,6 +99,10 @@
     <Compile Include="Views\QuestionTableView.designer.cs">
       <DependentUpon>QuestionTableView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\QuestionTableViewCell.cs" />
+    <Compile Include="Views\QuestionTableViewCell.designer.cs">
+      <DependentUpon>QuestionTableViewCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\QuestionTableViewSource.cs" />
     <Compile Include="Views\SampleQuestion.cs" />
     <Compile Include="Views\SampleQuestion.designer.cs">

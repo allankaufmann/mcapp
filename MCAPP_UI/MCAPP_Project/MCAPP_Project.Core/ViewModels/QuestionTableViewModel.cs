@@ -10,12 +10,13 @@ namespace MCAPP_Project.Core.ViewModels
     {
         public QuestionTableViewModel()
         {
-            Tables = new ObservableCollection<QuestionTableViewModel>();
         }
 
 
-        public ObservableCollection<QuestionTableViewModel> Tables { get; }
-
+        public String Thema
+        {
+            get { return "Externes Rechnungswesen"; }
+        }
 
 
 

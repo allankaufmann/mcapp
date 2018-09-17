@@ -25,7 +25,7 @@ namespace MCAPP_Project.iOS.Views
             var source = new QuestionTableViewSource(Tabelle);
             Tabelle.Source = source;
 
-            var set = this.CreateBindingSet<QuestionTableView, QuestionTableViewModel>();
+            var set = this.CreateBindingSet<QuestionTableView, QuestionTablesViewModel>();
             set.Bind(source).To(vm => vm.Tables);
             set.Apply();
 
