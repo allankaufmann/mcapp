@@ -18,7 +18,7 @@ namespace MCAPP_Project.Core.Models
         /*
          * Markiert Antwort als 'wahre Aussage'
          */
-        private Boolean wahr;
+        public Boolean wahr { set; get; }
 
 
     }

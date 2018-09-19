@@ -10,24 +10,15 @@ using System.CodeDom.Compiler;
 
 namespace MCAPP_Project.iOS.Views
 {
-    [Register ("QuestionTableViewCell")]
-    partial class QuestionTableViewCell
+    [Register ("QuestionTableViewThemaCell")]
+    partial class QuestionTableViewThemaCell
     {
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton Button { get; set; }
-
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel ThemaText { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (Button != null) {
-                Button.Dispose ();
-                Button = null;
-            }
-
             if (ThemaText != null) {
                 ThemaText.Dispose ();
                 ThemaText = null;

@@ -95,17 +95,17 @@
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="QuestionTableViewCell2.cs" />
-    <Compile Include="QuestionTableViewCell2.designer.cs">
-      <DependentUpon>QuestionTableViewCell2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\QuestionTableView.cs" />
     <Compile Include="Views\QuestionTableView.designer.cs">
       <DependentUpon>QuestionTableView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuestionTableViewCell.cs" />
-    <Compile Include="Views\QuestionTableViewCell.designer.cs">
-      <DependentUpon>QuestionTableViewCell.cs</DependentUpon>
+    <Compile Include="Views\QuestionTableViewFrageCell.cs" />
+    <Compile Include="Views\QuestionTableViewFrageCell.designer.cs">
+      <DependentUpon>QuestionTableViewFrageCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuestionTableViewThemaCell.cs" />
+    <Compile Include="Views\QuestionTableViewThemaCell.designer.cs">
+      <DependentUpon>QuestionTableViewThemaCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\QuestionTableViewSource.cs" />
     <Compile Include="Views\SampleQuestion.cs" />
