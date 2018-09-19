@@ -20,15 +20,7 @@ namespace MCAPP_Project.iOS.Views
         public override void DidReceiveMemoryWarning()
         {
             // Releases the view if it doesn't have a superview.
-            base.DidReceiveMemoryWarning();
-
-            var source = new QuestionTableViewSource(Tabelle);
-            Tabelle.Source = source;
-
-            var set = this.CreateBindingSet<QuestionTableView, QuestionTablesViewModel>();
-            set.Bind(source).To(vm => vm.Tables);
-            set.Apply();
-
+            base.DidReceiveMemoryWarning();      
             // Release any cached data, images, etc that aren't in use.
         }
 
@@ -38,10 +30,19 @@ namespace MCAPP_Project.iOS.Views
         {
             base.ViewDidLoad();
 
+            //var source = new QuestionTableViewSource(TableView);
+            //TableView.Source = source;
+            //var set = this.CreateBindingSet<QuestionTableView, QuestionTableViewModel>();
+            //set.Apply();
+
             var source = new QuestionTableViewSource(TableView);
             TableView.Source = source;
+
             var set = this.CreateBindingSet<QuestionTableView, QuestionTableViewModel>();
+            set.Bind(source).To(vm => vm.Tables);
             set.Apply();
+            //Tabelle.ReloadData();
+
             // Perform any additional setup after loading the view, typically from a nib.
         }
 

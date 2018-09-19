@@ -95,6 +95,10 @@
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="QuestionTableViewCell2.cs" />
+    <Compile Include="QuestionTableViewCell2.designer.cs">
+      <DependentUpon>QuestionTableViewCell2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\QuestionTableView.cs" />
     <Compile Include="Views\QuestionTableView.designer.cs">
       <DependentUpon>QuestionTableView.cs</DependentUpon>
