@@ -21,6 +21,10 @@ namespace MCAPP_Project.iOS.Views
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton Auswahl { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UISwitch Schalter { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
             if (AntwortText != null) {
@@ -31,6 +35,11 @@ namespace MCAPP_Project.iOS.Views
             if (Auswahl != null) {
                 Auswahl.Dispose ();
                 Auswahl = null;
+            }
+
+            if (Schalter != null) {
+                Schalter.Dispose ();
+                Schalter = null;
             }
         }
     }

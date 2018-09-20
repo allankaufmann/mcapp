@@ -19,6 +19,7 @@ namespace MCAPP_Project.iOS.Views
             {
                 var set = this.CreateBindingSet<QuestionTableAntwortTextCell, QuestionViewModel>();
                 set.Bind(AntwortText).To(vm => vm.AntwortText);
+                set.Bind(Schalter).To(vm => vm.AntwortAuswahl);
                 set.Apply();
 
             });

@@ -69,17 +69,22 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3272" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                            <rect key="frame" x="94" y="12" width="278" height="21"/>
+                                            <rect key="frame" x="109" y="12" width="278" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="3514" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                            <rect key="frame" x="31" y="6" width="51" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </switch>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="AntwortText" destination="3272" id="name-outlet-3272"/>
                                     <outlet property="Auswahl" destination="3271" id="name-outlet-3271"/>
+                                    <outlet property="Schalter" destination="3514" id="name-outlet-3514"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

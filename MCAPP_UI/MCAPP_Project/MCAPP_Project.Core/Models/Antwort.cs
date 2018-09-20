@@ -9,6 +9,8 @@ namespace MCAPP_Project.Core.Models
     public abstract class Antwort
     {
 
+        private Boolean auswahl;
+
         /*
          * ID der Frage. Dient der Identifikation der Frage sowohl client- als auch serverseitig.
          */
@@ -19,6 +21,15 @@ namespace MCAPP_Project.Core.Models
          * Markiert Antwort als 'wahre Aussage'
          */
         public Boolean wahr { set; get; }
+
+        public Boolean Auswahl
+        {
+            get { return this.auswahl; }
+            set {
+                Console.WriteLine("hihi " + value);
+                this.auswahl = value;
+            }
+        }
 
 
     }

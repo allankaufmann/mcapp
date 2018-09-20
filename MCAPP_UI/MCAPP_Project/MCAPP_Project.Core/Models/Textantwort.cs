@@ -14,6 +14,8 @@ namespace MCAPP_Project.Core.Models
     public class Textantwort : Antwort
     {
 
+        
+
         public string Text { get; set; }
 
 

@@ -37,7 +37,8 @@ namespace MCAPP_Project.Core.ViewModels
 
         public Boolean AntwortAuswahl
         {
-            get { return true; }
+            get { return this.antwort.Auswahl; }
+            set { this.antwort.Auswahl = value; }
         }
 
 
