@@ -28,7 +28,7 @@ namespace MCAPP_Project.Core.Models
 
         public string Fragetext { get; set; }
 
-        public List<Antwort> antworten { get; set; }
+        public List<Textantwort> antworten { get; set; }
 
 
 

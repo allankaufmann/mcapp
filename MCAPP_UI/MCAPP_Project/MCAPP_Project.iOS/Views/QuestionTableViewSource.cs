@@ -19,16 +19,18 @@ namespace MCAPP_Project.iOS.Views
 
         protected override UITableViewCell GetOrCreateCellFor(UITableView tableView, NSIndexPath indexPath, object item)
         {
-            if (indexPath.LongRow==0)
+            if (indexPath.LongRow == 0)
             {
                 return (QuestionTableViewThemaCell)tableView.DequeueReusableCell("QuestionTableCell");
-            } else
+            }
+            else if (indexPath.LongRow == 1)
             {
                 return (QuestionTableViewFrageCell)tableView.DequeueReusableCell("QuestionTableFrageCell");
             }
-
-
-            
+            else
+            {
+                return (QuestionTableAntwortTextCell)tableView.DequeueReusableCell("QuestionTableAntwortText");
+            }            
         }
     }
 }

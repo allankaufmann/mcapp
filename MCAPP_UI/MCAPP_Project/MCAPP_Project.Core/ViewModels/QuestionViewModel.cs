@@ -20,6 +20,11 @@ namespace MCAPP_Project.Core.ViewModels
             this.frage = frage;
         }
 
+        public QuestionViewModel(Frage frage, Textantwort antwort)
+        {
+            this.antwort = antwort;
+        }
+
         public String FrageText
         {
             get { return this.frage.Fragetext;  }
@@ -28,6 +33,11 @@ namespace MCAPP_Project.Core.ViewModels
         public String AntwortText
         {
             get { return this.antwort.Text;  }
+        }
+
+        public Boolean AntwortAuswahl
+        {
+            get { return true; }
         }
 
 

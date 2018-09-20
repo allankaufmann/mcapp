@@ -26,8 +26,8 @@ namespace MCAPP_Project.Core.Repositories
             antworten.Add(antwort1);
 
             Textantwort antwort2 = new Textantwort();
-            antwort1.Text = "15 %";
-            antwort1.wahr = false;
+            antwort2.Text = "15 %";
+            antwort2.wahr = false;
             antworten.Add(antwort2);
 
             Textantwort antwort3 = new Textantwort();
@@ -59,6 +59,8 @@ namespace MCAPP_Project.Core.Repositories
             antwort8.Text = "keine der Antworten ist richtig";
             antwort8.wahr = false;
             antworten.Add(antwort8);
+
+            beispiel.antworten = antworten;
 
             return beispiel;
         }

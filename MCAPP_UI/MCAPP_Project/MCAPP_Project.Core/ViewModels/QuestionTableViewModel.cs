@@ -24,10 +24,17 @@ namespace MCAPP_Project.Core.ViewModels
             Tables.Add(new QuestionViewModel(frage));
             Tables.Add(new QuestionViewModel(frage));
 
-            /*foreach (Textantwort a in frage.antworten) {
-                Tables.Add(new QuestionViewModel(a));
+            if (frage.antworten!=null)
+            {
+                foreach (Textantwort a in frage.antworten)
+                {
+                    Tables.Add(new QuestionViewModel(frage, a));
 
-            }*/
+                }
+            }
+
+
+
         }
 
 
