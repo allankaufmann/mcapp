@@ -30,6 +30,11 @@ namespace MCAPP_Project.Core.Repositories
             return connection.Table<Frage>().ToListAsync();      
         }
 
+        public Task<List<Thema>> GetAllThemen()
+        {
+            throw new NotImplementedException();
+        }
+
         public Frage GetSampleFrage()
         {
             throw new NotImplementedException();
@@ -40,6 +45,9 @@ namespace MCAPP_Project.Core.Repositories
             return connection.InsertOrReplaceAsync(frage);         
         }
 
-
+        List<Thema> IFragenRepository.GetAllThemen()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

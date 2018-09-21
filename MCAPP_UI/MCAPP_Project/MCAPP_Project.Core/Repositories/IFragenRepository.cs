@@ -15,6 +15,8 @@ namespace MCAPP_Project.Core.Repositories
 
         Frage GetSampleFrage();
 
+        List<Thema> GetAllThemen();
+
 
     }
 }

@@ -16,6 +16,7 @@ namespace MCAPP_Project.Core.Services
 
         Frage GetSampleFrage();
 
+        List<Thema> GetAllThemen();
 
     }
 }

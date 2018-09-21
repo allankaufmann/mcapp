@@ -13,6 +13,36 @@ namespace MCAPP_Project.Core.Repositories
             throw new NotImplementedException();
         }
 
+        public List<Thema> GetAllThemen()
+        {
+            List<Thema> themen = new List<Thema>();
+
+            Thema thema1 = new Thema();
+            thema1.ThemaText = "Externes Rechnungswesen";
+            themen.Add(thema1);
+
+            Thema thema2 = new Thema();
+            thema2.ThemaText = "Einführung in die technische und theoretische Informatik";
+            themen.Add(thema2);
+
+            Thema thema3 = new Thema();
+            thema3.ThemaText = "Von-Neumann-Rechner und Prozessortechnik";
+            themen.Add(thema3);
+
+            Thema thema4 = new Thema();
+            thema4.ThemaText = "Speicherkonzepte";
+            themen.Add(thema4);
+
+            Thema thema5 = new Thema();
+            thema5.ThemaText = "Grundlegende Modelle der Informatik";
+            themen.Add(thema5);
+
+
+
+            return themen;
+
+        }
+
         public Frage GetSampleFrage()
         {
             Frage beispiel = new Frage();
