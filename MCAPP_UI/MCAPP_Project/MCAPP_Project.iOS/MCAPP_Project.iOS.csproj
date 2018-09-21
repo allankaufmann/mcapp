@@ -116,10 +116,16 @@
     <Compile Include="Views\SampleQuestion.designer.cs">
       <DependentUpon>SampleQuestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ThemenwahlView.cs" />
+    <Compile Include="Views\ThemenwahlView.designer.cs">
+      <DependentUpon>ThemenwahlView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThemenwahlViewSource.cs" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <InterfaceDefinition Include="Views\SampleQuestion.storyboard" />
     <InterfaceDefinition Include="Views\QuestionTableView.storyboard" />
+    <InterfaceDefinition Include="Views\ThemenwahlView.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
