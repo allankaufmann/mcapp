@@ -19,8 +19,7 @@ namespace MCAPP_Project.iOS.Views
             {
                 var set = this.CreateBindingSet<ThemenwahlCell, ThemaViewModel>();
                 set.Bind(ThemaText).To(vm => vm.ThemaText);
-                //ThemaText.resi
-
+                set.Bind(ThemaGewaehlt).To(vm => vm.ThemaGewaehlt);
                 set.Apply();
             });
 

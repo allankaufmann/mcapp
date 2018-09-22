@@ -2,11 +2,12 @@
 using MvvmCross.Core.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace MCAPP_Project.Core.ViewModels
 {
-    public class ThemaViewModel : MvxViewModel
+    public class ThemaViewModel : MvxViewModel,  INotifyPropertyChanged
     {
         private Thema thema;
 
@@ -29,7 +30,7 @@ namespace MCAPP_Project.Core.ViewModels
         public Boolean ThemaGewaehlt
         {
             get { return this.thema.ThemaGewaehlt; }
-            set { this.thema.ThemaGewaehlt = value; }
+            set { this.thema.ThemaGewaehlt = value; RaisePropertyChanged(); }
         }
 
 

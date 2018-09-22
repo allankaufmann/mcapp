@@ -38,15 +38,30 @@ namespace MCAPP_Project.Core.ViewModels
 
             Tables.Add(new ThemaViewModel());
 
-            StartQuizCommand = new MvxAsyncCommand(StartQuiz);
+            StartQuizCommand = new MvxAsyncCommand(StartQuiz, ThemaIstGewaehlt);
 
         }
+
 
         public IMvxAsyncCommand StartQuizCommand { get; }
 
         async Task StartQuiz()
         {
             await navigationService.Navigate(typeof(QuestionTableViewModel));
+        }
+
+        public Boolean ThemaIstGewaehlt()
+        {
+            Boolean istGewaehlt = false;
+
+            foreach (Thema t in themenListe)
+            {
+                if (t.ThemaGewaehlt)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
 
