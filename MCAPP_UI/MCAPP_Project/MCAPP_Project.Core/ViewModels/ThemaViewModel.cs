@@ -10,6 +10,11 @@ namespace MCAPP_Project.Core.ViewModels
     {
         private Thema thema;
 
+        public ThemaViewModel()
+        {
+
+        }
+
 
         public ThemaViewModel(Thema thema)
         {

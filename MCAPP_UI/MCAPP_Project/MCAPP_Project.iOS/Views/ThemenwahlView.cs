@@ -36,6 +36,12 @@ namespace MCAPP_Project.iOS.Views
 
             var set = this.CreateBindingSet<ThemenwahlView, ThemenwahlViewModel>();
             set.Bind(source).To(vm => vm.Tables);
+
+            var button = new UIBarButtonItem(UIBarButtonSystemItem.Add);
+            NavigationItem.SetRightBarButtonItem(button, false);
+            set.Bind(button).To(vm => vm.StartQuizCommand);
+
+
             set.Apply();
 
             // Perform any additional setup after loading the view, typically from a nib.

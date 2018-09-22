@@ -1,5 +1,6 @@
 ﻿using MCAPP_Project.Core.Models;
 using MCAPP_Project.Core.Repositories;
+using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,12 @@ namespace MCAPP_Project.Core.ViewModels
     {
         private IFragenRepository repo;
 
+        readonly IMvxNavigationService navigationService;
 
-        public QuestionTableViewModel()
+
+        public QuestionTableViewModel(IMvxNavigationService navigationService)
         {
+            this.navigationService = navigationService;
             repo = new DummyFragenRepository();
 
             Tables = new ObservableCollection<QuestionViewModel>();

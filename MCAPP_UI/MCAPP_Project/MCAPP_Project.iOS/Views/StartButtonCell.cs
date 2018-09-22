@@ -8,22 +8,20 @@ using UIKit;
 
 namespace MCAPP_Project.iOS.Views
 {
-    public partial class ThemenwahlCell : MvxTableViewCell
+    public partial class StartButtonCell : MvxTableViewCell
     {
 
 
-        protected ThemenwahlCell(IntPtr handle) : base(handle)
+        protected StartButtonCell(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
+
             this.DelayBind(() =>
             {
-                var set = this.CreateBindingSet<ThemenwahlCell, ThemaViewModel>();
-                set.Bind(ThemaText).To(vm => vm.ThemaText);
-                //ThemaText.resi
-
+                var set = this.CreateBindingSet<StartButtonCell, ThemenwahlViewModel>();
+                set.Bind(StartButton).To(vm => vm.StartQuizCommand);
                 set.Apply();
             });
-
 
         }
     }
