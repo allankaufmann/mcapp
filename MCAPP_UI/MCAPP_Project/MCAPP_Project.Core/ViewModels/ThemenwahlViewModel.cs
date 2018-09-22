@@ -20,13 +20,14 @@ namespace MCAPP_Project.Core.ViewModels
 
         public ThemenwahlViewModel()
         {
+            this.Tables = new ObservableCollection<ThemaViewModel>();
             this.fragenService = new FrageService(new DummyFragenRepository());
             this.themenListe = fragenService.GetAllThemen();   
 
-            /*foreach(Thema t in themenListe)
+            foreach(Thema t in themenListe)
             {
                 Tables.Add(new ThemaViewModel(t));
-            }*/
+            }
         }
 
     }

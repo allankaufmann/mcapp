@@ -116,6 +116,10 @@
     <Compile Include="Views\SampleQuestion.designer.cs">
       <DependentUpon>SampleQuestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ThemenwahlCell.cs" />
+    <Compile Include="Views\ThemenwahlCell.designer.cs">
+      <DependentUpon>ThemenwahlCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ThemenwahlView.cs" />
     <Compile Include="Views\ThemenwahlView.designer.cs">
       <DependentUpon>ThemenwahlView.cs</DependentUpon>

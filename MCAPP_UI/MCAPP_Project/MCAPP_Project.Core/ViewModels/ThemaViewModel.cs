@@ -21,6 +21,12 @@ namespace MCAPP_Project.Core.ViewModels
             get { return this.thema.ThemaText; }
         }
 
+        public Boolean ThemaGewaehlt
+        {
+            get { return this.thema.ThemaGewaehlt; }
+            set { this.thema.ThemaGewaehlt = value; }
+        }
+
 
     }
 }

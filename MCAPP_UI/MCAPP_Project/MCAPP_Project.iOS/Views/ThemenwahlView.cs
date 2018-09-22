@@ -3,6 +3,8 @@ using System;
 using System.Drawing;
 
 using Foundation;
+using MCAPP_Project.Core.ViewModels;
+using MvvmCross.Binding.BindingContext;
 using MvvmCross.iOS.Views;
 using UIKit;
 
@@ -29,9 +31,12 @@ namespace MCAPP_Project.iOS.Views
         {
             base.ViewDidLoad();
 
-            //var source = new ThemenwahlViewSource(TableView);
+            var source = new ThemenwahlViewSource(TableView);
+            TableView.Source = source;
 
-
+            var set = this.CreateBindingSet<ThemenwahlView, ThemenwahlViewModel>();
+            set.Bind(source).To(vm => vm.Tables);
+            set.Apply();
 
             // Perform any additional setup after loading the view, typically from a nib.
         }

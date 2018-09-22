@@ -19,7 +19,7 @@ namespace MCAPP_Project.iOS.Views
 
         protected override UITableViewCell GetOrCreateCellFor(UITableView tableView, NSIndexPath indexPath, object item)
         {
-            throw new NotImplementedException();
+            return (ThemenwahlCell)tableView.DequeueReusableCell("ThemenwahlCell");
         }
     }
 }
