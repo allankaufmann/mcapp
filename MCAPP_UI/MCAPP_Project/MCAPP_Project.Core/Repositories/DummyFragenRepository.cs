@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using MCAPP_Project.Core.Models;
+using MCAPP_Project.Core.Services;
 
 namespace MCAPP_Project.Core.Repositories
 {
@@ -17,62 +18,40 @@ namespace MCAPP_Project.Core.Repositories
         {
             List<Thema> themen = new List<Thema>();
 
-            Thema thema1 = new Thema();
-            thema1.ThemaID = 1;
-            thema1.ThemaText = "Externes Rechnungswesen";
-            themen.Add(thema1);
-
-            Thema thema2 = new Thema();
-            thema2.ThemaText = "Einführung in die technische und theoretische Informatik";
-            thema2.ThemaID = 2;
-            themen.Add(thema2);
-
-            Thema thema3 = new Thema();
-            thema3.ThemaText = "Von-Neumann-Rechner und Prozessortechnik";
-            thema3.ThemaID = 3;
-            themen.Add(thema3);
-
-            Thema thema4 = new Thema();
-            thema4.ThemaText = "Speicherkonzepte";
-            thema4.ThemaID = 4;
-            themen.Add(thema4);
-
-            Thema thema5 = new Thema();
-            thema5.ThemaText = "Grundlegende Modelle der Informatik";
-            thema5.ThemaID = 5;
-            themen.Add(thema5);
-
-
-
+            themen.Add(getThema(1, "Externes Rechnungswesen"));
+            themen.Add(getThema(2, "Einführung in die technische und theoretische Informatik"));
+            themen.Add(getThema(3, "Von-Neumann-Rechner und Prozessortechnik"));
+            themen.Add(getThema(4, "Speicherkonzepte"));
+            themen.Add(getThema(5, "Grundlegende Modelle der Informatik"));
+     
             return themen;
 
         }
 
-        private Textantwort getAntwort(String text, Boolean wahr)
+        private Thema getThema(long id, String text)
         {
-            Textantwort antwort = new Textantwort();
-            antwort.Text = text;
-            antwort.wahr = wahr;
-            return antwort;
-        }
+            Thema thema = new Thema();
+            thema.ThemaID = id;
+            thema.ThemaText = text;
 
+            return thema;
+        }
 
         public Frage GetSampleFrage()
         {
-            Frage beispiel = new Frage();
-            beispiel.themaID = 1;
-            beispiel.Fragetext = "Wie hoch ist die MWSt in Deutschland?";
+            FragenBuilder builder = new FragenBuilder();
 
-            List<Textantwort> antworten = new List<Textantwort>();
-            antworten.Add(getAntwort("7 %", true));
-            antworten.Add(getAntwort("15 %", false));
-            antworten.Add(getAntwort("16 %", false));
-            antworten.Add(getAntwort("19 %", true));
-            antworten.Add(getAntwort("23 %", false));
-            antworten.Add(getAntwort("24 %", false));
-            antworten.Add(getAntwort("50 %", false));
-            antworten.Add(getAntwort("keine der Antworten ist richtig", false));
-            beispiel.antworten = antworten;
+            Frage beispiel = builder.createFrage(1, "Wie hoch ist die MWSt in Deutschland ?", 1)
+                .WithAntwort("7 %", true)
+                .WithAntwort("15 %", false)
+                .WithAntwort("16 %", false)
+                .WithAntwort("19 %", true)
+                .WithAntwort("23 %", false)
+                .WithAntwort("24 %", false)
+                .WithAntwort("50 %", false)
+                .WithAntwort("keine der Antworten ist richtig", false)
+                .Build();
+
 
             return beispiel;
         }
@@ -80,6 +59,15 @@ namespace MCAPP_Project.Core.Repositories
         public Task Save(Frage frage)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Frage> GetAlleFragen()
+        {
+            List<Frage> fragen = new List<Frage>();
+            
+
+
+            return fragen;
         }
     }
 }

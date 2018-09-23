@@ -23,7 +23,7 @@ namespace MCAPP_Project.Core.Models
          * ID der Frage. Dient der Identifikation der Frage sowohl client- als auch serverseitig.
          */
         [PrimaryKey, AutoIncrement]
-        private long FrageId { get; set; }
+        public long FrageId { get; set; }
 
 
         public string Fragetext { get; set; }

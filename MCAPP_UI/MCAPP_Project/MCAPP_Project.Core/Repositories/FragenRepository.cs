@@ -25,6 +25,11 @@ namespace MCAPP_Project.Core.Repositories
             connection.GetConnection().CreateTable<Frage>();
         }
 
+        public List<Frage> GetAlleFragen()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<List<Frage>> GetAllFragen()
         {
             return connection.Table<Frage>().ToListAsync();      
