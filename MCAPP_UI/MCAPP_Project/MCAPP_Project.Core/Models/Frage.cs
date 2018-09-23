@@ -30,6 +30,10 @@ namespace MCAPP_Project.Core.Models
 
         public List<Textantwort> antworten { get; set; }
 
+        /*
+         * Diese Frage gehört zu diesem Thema.
+         */
+        public long themaID { get; set; }
 
 
 

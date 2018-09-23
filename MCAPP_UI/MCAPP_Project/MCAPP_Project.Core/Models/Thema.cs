@@ -10,6 +10,14 @@ namespace MCAPP_Project.Core.Models
 
         private Boolean themaGewaehlt = false;
 
+        private long themaID;
+
+        public long ThemaID
+        {
+            get { return this.themaID; }
+            set { this.themaID = value; }
+        }
+
 
         public String ThemaText
         {
