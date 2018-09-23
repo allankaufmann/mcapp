@@ -7,18 +7,21 @@ using System.Text;
 
 namespace MCAPP_Project.Core.ViewModels
 {
-    public class ThemaViewModel : MvxViewModel,  INotifyPropertyChanged
+    public class ThemaViewModel : MvxViewModel
     {
         private Thema thema;
 
-        public ThemaViewModel()
-        {
+        private IMvxAsyncCommand startCommand;
 
+        public ThemaViewModel(IMvxAsyncCommand startCommand)
+        {
+            this.startCommand = startCommand;
         }
 
 
-        public ThemaViewModel(Thema thema)
+        public ThemaViewModel(IMvxAsyncCommand startCommand, Thema thema)
         {
+            this.startCommand = startCommand;
             this.thema = thema;
         }
 
@@ -30,9 +33,13 @@ namespace MCAPP_Project.Core.ViewModels
         public Boolean ThemaGewaehlt
         {
             get { return this.thema.ThemaGewaehlt; }
-            set { this.thema.ThemaGewaehlt = value; RaisePropertyChanged(); }
+            set {
+                this.thema.ThemaGewaehlt = value;
+                this.startCommand.RaiseCanExecuteChanged();
+            }
         }
 
+        public IMvxAsyncCommand StartQuizCommand { get { return this.startCommand; } }
 
     }
 }

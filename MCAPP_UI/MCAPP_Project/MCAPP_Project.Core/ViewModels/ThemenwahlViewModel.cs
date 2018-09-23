@@ -29,16 +29,19 @@ namespace MCAPP_Project.Core.ViewModels
             this.themenListe = fragenService.GetAllThemen();
             this.navigationService = navigationService;
 
-            Tables.Add(new ThemaViewModel());
+            StartQuizCommand = new MvxAsyncCommand(StartQuiz, ThemaIstGewaehlt);
+
+
+            Tables.Add(new ThemaViewModel(StartQuizCommand));
 
             foreach(Thema t in themenListe)
             {
-                Tables.Add(new ThemaViewModel(t));
+                Tables.Add(new ThemaViewModel(StartQuizCommand, t));
             }
 
-            Tables.Add(new ThemaViewModel());
+            Tables.Add(new ThemaViewModel(StartQuizCommand));
 
-            StartQuizCommand = new MvxAsyncCommand(StartQuiz, ThemaIstGewaehlt);
+            
 
         }
 
@@ -49,6 +52,13 @@ namespace MCAPP_Project.Core.ViewModels
         {
             await navigationService.Navigate(typeof(QuestionTableViewModel));
         }
+
+        public bool ThemaGewaehltBool
+        {
+            get { return ThemaIstGewaehlt(); }
+        }
+
+
 
         public Boolean ThemaIstGewaehlt()
         {
