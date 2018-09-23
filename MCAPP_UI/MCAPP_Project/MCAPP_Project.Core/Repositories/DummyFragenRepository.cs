@@ -39,7 +39,10 @@ namespace MCAPP_Project.Core.Repositories
 
         public Frage GetSampleFrage()
         {
-            FragenBuilder builder = new FragenBuilder();
+
+            return GetAlleFragen().ToArray()[1];
+
+            /*FragenBuilder builder = new FragenBuilder();
 
             Frage beispiel = builder.createFrage(1, "Wie hoch ist die MWSt in Deutschland ?", 1)
                 .WithAntwort("7 %", true)
@@ -53,7 +56,7 @@ namespace MCAPP_Project.Core.Repositories
                 .Build();
 
 
-            return beispiel;
+            return beispiel;*/
         }
 
         public Task Save(Frage frage)
@@ -63,9 +66,72 @@ namespace MCAPP_Project.Core.Repositories
 
         public List<Frage> GetAlleFragen()
         {
-            List<Frage> fragen = new List<Frage>();
-            
+            FragenBuilder builder = new FragenBuilder();
 
+            List<Frage> fragen = new List<Frage>();
+
+            fragen.Add(builder.createFrage(1, "Wie hoch ist die MWSt in Deutschland ?", 1)
+                .WithAntwort("7 %", true)
+                .WithAntwort("15 %", false)
+                .WithAntwort("16 %", false)
+                .WithAntwort("19 %", true)
+                .WithAntwort("23 %", false)
+                .WithAntwort("24 %", false)
+                .WithAntwort("50 %", false)
+                .WithAntwort("keine der Antworten ist richtig", false)
+                .Build()                
+            );
+
+
+            fragen.Add(
+                builder.createFrage(2, "Welche der folgenden Aussagen treffen zu?", 2)
+                .WithAntwort("Zum Chipsatz eines PC´s gehören im Wesentlichen die Brückenbausteine, welche die unterschiedlichen Geschwindigkeiten angeschlossener Systeme ausgleichen, und der Hauptspeicher",false)
+                .WithAntwort("Ein PC ist in der Regel einem bestimmten Benutzer zugeordnet, ein Server hingegen liefert Dienstleistungen für viele angekoppelte Desktops oder Notebooks", true)
+                .WithAntwort("Die Definition einer Spur ist sowohl für Festplatten als auch für CD-Roms identisch", false)
+                .WithAntwort("Linux verwaltet die Festplattenadressen durch Verkettung einzelner Speicherblöcke.Diese Speicherblöcke werden auch Inodes genannt", false)
+                .WithAntwort("LCDs basieren auf den optischen Eigenschaften von Flüssigkeitskristallen, die aus durchsichtigen organischen Molekülen bestehen", true)
+                .Build()
+            );
+
+            fragen.Add(
+                builder.createFrage(3, "Beispielfrage Thema 3?", 3)
+                .WithAntwort("BlaBlaBlubb 1", false)
+                .WithAntwort("Ein PC ist in der Regel einem bestimmten Benutzer zugeordnet, ein Server hingegen liefert Dienstleistungen für viele angekoppelte Desktops oder Notebooks", true)
+                .WithAntwort("BlaBlaBlubb 2", false)
+                .WithAntwort("BlaBlaBlubb 3", false)
+                .WithAntwort("BlaBlaBlubb 4", false)
+                .Build()
+            );
+
+            fragen.Add(
+                builder.createFrage(4, "Beispielfrage Thema 4?", 4)
+                .WithAntwort("BlaBlaBlubb 5", false)
+                .WithAntwort("Ein PC ist in der Regel einem bestimmten Benutzer zugeordnet, ein Server hingegen liefert Dienstleistungen für viele angekoppelte Desktops oder Notebooks", true)
+                .WithAntwort("BlaBlaBlubb 6", false)
+                .WithAntwort("BlaBlaBlubb 7", false)
+                .WithAntwort("BlaBlaBlubb 8", false)
+                .Build()
+            );
+
+            fragen.Add(
+                builder.createFrage(5, "Beispielfrage Thema 5?", 3)
+                .WithAntwort("BlaBlaBlubb 9", false)
+                .WithAntwort("Ein PC ist in der Regel einem bestimmten Benutzer zugeordnet, ein Server hingegen liefert Dienstleistungen für viele angekoppelte Desktops oder Notebooks", true)
+                .WithAntwort("BlaBlaBlubb 10", false)
+                .WithAntwort("BlaBlaBlubb 11", false)
+                .WithAntwort("BlaBlaBlubb 12", false)
+                .Build()
+            );
+
+            fragen.Add(
+               builder.createFrage(5, "Beispielfrage Thema 6?", 3)
+               .WithAntwort("BlaBlaBlubb 13", false)
+               .WithAntwort("Ein PC ist in der Regel einem bestimmten Benutzer zugeordnet, ein Server hingegen liefert Dienstleistungen für viele angekoppelte Desktops oder Notebooks", true)
+               .WithAntwort("BlaBlaBlubb 14", false)
+               .WithAntwort("BlaBlaBlubb 15", false)
+               .WithAntwort("BlaBlaBlubb 16", false)
+               .Build()
+           );
 
             return fragen;
         }
