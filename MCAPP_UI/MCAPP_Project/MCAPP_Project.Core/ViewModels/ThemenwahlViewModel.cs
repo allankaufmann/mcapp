@@ -40,9 +40,6 @@ namespace MCAPP_Project.Core.ViewModels
             }
 
             Tables.Add(new ThemaViewModel(StartQuizCommand));
-
-            
-
         }
 
 
@@ -52,12 +49,6 @@ namespace MCAPP_Project.Core.ViewModels
         {
             await navigationService.Navigate(typeof(QuestionTableViewModel));
         }
-
-        public bool ThemaGewaehltBool
-        {
-            get { return ThemaIstGewaehlt(); }
-        }
-
 
 
         public Boolean ThemaIstGewaehlt()
