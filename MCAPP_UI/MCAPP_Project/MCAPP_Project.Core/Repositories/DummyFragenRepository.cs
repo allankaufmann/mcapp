@@ -41,22 +41,6 @@ namespace MCAPP_Project.Core.Repositories
         {
 
             return GetAlleFragen().ToArray()[1];
-
-            /*FragenBuilder builder = new FragenBuilder();
-
-            Frage beispiel = builder.createFrage(1, "Wie hoch ist die MWSt in Deutschland ?", 1)
-                .WithAntwort("7 %", true)
-                .WithAntwort("15 %", false)
-                .WithAntwort("16 %", false)
-                .WithAntwort("19 %", true)
-                .WithAntwort("23 %", false)
-                .WithAntwort("24 %", false)
-                .WithAntwort("50 %", false)
-                .WithAntwort("keine der Antworten ist richtig", false)
-                .Build();
-
-
-            return beispiel;*/
         }
 
         public Task Save(Frage frage)
@@ -114,7 +98,7 @@ namespace MCAPP_Project.Core.Repositories
             );
 
             fragen.Add(
-                builder.createFrage(5, "Beispielfrage Thema 5?", 3)
+                builder.createFrage(5, "Beispielfrage Thema 5?", 5)
                 .WithAntwort("BlaBlaBlubb 9", false)
                 .WithAntwort("Ein PC ist in der Regel einem bestimmten Benutzer zugeordnet, ein Server hingegen liefert Dienstleistungen für viele angekoppelte Desktops oder Notebooks", true)
                 .WithAntwort("BlaBlaBlubb 10", false)
@@ -124,7 +108,7 @@ namespace MCAPP_Project.Core.Repositories
             );
 
             fragen.Add(
-               builder.createFrage(5, "Beispielfrage Thema 6?", 3)
+               builder.createFrage(5, "Beispielfrage 2 Thema 5?", 5)
                .WithAntwort("BlaBlaBlubb 13", false)
                .WithAntwort("Ein PC ist in der Regel einem bestimmten Benutzer zugeordnet, ein Server hingegen liefert Dienstleistungen für viele angekoppelte Desktops oder Notebooks", true)
                .WithAntwort("BlaBlaBlubb 14", false)
@@ -132,6 +116,21 @@ namespace MCAPP_Project.Core.Repositories
                .WithAntwort("BlaBlaBlubb 16", false)
                .Build()
            );
+
+            return fragen;
+        }
+
+        public List<Frage> GetFragen(long themaID)
+        {
+            List<Frage> fragen = new List<Frage>();
+
+            foreach (Frage f in GetAlleFragen())
+            {
+                if (f.themaID == themaID)
+                {
+                    fragen.Add(f);
+                }
+            }
 
             return fragen;
         }

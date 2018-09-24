@@ -9,11 +9,14 @@ using System.Text;
 
 namespace MCAPP_Project.Core.ViewModels
 {
-    public class QuestionTableViewModel : MvxViewModel
+    public class QuestionTableViewModel : MvxViewModel<List<Thema>>
     {
         private IFragenRepository repo;
 
         readonly IMvxNavigationService navigationService;
+
+        // Sollte nach Navigation gesetzt werden...
+        List<Thema> gewaelteThemen;
 
 
         public QuestionTableViewModel(IMvxNavigationService navigationService)
@@ -23,12 +26,36 @@ namespace MCAPP_Project.Core.ViewModels
 
             Tables = new ObservableCollection<QuestionViewModel>();
 
-            Frage frage = repo.GetSampleFrage();
+
+
+
+
+        }
+
+
+        public ObservableCollection<QuestionViewModel> Tables { get; }
+
+        public override void Prepare(List<Thema> parameter)
+        {
+            this.gewaelteThemen = parameter;
+
+            Frage frage;
+
+            if (gewaelteThemen != null && gewaelteThemen.Count > 0)
+            {
+                frage = repo.GetFragen(gewaelteThemen.ToArray()[0].ThemaID).ToArray()[0];
+            }
+            else
+            {
+                frage = repo.GetSampleFrage();
+            }
+
+
 
             Tables.Add(new QuestionViewModel(frage));
             Tables.Add(new QuestionViewModel(frage));
 
-            if (frage.antworten!=null)
+            if (frage.antworten != null)
             {
                 foreach (Textantwort a in frage.antworten)
                 {
@@ -38,12 +65,6 @@ namespace MCAPP_Project.Core.ViewModels
             }
 
 
-
         }
-
-
-        public ObservableCollection<QuestionViewModel> Tables { get; }
-
-
     }
 }

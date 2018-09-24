@@ -47,7 +47,15 @@ namespace MCAPP_Project.Core.ViewModels
 
         async Task StartQuiz()
         {
-            await navigationService.Navigate(typeof(QuestionTableViewModel));
+            List<Thema> gewaelteThemen = new List<Thema>();
+            foreach (Thema t in themenListe)
+            {
+                if (t.ThemaGewaehlt)
+                {
+                    gewaelteThemen.Add(t);
+                }
+            }
+            await navigationService.Navigate(typeof(QuestionTableViewModel), gewaelteThemen);
         }
 
 

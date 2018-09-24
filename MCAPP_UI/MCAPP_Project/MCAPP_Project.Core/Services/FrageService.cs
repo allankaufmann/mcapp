@@ -32,6 +32,11 @@ namespace MCAPP_Project.Core.Services
             return repository.GetAllThemen();
         }
 
+        public List<Frage> GetFragen(long themaID)
+        {
+            return repository.GetFragen(themaID);
+        }
+
         public Frage GetSampleFrage()
         {
             Frage beispiel = new Frage();

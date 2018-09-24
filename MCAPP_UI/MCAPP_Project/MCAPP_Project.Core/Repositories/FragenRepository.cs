@@ -40,6 +40,11 @@ namespace MCAPP_Project.Core.Repositories
             throw new NotImplementedException();
         }
 
+        public List<Frage> GetFragen(long themaID)
+        {
+            throw new NotImplementedException();
+        }
+
         public Frage GetSampleFrage()
         {
             throw new NotImplementedException();

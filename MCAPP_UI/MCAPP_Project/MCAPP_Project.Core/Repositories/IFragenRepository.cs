@@ -19,6 +19,8 @@ namespace MCAPP_Project.Core.Repositories
 
         List<Frage> GetAlleFragen();
 
+        List<Frage> GetFragen(long themaID);
+
 
     }
 }
