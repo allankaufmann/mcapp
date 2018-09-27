@@ -20,5 +20,7 @@ namespace MCAPP_Project.Core.Services
 
         List<Frage> GetFragen(long themaID);
 
+        List<Frage> GetFragen(List<Thema> gewaelteThemen);
+
     }
 }

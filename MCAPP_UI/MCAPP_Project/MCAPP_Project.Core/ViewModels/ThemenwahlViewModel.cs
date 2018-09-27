@@ -1,6 +1,7 @@
 ﻿using MCAPP_Project.Core.Models;
 using MCAPP_Project.Core.Repositories;
 using MCAPP_Project.Core.Services;
+using MCAPP_Project.Core.Wrapper;
 using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 using System;
@@ -55,7 +56,16 @@ namespace MCAPP_Project.Core.ViewModels
                     gewaelteThemen.Add(t);
                 }
             }
-            await navigationService.Navigate(typeof(QuestionTableViewModel), gewaelteThemen);
+
+            List<Frage> gezogeneFragen = new List<Frage>();
+            gezogeneFragen = fragenService.GetFragen(gewaelteThemen);
+
+            FragenWrapper wrapper = new FragenWrapper();
+            wrapper.fragen = gezogeneFragen;
+            wrapper.position = 0;
+
+
+            await navigationService.Navigate(typeof(QuestionTableViewModel), wrapper);
         }
 
 

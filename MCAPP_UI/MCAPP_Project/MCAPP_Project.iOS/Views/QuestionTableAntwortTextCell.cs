@@ -26,10 +26,5 @@ namespace MCAPP_Project.iOS.Views
 
 
         }
-
-        partial void Auswahl_TouchUpInside(UIButton sender)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

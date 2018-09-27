@@ -1,5 +1,6 @@
 ﻿using MCAPP_Project.Core.Models;
 using MCAPP_Project.Core.Repositories;
+using MCAPP_Project.Core.Wrapper;
 using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 using System;
@@ -9,15 +10,15 @@ using System.Text;
 
 namespace MCAPP_Project.Core.ViewModels
 {
-    public class QuestionTableViewModel : MvxViewModel<List<Thema>>
+    public class QuestionTableViewModel : MvxViewModel<FragenWrapper>
     {
         private IFragenRepository repo;
 
         readonly IMvxNavigationService navigationService;
 
         // Sollte nach Navigation gesetzt werden...
-        List<Thema> gewaelteThemen;
 
+        FragenWrapper wrapper;
 
         public QuestionTableViewModel(IMvxNavigationService navigationService)
         {
@@ -25,32 +26,16 @@ namespace MCAPP_Project.Core.ViewModels
             repo = new DummyFragenRepository();
 
             Tables = new ObservableCollection<QuestionViewModel>();
-
-
-
-
-
         }
 
 
         public ObservableCollection<QuestionViewModel> Tables { get; }
 
-        public override void Prepare(List<Thema> parameter)
+        public override void Prepare(FragenWrapper parameter)
         {
-            this.gewaelteThemen = parameter;
+            this.wrapper = parameter;
 
-            Frage frage;
-
-            if (gewaelteThemen != null && gewaelteThemen.Count > 0)
-            {
-                frage = repo.GetFragen(gewaelteThemen.ToArray()[0].ThemaID).ToArray()[0];
-            }
-            else
-            {
-                frage = repo.GetSampleFrage();
-            }
-
-
+            Frage frage = parameter.fragen[wrapper.position];
 
             Tables.Add(new QuestionViewModel(frage));
             Tables.Add(new QuestionViewModel(frage));

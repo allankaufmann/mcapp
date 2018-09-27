@@ -37,6 +37,22 @@ namespace MCAPP_Project.Core.Services
             return repository.GetFragen(themaID);
         }
 
+        public List<Frage> GetFragen(List<Thema> gewaelteThemen)
+        {
+            List<Frage> fragenListe = new List<Frage>();
+
+            foreach (Thema t in gewaelteThemen)
+            {
+                List<Frage> fragen = GetFragen(t.ThemaID);
+                if (fragen.Count>0)
+                {
+                    fragenListe.Add(fragen[0]);
+                }
+
+            }               
+            return fragenListe;
+        }
+
         public Frage GetSampleFrage()
         {
             Frage beispiel = new Frage();
