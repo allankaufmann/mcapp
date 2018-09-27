@@ -15,11 +15,7 @@ namespace MCAPP_Project.iOS.Views
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel AntwortText { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton Auswahl { get; set; }
+        UIKit.UITextView AntwortTextView { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -27,14 +23,9 @@ namespace MCAPP_Project.iOS.Views
 
         void ReleaseDesignerOutlets ()
         {
-            if (AntwortText != null) {
-                AntwortText.Dispose ();
-                AntwortText = null;
-            }
-
-            if (Auswahl != null) {
-                Auswahl.Dispose ();
-                Auswahl = null;
+            if (AntwortTextView != null) {
+                AntwortTextView.Dispose ();
+                AntwortTextView = null;
             }
 
             if (Schalter != null) {

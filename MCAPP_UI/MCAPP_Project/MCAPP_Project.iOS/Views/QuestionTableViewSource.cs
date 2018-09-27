@@ -32,5 +32,9 @@ namespace MCAPP_Project.iOS.Views
                 return (QuestionTableAntwortTextCell)tableView.DequeueReusableCell("QuestionTableAntwortText");
             }            
         }
+
+
+
+
     }
 }

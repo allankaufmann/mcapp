@@ -18,13 +18,18 @@ namespace MCAPP_Project.iOS.Views
             this.DelayBind(() =>
             {
                 var set = this.CreateBindingSet<QuestionTableAntwortTextCell, QuestionViewModel>();
-                set.Bind(AntwortText).To(vm => vm.AntwortText);
+                set.Bind(AntwortTextView).To(vm => vm.AntwortText);
                 set.Bind(Schalter).To(vm => vm.AntwortAuswahl);
                 set.Apply();
 
             });
 
 
+        }
+
+        partial void Auswahl_TouchUpInside(UIButton sender)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -30,6 +30,8 @@ namespace MCAPP_Project.iOS.Views
         {
             base.ViewDidLoad();
 
+            TableView.RowHeight = UITableView.AutomaticDimension;
+            TableView.EstimatedRowHeight = new nfloat(100.0);
 
             var source = new QuestionTableViewSource(TableView);
             TableView.Source = source;
@@ -37,6 +39,9 @@ namespace MCAPP_Project.iOS.Views
             var set = this.CreateBindingSet<QuestionTableView, QuestionTableViewModel>();
             set.Bind(source).To(vm => vm.Tables);
             set.Apply();
+
+
+
 
             // Perform any additional setup after loading the view, typically from a nib.
         }
