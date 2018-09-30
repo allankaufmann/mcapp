@@ -30,7 +30,7 @@ namespace MCAPP_Project.iOS.Views
         {
             base.ViewDidLoad();
 
-            var button = new UIBarButtonItem(UIBarButtonSystemItem.Save);
+            var button = new UIBarButtonItem(UIBarButtonSystemItem.FastForward);
             NavigationItem.SetRightBarButtonItem(button, false);
             
 

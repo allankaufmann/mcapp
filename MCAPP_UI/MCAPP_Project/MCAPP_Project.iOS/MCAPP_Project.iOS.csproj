@@ -95,49 +95,49 @@
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Views\QuestionTableAntwortTextCell.cs" />
-    <Compile Include="Views\QuestionTableAntwortTextCell.designer.cs">
+    <Compile Include="Views\Fragentabelle\QuestionTableAntwortTextCell.cs" />
+    <Compile Include="Views\Fragentabelle\QuestionTableAntwortTextCell.designer.cs">
       <DependentUpon>QuestionTableAntwortTextCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuestionTableView.cs" />
-    <Compile Include="Views\QuestionTableView.designer.cs">
+    <Compile Include="Views\Fragentabelle\QuestionTableView.cs" />
+    <Compile Include="Views\Fragentabelle\QuestionTableView.designer.cs">
       <DependentUpon>QuestionTableView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuestionTableViewFrageCell.cs" />
-    <Compile Include="Views\QuestionTableViewFrageCell.designer.cs">
+    <Compile Include="Views\Fragentabelle\QuestionTableViewFrageCell.cs" />
+    <Compile Include="Views\Fragentabelle\QuestionTableViewFrageCell.designer.cs">
       <DependentUpon>QuestionTableViewFrageCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuestionTableViewThemaCell.cs" />
-    <Compile Include="Views\QuestionTableViewThemaCell.designer.cs">
+    <Compile Include="Views\Fragentabelle\QuestionTableViewThemaCell.cs" />
+    <Compile Include="Views\Fragentabelle\QuestionTableViewThemaCell.designer.cs">
       <DependentUpon>QuestionTableViewThemaCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuestionTableViewSource.cs" />
+    <Compile Include="Views\Fragentabelle\QuestionTableViewSource.cs" />
     <Compile Include="Views\SampleQuestion.cs" />
     <Compile Include="Views\SampleQuestion.designer.cs">
       <DependentUpon>SampleQuestion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\StartButtonCell.cs" />
-    <Compile Include="Views\StartButtonCell.designer.cs">
+    <Compile Include="Views\Themenwahl\StartButtonCell.cs" />
+    <Compile Include="Views\Themenwahl\StartButtonCell.designer.cs">
       <DependentUpon>StartButtonCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ThemenwahlCell.cs" />
-    <Compile Include="Views\ThemenwahlCell.designer.cs">
+    <Compile Include="Views\Themenwahl\ThemenwahlCell.cs" />
+    <Compile Include="Views\Themenwahl\ThemenwahlCell.designer.cs">
       <DependentUpon>ThemenwahlCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ThemenwahlUeberschriftCell.cs" />
-    <Compile Include="Views\ThemenwahlUeberschriftCell.designer.cs">
+    <Compile Include="Views\Themenwahl\ThemenwahlUeberschriftCell.cs" />
+    <Compile Include="Views\Themenwahl\ThemenwahlUeberschriftCell.designer.cs">
       <DependentUpon>ThemenwahlUeberschriftCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ThemenwahlView.cs" />
-    <Compile Include="Views\ThemenwahlView.designer.cs">
+    <Compile Include="Views\Themenwahl\ThemenwahlView.cs" />
+    <Compile Include="Views\Themenwahl\ThemenwahlView.designer.cs">
       <DependentUpon>ThemenwahlView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ThemenwahlViewSource.cs" />
+    <Compile Include="Views\Themenwahl\ThemenwahlViewSource.cs" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <InterfaceDefinition Include="Views\SampleQuestion.storyboard" />
-    <InterfaceDefinition Include="Views\QuestionTableView.storyboard" />
-    <InterfaceDefinition Include="Views\ThemenwahlView.storyboard" />
+    <InterfaceDefinition Include="Views\Fragentabelle\QuestionTableView.storyboard" />
+    <InterfaceDefinition Include="Views\Themenwahl\ThemenwahlView.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
