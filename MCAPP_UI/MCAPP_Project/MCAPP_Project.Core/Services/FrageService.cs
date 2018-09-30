@@ -59,5 +59,19 @@ namespace MCAPP_Project.Core.Services
             beispiel.Fragetext = "Wie hoch ist die MWSt in Deutschland?";
             return beispiel;
         }
+
+        public Thema GetThema(long themaID)
+        {
+            List<Thema> themen = GetAllThemen();
+            foreach (Thema t in themen)
+            {
+                if(t.ThemaID==themaID)
+                {
+                    return t;
+                }
+            }
+
+            return null;
+        }
     }
 }

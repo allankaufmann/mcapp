@@ -1,4 +1,6 @@
 ﻿using MCAPP_Project.Core.Models;
+using MCAPP_Project.Core.Repositories;
+using MCAPP_Project.Core.Services;
 using MvvmCross.Core.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,8 @@ namespace MCAPP_Project.Core.ViewModels
         private Textantwort antwort;
 
         private Frage frage;
+
+        private IFragenService service = new FrageService(new DummyFragenRepository());
 
 
         public QuestionViewModel(Frage frage)
@@ -44,7 +48,16 @@ namespace MCAPP_Project.Core.ViewModels
 
         public String Thema
         {
-            get { return "Externes Rechnungswesen"; }
+            get {
+                if (frage!=null)
+                {
+                    Thema t = service.GetThema(frage.themaID);
+                    return t.ThemaText;
+                }
+
+                return "";
+
+            }
         }
 
 
