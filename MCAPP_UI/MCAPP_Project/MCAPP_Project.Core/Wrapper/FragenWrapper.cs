@@ -11,6 +11,8 @@ namespace MCAPP_Project.Core.Wrapper
 
         public int position { get; set; }
 
+        public List<Thema> gewaelteThemen { get; set; }
+
 
 
     }

@@ -95,6 +95,15 @@
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Views\Auswertung\AuswertungTabelle.cs" />
+    <Compile Include="Views\Auswertung\AuswertungTabelle.designer.cs">
+      <DependentUpon>AuswertungTabelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Auswertung\ThemaAuswertungCell.cs" />
+    <Compile Include="Views\Auswertung\ThemaAuswertungCell.designer.cs">
+      <DependentUpon>ThemaAuswertungCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Auswertung\ThemaAuswertungSouce.cs" />
     <Compile Include="Views\Fragentabelle\QuestionTableAntwortTextCell.cs" />
     <Compile Include="Views\Fragentabelle\QuestionTableAntwortTextCell.designer.cs">
       <DependentUpon>QuestionTableAntwortTextCell.cs</DependentUpon>
@@ -138,6 +147,7 @@
     <InterfaceDefinition Include="Views\SampleQuestion.storyboard" />
     <InterfaceDefinition Include="Views\Fragentabelle\QuestionTableView.storyboard" />
     <InterfaceDefinition Include="Views\Themenwahl\ThemenwahlView.storyboard" />
+    <InterfaceDefinition Include="Views\Auswertung\AuswertungTabelle.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />

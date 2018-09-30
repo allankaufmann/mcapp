@@ -61,13 +61,11 @@ namespace MCAPP_Project.Core.ViewModels
 
             if (wrapper.fragen.Count> (newpos))
             {
-                FragenWrapper wrapper = new FragenWrapper();
-                wrapper.fragen = this.wrapper.fragen;
-                wrapper.position = this.wrapper.position + 1;
-                await navigationService.Navigate(typeof(QuestionTableViewModel), wrapper);
+                this.wrapper.position = this.wrapper.position + 1;
+                await navigationService.Navigate(typeof(QuestionTableViewModel), this.wrapper);
             } else
             {
-                Console.WriteLine("Nö");
+                await navigationService.Navigate(typeof(AuswertungTabelleViewModel), this.wrapper);
             }
 
 

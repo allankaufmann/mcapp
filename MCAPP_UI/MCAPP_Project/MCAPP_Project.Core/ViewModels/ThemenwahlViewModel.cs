@@ -63,6 +63,7 @@ namespace MCAPP_Project.Core.ViewModels
             FragenWrapper wrapper = new FragenWrapper();
             wrapper.fragen = gezogeneFragen;
             wrapper.position = 0;
+            wrapper.gewaelteThemen = gewaelteThemen;
 
 
             await navigationService.Navigate(typeof(QuestionTableViewModel), wrapper);
