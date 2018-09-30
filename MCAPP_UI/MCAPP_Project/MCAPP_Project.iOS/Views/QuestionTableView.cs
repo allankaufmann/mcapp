@@ -30,6 +30,11 @@ namespace MCAPP_Project.iOS.Views
         {
             base.ViewDidLoad();
 
+            var button = new UIBarButtonItem(UIBarButtonSystemItem.Save);
+            NavigationItem.SetRightBarButtonItem(button, false);
+            
+
+
             TableView.RowHeight = UITableView.AutomaticDimension;
             TableView.EstimatedRowHeight = new nfloat(100.0);
 
@@ -38,6 +43,7 @@ namespace MCAPP_Project.iOS.Views
 
             var set = this.CreateBindingSet<QuestionTableView, QuestionTableViewModel>();
             set.Bind(source).To(vm => vm.Tables);
+            set.Bind(button).To(vm => vm.NextButtonCommand);
             set.Apply();
 
 

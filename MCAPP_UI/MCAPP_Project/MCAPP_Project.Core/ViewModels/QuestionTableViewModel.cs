@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MCAPP_Project.Core.ViewModels
 {
@@ -26,6 +27,8 @@ namespace MCAPP_Project.Core.ViewModels
             repo = new DummyFragenRepository();
 
             Tables = new ObservableCollection<QuestionViewModel>();
+
+            NextButtonCommand = new MvxAsyncCommand(NextButton);
         }
 
 
@@ -48,8 +51,32 @@ namespace MCAPP_Project.Core.ViewModels
 
                 }
             }
-
-
         }
+
+        public IMvxAsyncCommand NextButtonCommand { get; }
+
+        async Task NextButton()
+        {
+            int newpos = this.wrapper.position+1;
+
+            if (wrapper.fragen.Count> (newpos))
+            {
+                FragenWrapper wrapper = new FragenWrapper();
+                wrapper.fragen = this.wrapper.fragen;
+                wrapper.position = this.wrapper.position + 1;
+                await navigationService.Navigate(typeof(QuestionTableViewModel), wrapper);
+            } else
+            {
+                Console.WriteLine("Nö");
+            }
+
+
+
+
+
+            
+        }
+
+
     }
 }

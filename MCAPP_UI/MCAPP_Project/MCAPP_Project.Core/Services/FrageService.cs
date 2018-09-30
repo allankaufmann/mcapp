@@ -44,11 +44,10 @@ namespace MCAPP_Project.Core.Services
             foreach (Thema t in gewaelteThemen)
             {
                 List<Frage> fragen = GetFragen(t.ThemaID);
-                if (fragen.Count>0)
+                foreach (Frage f in fragen)
                 {
-                    fragenListe.Add(fragen[0]);
+                    fragenListe.Add(f);
                 }
-
             }               
             return fragenListe;
         }
