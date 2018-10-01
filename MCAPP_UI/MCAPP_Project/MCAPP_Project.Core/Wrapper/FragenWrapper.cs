@@ -13,6 +13,19 @@ namespace MCAPP_Project.Core.Wrapper
 
         public List<Thema> gewaelteThemen { get; set; }
 
+        public List<Frage> fragenZuThema(Thema thema)
+        {
+            List<Frage> fragen = new List<Frage>();
+
+            foreach (Frage f in this.fragen)
+            {
+                if (f.themaID==thema.ThemaID)
+                {
+                    fragen.Add(f);
+                }
+            }
+            return fragen;
+        }
 
 
     }

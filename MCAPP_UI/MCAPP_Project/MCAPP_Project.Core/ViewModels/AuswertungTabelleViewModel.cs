@@ -26,7 +26,7 @@ namespace MCAPP_Project.Core.ViewModels
 
             foreach (Thema t in wrapper.gewaelteThemen)
             {
-                Tables.Add(new AuswertungThemaViewModel(t));
+                Tables.Add(new AuswertungThemaViewModel(t, parameter));
             }
         }
     }

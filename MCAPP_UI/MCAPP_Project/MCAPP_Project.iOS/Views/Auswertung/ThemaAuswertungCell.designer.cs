@@ -17,12 +17,20 @@ namespace MCAPP_Project.iOS.Views.Auswertung
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel AuswertungText { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel ThemaText { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
             if (AuswertungText != null) {
                 AuswertungText.Dispose ();
                 AuswertungText = null;
+            }
+
+            if (ThemaText != null) {
+                ThemaText.Dispose ();
+                ThemaText = null;
             }
         }
     }

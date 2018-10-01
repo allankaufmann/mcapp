@@ -26,7 +26,6 @@ namespace MCAPP_Project.Core.Models
         {
             get { return this.auswahl; }
             set {
-                Console.WriteLine("hihi " + value);
                 this.auswahl = value;
             }
         }

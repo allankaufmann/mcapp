@@ -19,7 +19,8 @@ namespace MCAPP_Project.iOS.Views.Auswertung
             this.DelayBind(() =>
             {
                 var set = this.CreateBindingSet<ThemaAuswertungCell, AuswertungThemaViewModel>();
-                set.Bind(AuswertungText).To(vm => vm.Thema.ThemaText);
+                set.Bind(ThemaText).To(vm => vm.Thema.ThemaText);
+                set.Bind(AuswertungText).To(vm => vm.auswertungText);
                 set.Apply();
             });
 
