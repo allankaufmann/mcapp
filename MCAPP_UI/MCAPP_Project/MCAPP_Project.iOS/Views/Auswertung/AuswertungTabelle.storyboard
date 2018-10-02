@@ -20,26 +20,32 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="98.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AuswertungText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="976" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" numberOfLines="0">
-                                            <rect key="frame" x="15" y="48" width="379" height="37"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AuswertungText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="976" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0" misplaced="YES">
+                                            <rect key="frame" x="18" y="42" width="379" height="37"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ThemaText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1223" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                            <rect key="frame" x="10" y="8" width="350" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ThemaText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1223" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                            <rect key="frame" x="18" y="8" width="350" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint id="1472" firstItem="1223" firstAttribute="leading" secondItem="275" secondAttribute="leading" constant="18"/>
+                                        <constraint id="1473" firstItem="976" firstAttribute="top" secondItem="1223" secondAttribute="bottom" constant="13"/>
+                                        <constraint id="1474" firstAttribute="bottom" secondItem="976" secondAttribute="bottom" constant="24"/>
+                                        <constraint id="2181" firstItem="1223" firstAttribute="height" secondItem="275" secondAttribute="height" constant="-77.5"/>
+                                        <constraint id="2182" firstItem="976" firstAttribute="leading" secondItem="275" secondAttribute="leading" constant="18"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="AuswertungText" destination="976" id="name-outlet-976"/>
                                     <outlet property="ThemaText" destination="1223" id="name-outlet-1223"/>
                                 </connections>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>

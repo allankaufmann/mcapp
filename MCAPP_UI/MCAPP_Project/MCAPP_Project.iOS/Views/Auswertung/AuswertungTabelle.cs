@@ -31,6 +31,9 @@ namespace MCAPP_Project.iOS.Views.Auswertung
         {
             base.ViewDidLoad();
 
+            TableView.RowHeight = UITableView.AutomaticDimension;
+            TableView.EstimatedRowHeight = 40f;
+
             var source = new ThemaAuswertungSouce(TableView);
             TableView.Source = source;
 
