@@ -58,7 +58,7 @@ namespace MCAPP_Project.Core.ViewModels
             }
 
             List<Frage> gezogeneFragen = new List<Frage>();
-            gezogeneFragen = fragenService.GetFragen(gewaelteThemen);
+            gezogeneFragen = fragenService.GetFragen(gewaelteThemen, 10);
 
             FragenWrapper wrapper = new FragenWrapper();
             wrapper.fragen = gezogeneFragen;

@@ -103,9 +103,19 @@ namespace MCAPP_UI.Tests
             List<Frage> fragen = service.GetFragen(themen, 10);
 
             Assert.LessOrEqual(fragen.Count, 10);
-
         }
 
+        [Test]
+        public void FragenMitHoherFesterAnzahl()
+        {
+            List<Thema> themen = new List<Thema>();
+            themen.Add(service.GetThema(1));
+            themen.Add(service.GetThema(2));
+
+            List<Frage> fragen = service.GetFragen(themen, 99);
+
+            Assert.LessOrEqual(fragen.Count, 99);
+        }
 
     }
 }

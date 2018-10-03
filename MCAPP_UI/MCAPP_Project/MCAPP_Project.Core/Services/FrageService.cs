@@ -54,7 +54,17 @@ namespace MCAPP_Project.Core.Services
 
         public List<Frage> GetFragen(List<Thema> gewaelteThemen, int anz)
         {
-            throw new NotImplementedException();
+            List<Frage> fragenZuThemen = GetFragen(gewaelteThemen);
+            List<Frage> fragenListe = new List<Frage>();
+
+            for (int i = 0; i < anz; i++)
+            {
+                if (fragenZuThemen.Count > (i))
+                {
+                    fragenListe.Add(fragenZuThemen[i]);
+                }
+            }
+            return fragenListe;
         }
 
         public Frage GetSampleFrage()
