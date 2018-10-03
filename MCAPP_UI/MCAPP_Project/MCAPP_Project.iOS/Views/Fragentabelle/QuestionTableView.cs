@@ -36,7 +36,7 @@ namespace MCAPP_Project.iOS.Views
 
 
             TableView.RowHeight = UITableView.AutomaticDimension;
-            TableView.EstimatedRowHeight = new nfloat(100.0);
+            TableView.EstimatedRowHeight = 500f;
 
             var source = new QuestionTableViewSource(TableView);
             TableView.Source = source;
