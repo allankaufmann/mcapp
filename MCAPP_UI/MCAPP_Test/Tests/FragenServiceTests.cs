@@ -117,5 +117,52 @@ namespace MCAPP_UI.Tests
             Assert.LessOrEqual(fragen.Count, 99);
         }
 
+        [Test]
+        public void FragenNachThemenGruppiert()
+        {
+            List<Thema> themen = new List<Thema>();
+            themen.Add(service.GetThema(1));
+            themen.Add(service.GetThema(2));
+
+            Dictionary<long, List<Frage>> fragenListe = service.GetFragenDictionary(themen);
+            Assert.AreEqual(2, fragenListe.Count);
+
+            Assert.AreEqual(1, fragenListe[1][0].themaID);
+            Assert.AreEqual(2, fragenListe[2][0].themaID);
+        }
+
+        [Test]
+        public void FragenNachThemenGleichverteilt()
+        {
+            List<Thema> themen = new List<Thema>();
+            themen.Add(service.GetThema(1));
+            themen.Add(service.GetThema(2));
+            themen.Add(service.GetThema(3));
+            List<Frage> fragen = service.GetFragen(themen, 10);
+
+            int countThema1 = 0;
+            int countThema2 = 0;
+            int countThema3 = 0;
+
+            foreach (Frage f in fragen)
+            {
+                if (f.themaID==1)
+                {
+                    countThema1++;
+                } else if (f.themaID==2)
+                {
+                    countThema2++;
+                } else if (f.themaID==3)
+                {
+                    countThema3++;
+                }
+
+            }
+
+            Assert.AreEqual(countThema1, countThema2);
+            Assert.Greater(countThema3, countThema1);
+
+        }
+
     }
 }

@@ -35,6 +35,11 @@ namespace MCAPP_Project.Core.Services
         List<Frage> GetFragen(List<Thema> gewaelteThemen);
 
         /**
+         * Liefert Fragen zu gewählten Themen, nach Thema gruppiert.
+         */
+        Dictionary<long, List<Frage>> GetFragenDictionary(List<Thema> gewaelteThemen);
+
+        /**
          * Liefert Liste mit fester Anzahl an Fragen zu bestimmten Themen.
          */
 
