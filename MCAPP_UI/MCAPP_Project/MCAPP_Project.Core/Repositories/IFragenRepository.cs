@@ -10,15 +10,42 @@ namespace MCAPP_Project.Core.Repositories
     public interface IFragenRepository
     {
 
-        Task<List<Frage>> GetAllFragen();
-        Task Save(Frage frage);
+        /**
+         * Lädt alle hinterlegten Themen aus 
+         * lokaler DB.
+         */
+        Boolean loadThemen();
 
-        Frage GetSampleFrage();
+        /**
+         * Lädt sämtliche hinterlegten Fragen.
+         */
+        Boolean loadFragen();
 
+        /**
+         * Liefert Liste aller vorhandenen Themen.
+         */
         List<Thema> GetAllThemen();
 
+        // Quatsch
+        Task<List<Frage>> GetAllFragen();
+
+        // Quatsch
+        Task Save(Frage frage);
+
+        /*
+         * Liefert eine Beispielfrage.
+         */
+        Frage GetSampleFrage();
+
+        
+        /**
+         * Liefert alle vorhandenen Fragen. 
+         */
         List<Frage> GetAlleFragen();
 
+        /**
+         * Liefert Liste aller Fragen zu einem bestimmten Thema. 
+         */
         List<Frage> GetFragen(long themaID);
 
 

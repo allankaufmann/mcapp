@@ -50,6 +50,16 @@ namespace MCAPP_Project.Core.Repositories
             throw new NotImplementedException();
         }
 
+        public bool loadFragen()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool loadThemen()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task Save(Frage frage)
         {
             return connection.InsertOrReplaceAsync(frage);         

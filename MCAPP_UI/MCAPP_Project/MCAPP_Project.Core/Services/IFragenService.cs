@@ -14,14 +14,35 @@ namespace MCAPP_Project.Core.Services
 
         Task<List<Frage>> GetAllFragen();
 
+        /*
+        * Liefert eine Beispielfrage.
+        */
         Frage GetSampleFrage();
 
+        /**
+         * Liefert Liste aller vorhandenen Themen.
+         */
         List<Thema> GetAllThemen();
 
+        /**
+         * Liefert alle Fragen, die einem bestimmten Thema zugeordnet sind. 
+         */
         List<Frage> GetFragen(long themaID);
 
+        /**
+         * Liefert Fragen, zu mehreren Themen.
+         */
         List<Frage> GetFragen(List<Thema> gewaelteThemen);
 
+        /**
+         * Liefert Liste mit fester Anzahl an Fragen zu bestimmten Themen.
+         */
+
+        List<Frage> GetFragen(List<Thema> gewaelteThemen, int anz);
+
+        /**
+         * Liefert Themaobjekt zu ThemaID.
+         */
         Thema GetThema(long themaID);
 
     }
