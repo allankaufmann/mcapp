@@ -161,6 +161,85 @@ namespace MCAPP_UI.Tests
 
             Assert.AreEqual(countThema1, countThema2);
             Assert.Greater(countThema3, countThema1);
+        }
+
+        [Test] 
+        public void zufallsFragenNotSame()
+        {
+            Thema t = service.GetThema(1);
+            Frage f1 = service.GetZufallsFragen(t, 1)[0];
+            Frage f2 = service.GetZufallsFragen(t, 1)[0];
+            Frage f3 = service.GetZufallsFragen(t, 1)[0];
+
+            Boolean equal = f1.Equals(f2);
+            equal = equal && f2.Equals(f3);
+
+            Assert.IsFalse(equal);            
+
+        }
+
+        [Test]
+        public void VerteilungVonFragenAufThemen()
+        {
+            Thema t = service.GetThema(1);
+            Thema t2 = service.GetThema(2);
+            Thema t3 = service.GetThema(3);
+            Thema t5 = service.GetThema(5); // Thema mit 2 Fragen
+            Thema t6 = service.GetThema(6); // Thema mit 1 Frage
+            Thema t7 = service.GetThema(7);
+            List<Thema> themen = new List<Thema>();
+            themen.Add(t);
+            themen.Add(t2);
+            themen.Add(t3);
+
+            int[] verteilung = service.CalcAnzahlProThema(themen, 9);
+
+            Assert.AreEqual(3, verteilung[0]);
+            Assert.AreEqual(3, verteilung[1]);
+            Assert.AreEqual(3, verteilung[2]);
+
+            verteilung = service.CalcAnzahlProThema(themen, 10);
+
+            Assert.AreEqual(3, verteilung[0]);
+            Assert.AreEqual(3, verteilung[1]);
+            Assert.AreEqual(4, verteilung[2]);
+
+            themen = new List<Thema>();
+            themen.Add(t);
+            themen.Add(t2);
+            themen.Add(t5);
+
+            verteilung = service.CalcAnzahlProThema(themen, 10);
+            Assert.AreEqual(3, verteilung[0]);
+            Assert.AreEqual(5, verteilung[1]);
+            Assert.AreEqual(2, verteilung[2]);
+
+            themen = new List<Thema>();
+            themen.Add(t);
+            themen.Add(t5);
+            themen.Add(t6);            
+            verteilung = service.CalcAnzahlProThema(themen, 10);
+            Assert.AreEqual(7, verteilung[0]);
+            Assert.AreEqual(2, verteilung[1]);
+            Assert.AreEqual(1, verteilung[2]);
+
+            themen = new List<Thema>();
+            themen.Add(t);
+            themen.Add(t6);
+            themen.Add(t7);
+            verteilung = service.CalcAnzahlProThema(themen, 10);
+            Assert.AreEqual(9, verteilung[0]);
+            Assert.AreEqual(1, verteilung[1]);
+            Assert.AreEqual(0, verteilung[2]);
+
+            themen = new List<Thema>();
+            themen.Add(t);
+            themen.Add(t6);
+            themen.Add(t7);
+            verteilung = service.CalcAnzahlProThema(themen, 99);
+            Assert.AreEqual(11, verteilung[0]);
+            Assert.AreEqual(1, verteilung[1]);
+            Assert.AreEqual(0, verteilung[2]);
 
         }
 

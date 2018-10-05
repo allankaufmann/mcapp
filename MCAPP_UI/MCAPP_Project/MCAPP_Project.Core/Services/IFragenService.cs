@@ -46,9 +46,20 @@ namespace MCAPP_Project.Core.Services
         List<Frage> GetFragen(List<Thema> gewaelteThemen, int anz);
 
         /**
+         * Liefert nach Zufallsprinzip Fragen eines bestimmten Themas.
+         */
+        List<Frage> GetZufallsFragen(Thema thema, int anz);
+
+        /**
          * Liefert Themaobjekt zu ThemaID.
          */
         Thema GetThema(long themaID);
 
+        /**
+         * Liefert zu einer Liste von Themen eine 
+         * Feld, welches ermittelt, wieviele Fragen zu einem Thema
+         * gezogen werden können. 
+         */
+        int[] CalcAnzahlProThema(List<Thema> gewaelteThemen, int anz);
     }
 }

@@ -30,6 +30,8 @@ namespace MCAPP_Project.Core.Repositories
             themen.Add(getThema(3, "Von-Neumann-Rechner und Prozessortechnik"));
             themen.Add(getThema(4, "Speicherkonzepte"));
             themen.Add(getThema(5, "Grundlegende Modelle der Informatik"));
+            themen.Add(getThema(6, "Beispielthema 6"));
+            themen.Add(getThema(7, "Beispielthema 7"));
             return true;
         }
 
@@ -125,6 +127,17 @@ namespace MCAPP_Project.Core.Repositories
                .WithAntwort("BlaBlaBlubb 16", false)
                .Build()
            );
+
+            this.alleFragen.Add(
+               builder.createFrage(frageID++, "Beispielfrage 1 Thema 6?", 6)
+               .WithAntwort("BlaBlaBlubb 13", false)
+               .WithAntwort("Ein PC ist in der Regel einem bestimmten Benutzer zugeordnet, ein Server hingegen liefert Dienstleistungen für viele angekoppelte Desktops oder Notebooks", true)
+               .WithAntwort("BlaBlaBlubb 14", false)
+               .WithAntwort("BlaBlaBlubb 15", false)
+               .WithAntwort("BlaBlaBlubb 16", false)
+               .Build()
+           );
+
 
             return true;
         }
