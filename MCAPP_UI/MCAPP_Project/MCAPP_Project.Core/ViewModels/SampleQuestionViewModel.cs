@@ -2,6 +2,7 @@
 using MCAPP_Project.Core.Repositories;
 using MCAPP_Project.Core.Services;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,7 +19,7 @@ namespace MCAPP_Project.Core.ViewModels
 
         public SampleQuestionViewModel()
         {
-            service = new FrageService(new DummyFragenRepository());
+            service = Mvx.Resolve<IFragenService>();
             aktuelleFrage = service.GetSampleFrage();
         }
 

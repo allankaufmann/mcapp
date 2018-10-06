@@ -32,21 +32,9 @@ namespace MCAPP_Project.Core.Services
 
             foreach (Frage f in fragen)
             {
-                Boolean fragerichtig = true;
+                Boolean frageRichtig = FrageRichtigBeantwortet(f);
 
-                foreach (Textantwort a in f.antworten)
-                {
-                    if (a.wahr && !a.Auswahl)
-                    {
-                        fragerichtig = false;
-                    }
-                    else if (!a.wahr && a.Auswahl)
-                    {
-                        fragerichtig = false;
-                    }
-                }
-
-                if (fragerichtig)
+                if (frageRichtig)
                 {
                     anzahlRichtig++;
                 }
@@ -66,6 +54,25 @@ namespace MCAPP_Project.Core.Services
             quiz.datum = new DateTime();
 
             return quiz;
+        }
+
+        public bool FrageRichtigBeantwortet(Frage frage)
+        {
+            Boolean fragerichtig = true;
+
+            foreach (Textantwort a in frage.antworten)
+            {
+                if (a.wahr && !a.Auswahl)
+                {
+                    fragerichtig = false;
+                }
+                else if (!a.wahr && a.Auswahl)
+                {
+                    fragerichtig = false;
+                }
+            }
+
+            return fragerichtig;
         }
     }
 }

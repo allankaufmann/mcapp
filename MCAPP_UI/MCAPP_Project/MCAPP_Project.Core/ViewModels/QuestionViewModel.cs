@@ -2,6 +2,7 @@
 using MCAPP_Project.Core.Repositories;
 using MCAPP_Project.Core.Services;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,20 +18,23 @@ namespace MCAPP_Project.Core.ViewModels
 
         private Frage frage;
 
-        private IFragenService service = new FrageService(new DummyFragenRepository());
+        readonly private IFragenService service;
 
 
         public QuestionViewModel(Quiz parameter)
         {
             this.quiz = parameter;
             this.frage = parameter.fragen[quiz.position];
+            service = Mvx.Resolve<IFragenService>();
         }
 
         public QuestionViewModel(Quiz parameter, Textantwort antwort)
         {
             this.quiz = parameter;
             this.antwort = antwort;
+            service = Mvx.Resolve<IFragenService>();
         }
+
 
         public String FrageText
         {

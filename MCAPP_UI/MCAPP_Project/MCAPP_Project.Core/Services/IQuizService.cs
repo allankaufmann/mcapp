@@ -7,9 +7,21 @@ namespace MCAPP_Project.Core.Services
 {
     interface IQuizService
     {
+        /*
+         * Liefert neue Quiz-Instanz. 
+         */
         Quiz GetNewQuiz();
 
+        /*
+         * Wertet nach Beendigung des Quiz die eingegebenen Antworten aus
+         * und erstellt Auwertungstext zu einem Thema. 
+         */
         Quiz CreateAuswertung(Thema theme, Quiz quiz);
+
+        /*
+         * Prüft, ob eine einzelne Frage korrekt beantwortet wurde. 
+         */
+        Boolean FrageRichtigBeantwortet(Frage frage);
 
     }
 }
