@@ -18,6 +18,7 @@ namespace MCAPP_Project.iOS.Views
             {
                 var set = this.CreateBindingSet<QuestionTableViewFrageCell, QuestionViewModel>();
                 set.Bind(FrageText).To(vm => vm.FrageText);
+                set.Bind(FrageNrText).To(vm => vm.FrageNrText);
                 set.Apply();
 
             });

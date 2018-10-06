@@ -15,10 +15,19 @@ namespace MCAPP_Project.iOS.Views
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel FrageNrText { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel FrageText { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
+            if (FrageNrText != null) {
+                FrageNrText.Dispose ();
+                FrageNrText = null;
+            }
+
             if (FrageText != null) {
                 FrageText.Dispose ();
                 FrageText = null;

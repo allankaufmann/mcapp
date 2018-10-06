@@ -38,17 +38,16 @@ namespace MCAPP_Project.Core.ViewModels
         {
             this.wrapper = parameter;
 
-            Frage frage = parameter.fragen[wrapper.position];
+            Tables.Add(new QuestionViewModel(parameter));
+            Tables.Add(new QuestionViewModel(parameter));
 
-            Tables.Add(new QuestionViewModel(frage));
-            Tables.Add(new QuestionViewModel(frage));
+            Frage frage = parameter.fragen[wrapper.position];
 
             if (frage.antworten != null)
             {
                 foreach (Textantwort a in frage.antworten)
                 {
-                    Tables.Add(new QuestionViewModel(frage, a));
-
+                    Tables.Add(new QuestionViewModel(parameter, a));
                 }
             }
         }
