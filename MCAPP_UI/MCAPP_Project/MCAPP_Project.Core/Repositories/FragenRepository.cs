@@ -45,6 +45,11 @@ namespace MCAPP_Project.Core.Repositories
             throw new NotImplementedException();
         }
 
+        public long GetNewQuizID()
+        {
+            throw new NotImplementedException();
+        }
+
         public Frage GetSampleFrage()
         {
             throw new NotImplementedException();

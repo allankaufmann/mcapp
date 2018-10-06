@@ -1,5 +1,7 @@
 ﻿using MCAPP_Project.Core.Models;
+using MCAPP_Project.Core.Services;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,47 +15,23 @@ namespace MCAPP_Project.Core.ViewModels
 
         private Quiz quiz;
 
+        readonly IQuizService quizService;
+
+
         public AuswertungThemaViewModel(Thema thema, Quiz quiz)
         {
+            quizService = Mvx.Resolve<IQuizService>();
+
             this.thema = thema;
             this.quiz = quiz;
+            this.quiz = quizService.CreateAuswertung(thema, quiz);
         }
 
         public String auswertungText
         {
             get
             {
-                String text = "";
-
-                List<Frage> fragen = quiz.fragenZuThema(thema);
-
-                int anzahlRichtig = 0;
-
-                foreach (Frage f in fragen)
-                {
-                    Boolean fragerichtig = true;
-
-                    foreach (Textantwort a in f.antworten)
-                    {
-                        if (a.wahr && !a.Auswahl)
-                        {
-                            fragerichtig = false;
-                        }
-                        else if (!a.wahr && a.Auswahl)
-                        {
-                            fragerichtig = false;
-                        }
-                    }
-
-                    if (fragerichtig)
-                    {
-                        anzahlRichtig++;
-                    }
-                }
-
-                text = anzahlRichtig + "/" + fragen.Count + " richtig beantwortet!";
-
-                return text;
+                return this.quiz.AuswertungsTexte[this.thema];   
             }
 
            

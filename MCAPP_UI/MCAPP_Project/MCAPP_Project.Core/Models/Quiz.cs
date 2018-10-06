@@ -7,12 +7,23 @@ namespace MCAPP_Project.Core.Models
 {
     public class Quiz
     {
+
+        public long quizID { get; set; }
+
+        public DateTime datum { get; set; }
+
         public List<Frage> fragen { get; set; }
 
         public int position { get; set; }
 
         public List<Thema> gewaelteThemen { get; set; }
 
+        public Dictionary<Thema, String> AuswertungsTexte { get; set; }
+
+        public Quiz()
+        {
+            AuswertungsTexte = new Dictionary<Thema, string>();
+        }
 
 
         /**

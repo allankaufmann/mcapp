@@ -1,3 +1,6 @@
+using MCAPP_Project.Core.Repositories;
+using MCAPP_Project.Core.Services;
+using MvvmCross.Platform;
 using MvvmCross.Platform.IoC;
 
 namespace MCAPP_Project.Core
@@ -14,6 +17,11 @@ namespace MCAPP_Project.Core
             //RegisterNavigationServiceAppStart<ViewModels.SampleQuestionViewModel>();
             //RegisterNavigationServiceAppStart<ViewModels.QuestionTableViewModel>();
             RegisterNavigationServiceAppStart<ViewModels.ThemenwahlViewModel>();
+            Mvx.RegisterType<IFragenRepository, DummyFragenRepository>();
+            Mvx.RegisterType<IQuizService, QuizService>();
+            
+            
+            //
         }
     }
 }

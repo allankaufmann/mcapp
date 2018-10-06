@@ -7,12 +7,20 @@ using MCAPP_Project.Core.Services;
 
 namespace MCAPP_Project.Core.Repositories
 {
+    /**
+     * Beispielrepository für UnitTests und Entwicklung ohne DB.
+     * 
+     * Für DB wird das FragenRepository verwendet.
+     */
+
     public class DummyFragenRepository : IFragenRepository
     {
 
         private List<Thema> themen;
 
         private List<Frage> alleFragen;
+
+        private long QuizCounter = 0;
 
 
         public DummyFragenRepository()
@@ -210,6 +218,9 @@ namespace MCAPP_Project.Core.Repositories
             return fragen;
         }
 
-
+        public long GetNewQuizID()
+        {
+            return this.QuizCounter++;
+        }
     }
 }

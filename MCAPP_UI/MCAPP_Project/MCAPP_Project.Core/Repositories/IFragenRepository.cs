@@ -48,6 +48,8 @@ namespace MCAPP_Project.Core.Repositories
          */
         List<Frage> GetFragen(long themaID);
 
+        long GetNewQuizID();
+
 
     }
 }

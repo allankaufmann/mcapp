@@ -3,6 +3,7 @@ using MCAPP_Project.Core.Repositories;
 using MCAPP_Project.Core.Services;
 using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,6 +15,7 @@ namespace MCAPP_Project.Core.ViewModels
     public class ThemenwahlViewModel : MvxViewModel
     {
         IFragenService fragenService;
+        IQuizService quizService;
 
         List<Thema> themenListe;
 
@@ -24,10 +26,12 @@ namespace MCAPP_Project.Core.ViewModels
 
         public ThemenwahlViewModel(IMvxNavigationService navigationService)
         {
+            IFragenRepository repo = new DummyFragenRepository();
             this.Tables = new ObservableCollection<ThemaViewModel>();
-            this.fragenService = new FrageService(new DummyFragenRepository());
+            this.fragenService = new FrageService(repo);
             this.themenListe = fragenService.GetAllThemen();
             this.navigationService = navigationService;
+            this.quizService = Mvx.IocConstruct<QuizService>(); 
 
             StartQuizCommand = new MvxAsyncCommand(StartQuiz, ThemaIstGewaehlt);
 
@@ -59,7 +63,7 @@ namespace MCAPP_Project.Core.ViewModels
             List<Frage> gezogeneFragen = new List<Frage>();
             gezogeneFragen = fragenService.GetFragen(gewaelteThemen, 10);
 
-            Quiz quiz = new Quiz();
+            Quiz quiz = quizService.GetNewQuiz();
             quiz.fragen = gezogeneFragen;
             quiz.position = 0;
             quiz.gewaelteThemen = gewaelteThemen;
