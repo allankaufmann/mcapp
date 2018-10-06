@@ -1,5 +1,4 @@
 ﻿using MCAPP_Project.Core.Models;
-using MCAPP_Project.Core.Wrapper;
 using MvvmCross.Core.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -9,9 +8,9 @@ using System.Text;
 namespace MCAPP_Project.Core.ViewModels
 {
 
-    public class AuswertungTabelleViewModel : MvxViewModel<FragenWrapper>
+    public class AuswertungTabelleViewModel : MvxViewModel<Quiz>
     {
-        FragenWrapper wrapper;
+        Quiz quiz;
 
         public ObservableCollection<AuswertungThemaViewModel> Tables { get; }
 
@@ -20,11 +19,11 @@ namespace MCAPP_Project.Core.ViewModels
             Tables = new ObservableCollection<AuswertungThemaViewModel>();
         }
 
-        public override void Prepare(FragenWrapper parameter)
+        public override void Prepare(Quiz parameter)
         {
-            this.wrapper = parameter;
+            this.quiz = parameter;
 
-            foreach (Thema t in wrapper.gewaelteThemen)
+            foreach (Thema t in quiz.gewaelteThemen)
             {
                 Tables.Add(new AuswertungThemaViewModel(t, parameter));
             }

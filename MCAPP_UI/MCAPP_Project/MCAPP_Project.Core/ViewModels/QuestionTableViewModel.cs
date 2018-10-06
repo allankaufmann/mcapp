@@ -1,6 +1,5 @@
 ﻿using MCAPP_Project.Core.Models;
 using MCAPP_Project.Core.Repositories;
-using MCAPP_Project.Core.Wrapper;
 using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 using System;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MCAPP_Project.Core.ViewModels
 {
-    public class QuestionTableViewModel : MvxViewModel<FragenWrapper>
+    public class QuestionTableViewModel : MvxViewModel<Quiz>
     {
         private IFragenRepository repo;
 
@@ -19,7 +18,7 @@ namespace MCAPP_Project.Core.ViewModels
 
         // Sollte nach Navigation gesetzt werden...
 
-        FragenWrapper wrapper;
+        Quiz quiz;
 
         public QuestionTableViewModel(IMvxNavigationService navigationService)
         {
@@ -34,14 +33,14 @@ namespace MCAPP_Project.Core.ViewModels
 
         public ObservableCollection<QuestionViewModel> Tables { get; }
 
-        public override void Prepare(FragenWrapper parameter)
+        public override void Prepare(Quiz parameter)
         {
-            this.wrapper = parameter;
+            this.quiz = parameter;
 
             Tables.Add(new QuestionViewModel(parameter));
             Tables.Add(new QuestionViewModel(parameter));
 
-            Frage frage = parameter.fragen[wrapper.position];
+            Frage frage = parameter.fragen[quiz.position];
 
             if (frage.antworten != null)
             {
@@ -56,15 +55,15 @@ namespace MCAPP_Project.Core.ViewModels
 
         async Task NextButton()
         {
-            int newpos = this.wrapper.position+1;
+            int newpos = this.quiz.position+1;
 
-            if (wrapper.fragen.Count> (newpos))
+            if (quiz.fragen.Count> (newpos))
             {
-                this.wrapper.position = this.wrapper.position + 1;
-                await navigationService.Navigate(typeof(QuestionTableViewModel), this.wrapper);
+                this.quiz.position = this.quiz.position + 1;
+                await navigationService.Navigate(typeof(QuestionTableViewModel), this.quiz);
             } else
             {
-                await navigationService.Navigate(typeof(AuswertungTabelleViewModel), this.wrapper);
+                await navigationService.Navigate(typeof(AuswertungTabelleViewModel), this.quiz);
             }
 
 

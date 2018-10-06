@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MCAPP_Project.Core.Wrapper
+namespace MCAPP_Project.Core.Models
 {
-    public class FragenWrapper
+    public class Quiz
     {
         public List<Frage> fragen { get; set; }
 
@@ -13,6 +13,11 @@ namespace MCAPP_Project.Core.Wrapper
 
         public List<Thema> gewaelteThemen { get; set; }
 
+
+
+        /**
+         * Liefert zu einem Thema alle gezogenen Fragen.
+         */
         public List<Frage> fragenZuThema(Thema thema)
         {
             List<Frage> fragen = new List<Frage>();

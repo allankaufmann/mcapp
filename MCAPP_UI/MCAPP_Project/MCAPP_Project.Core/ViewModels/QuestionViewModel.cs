@@ -1,7 +1,6 @@
 ﻿using MCAPP_Project.Core.Models;
 using MCAPP_Project.Core.Repositories;
 using MCAPP_Project.Core.Services;
-using MCAPP_Project.Core.Wrapper;
 using MvvmCross.Core.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ namespace MCAPP_Project.Core.ViewModels
 {
     public class QuestionViewModel : MvxViewModel
     {
-        private FragenWrapper wrapper;
+        private Quiz quiz;
 
         private Textantwort antwort;
 
@@ -21,15 +20,15 @@ namespace MCAPP_Project.Core.ViewModels
         private IFragenService service = new FrageService(new DummyFragenRepository());
 
 
-        public QuestionViewModel(FragenWrapper parameter)
+        public QuestionViewModel(Quiz parameter)
         {
-            this.wrapper = parameter;
-            this.frage = parameter.fragen[wrapper.position];
+            this.quiz = parameter;
+            this.frage = parameter.fragen[quiz.position];
         }
 
-        public QuestionViewModel(FragenWrapper parameter, Textantwort antwort)
+        public QuestionViewModel(Quiz parameter, Textantwort antwort)
         {
-            this.wrapper = parameter;
+            this.quiz = parameter;
             this.antwort = antwort;
         }
 
@@ -68,7 +67,7 @@ namespace MCAPP_Project.Core.ViewModels
         {
             get
             {              
-                return "Frage " + (wrapper.position+1) + " von " + wrapper.fragen.Count;
+                return "Frage " + (quiz.position+1) + " von " + quiz.fragen.Count;
             }
         }
 

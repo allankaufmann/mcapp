@@ -1,5 +1,4 @@
 ﻿using MCAPP_Project.Core.Models;
-using MCAPP_Project.Core.Wrapper;
 using MvvmCross.Core.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,12 +11,12 @@ namespace MCAPP_Project.Core.ViewModels
 
         private Thema thema;
 
-        private FragenWrapper wrapper;
+        private Quiz quiz;
 
-        public AuswertungThemaViewModel(Thema thema, FragenWrapper wrapper)
+        public AuswertungThemaViewModel(Thema thema, Quiz quiz)
         {
             this.thema = thema;
-            this.wrapper = wrapper;
+            this.quiz = quiz;
         }
 
         public String auswertungText
@@ -26,7 +25,7 @@ namespace MCAPP_Project.Core.ViewModels
             {
                 String text = "";
 
-                List<Frage> fragen = wrapper.fragenZuThema(thema);
+                List<Frage> fragen = quiz.fragenZuThema(thema);
 
                 int anzahlRichtig = 0;
 
