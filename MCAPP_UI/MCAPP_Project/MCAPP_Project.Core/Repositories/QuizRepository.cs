@@ -37,7 +37,7 @@ namespace MCAPP_Project.Core.Repositories
 
         }
 
-        public Task SaveAntwort(Quiz_Frage quizFrage)
+        public Task SaveQuiz_Frage(Quiz_Frage quizFrage)
         {
             Task ta = connection.InsertAsync(quizFrage);
             return ta;
@@ -49,6 +49,23 @@ namespace MCAPP_Project.Core.Repositories
             return connection.Table<Quiz>().ToListAsync();
         }
 
+        public async Task<bool> FrageNochNichtRichtigBeantwortet(long frageID)
+        {
 
+            List<Quiz_Frage> fragen = await connection.Table<Quiz_Frage>()
+                .Where(v => v.quiz_Frage_ID == frageID).ToListAsync();
+
+            Boolean nichtbeantwortet = true;
+
+            foreach (Quiz_Frage f in fragen)
+            {
+                if (f.richtig_beantwortet)
+                {
+                    nichtbeantwortet = false;
+                }
+            }
+
+            return nichtbeantwortet;
+        }
     }
 }

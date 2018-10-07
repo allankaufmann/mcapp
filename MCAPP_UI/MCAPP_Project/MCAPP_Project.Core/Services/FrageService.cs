@@ -11,6 +11,7 @@ namespace MCAPP_Project.Core.Services
     public class FrageService : IFragenService
     {
         readonly IFragenRepository repository;
+        readonly IQuizService quizService;
 
         /** Objekt für threadsichere Verarbeitung.*/
         private static readonly object syncLock = new object();
@@ -18,9 +19,10 @@ namespace MCAPP_Project.Core.Services
         /** Objekt zur Generierung von Zufallszahlen. */
         private static readonly Random random = new Random();
 
-        public FrageService(IFragenRepository repository)
+        public FrageService(IFragenRepository repository, IQuizService quizService)
         {
             this.repository = repository;
+            this.quizService = quizService;
         }
 
         public Task AddNewFrage(Frage frage)
@@ -165,7 +167,7 @@ namespace MCAPP_Project.Core.Services
             return anzahlProThema;
         }
 
-        public List<Frage> GetFragen(List<Thema> gewaelteThemen, int anz)
+        public async Task<List<Frage>> GetFragen(List<Thema> gewaelteThemen, int anz)
         {
             if (gewaelteThemen == null || gewaelteThemen.Count == 0 || anz == 0)
             {
@@ -179,7 +181,9 @@ namespace MCAPP_Project.Core.Services
             {
                 if (anzahlProThema[i]>0)
                 {
-                    fragenListe.AddRange(GetZufallsFragen(gewaelteThemen[i], anzahlProThema[i]));
+                    List<Frage> fragen = await GetZufallsFragen(gewaelteThemen[i], anzahlProThema[i]);
+
+                    fragenListe.AddRange(fragen);
                 }
 
             }
@@ -278,10 +282,19 @@ namespace MCAPP_Project.Core.Services
 
 
 
-        public List<Frage> GetZufallsFragen(Thema thema, int anz)
+        public async Task<List<Frage>> GetZufallsFragen(Thema thema, int anz)
         {
             List<Frage> alleFragen = GetFragen(thema.ThemaID);
             List<Frage> zufallsFragen = new List<Frage>();
+
+            foreach (Frage f in alleFragen)
+            {
+                bool frageNochNicht = await quizService.FrageNochNichtRichtigBeantwortet(f.FrageId);
+                Console.WriteLine(frageNochNicht);
+
+            }
+
+
 
             for (int i = 0; i < anz; i++)
             {
@@ -298,6 +311,7 @@ namespace MCAPP_Project.Core.Services
                     alleFragen.RemoveAt(index);
                 }
             }
+
             return zufallsFragen;
 
         }

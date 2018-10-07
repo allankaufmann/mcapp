@@ -15,12 +15,15 @@ namespace MCAPP_UI.Tests
     public class FragenServiceTests
     {
         IFragenService service;
+        IQuizService quizService;
 
         [SetUp]
         public void SetUp()
         {
             IFragenRepository repo = new DummyFragenRepository();
-            service = new FrageService(repo);
+            IQuizRepository repoQuiz = new DummyQuestionRepository();
+            quizService = new QuizService(repo, repoQuiz);
+            service = new FrageService(repo, quizService);
 
         }
 
@@ -94,25 +97,25 @@ namespace MCAPP_UI.Tests
         }
 
         [Test]
-        public void FragenMitFesterAnzahl()
+        public async System.Threading.Tasks.Task FragenMitFesterAnzahlAsync()
         {
             List<Thema> themen = new List<Thema>();
             themen.Add(service.GetThema(1));
             themen.Add(service.GetThema(2));
 
-            List<Frage> fragen = service.GetFragen(themen, 10);
+            List<Frage> fragen = await service.GetFragen(themen, 10);
 
             Assert.LessOrEqual(fragen.Count, 10);
         }
 
         [Test]
-        public void FragenMitHoherFesterAnzahl()
+        public async System.Threading.Tasks.Task FragenMitHoherFesterAnzahlAsync()
         {
             List<Thema> themen = new List<Thema>();
             themen.Add(service.GetThema(1));
             themen.Add(service.GetThema(2));
 
-            List<Frage> fragen = service.GetFragen(themen, 99);
+            List<Frage> fragen = await service.GetFragen(themen, 99);
 
             Assert.LessOrEqual(fragen.Count, 99);
         }
@@ -132,13 +135,13 @@ namespace MCAPP_UI.Tests
         }
 
         [Test]
-        public void FragenNachThemenGleichverteilt()
+        public async System.Threading.Tasks.Task FragenNachThemenGleichverteiltAsync()
         {
             List<Thema> themen = new List<Thema>();
             themen.Add(service.GetThema(1));
             themen.Add(service.GetThema(2));
             themen.Add(service.GetThema(3));
-            List<Frage> fragen = service.GetFragen(themen, 10);
+            List<Frage> fragen = await service.GetFragen(themen, 10);
 
             int countThema1 = 0;
             int countThema2 = 0;
@@ -164,12 +167,12 @@ namespace MCAPP_UI.Tests
         }
 
         [Test] 
-        public void zufallsFragenNotSame()
+        public async System.Threading.Tasks.Task zufallsFragenNotSameAsync()
         {
             Thema t = service.GetThema(1);
-            Frage f1 = service.GetZufallsFragen(t, 1)[0];
-            Frage f2 = service.GetZufallsFragen(t, 1)[0];
-            Frage f3 = service.GetZufallsFragen(t, 1)[0];
+            Frage f1 = (await service.GetZufallsFragen(t, 1))[0];
+            Frage f2 = (await service.GetZufallsFragen(t, 1))[0];
+            Frage f3 = (await service.GetZufallsFragen(t, 1))[0];
 
             Boolean equal = f1.Equals(f2);
             equal = equal && f2.Equals(f3);

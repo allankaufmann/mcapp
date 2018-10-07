@@ -10,6 +10,12 @@ namespace MCAPP_Project.Core.Repositories
     {
         int quizCounter = 0;
 
+        public Task<bool> FrageNochNichtRichtigBeantwortet(long frageID)
+        {
+            Task<bool> t = Task.FromResult<bool>(false);
+            return t;
+        }
+
         public Task<List<Quiz>> GetAll()
         {
             throw new NotImplementedException();
@@ -28,7 +34,7 @@ namespace MCAPP_Project.Core.Repositories
 
         }
 
-        public Task SaveAntwort(Quiz_Frage quizFrage)
+        public Task SaveQuiz_Frage(Quiz_Frage quizFrage)
         {
             throw new NotImplementedException();
         }

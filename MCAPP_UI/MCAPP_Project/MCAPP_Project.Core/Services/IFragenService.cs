@@ -43,12 +43,12 @@ namespace MCAPP_Project.Core.Services
          * Liefert Liste mit fester Anzahl an Fragen zu bestimmten Themen.
          */
 
-        List<Frage> GetFragen(List<Thema> gewaelteThemen, int anz);
+        Task<List<Frage>> GetFragen(List<Thema> gewaelteThemen, int anz);
 
         /**
          * Liefert nach Zufallsprinzip Fragen eines bestimmten Themas.
          */
-        List<Frage> GetZufallsFragen(Thema thema, int anz);
+        Task<List<Frage>> GetZufallsFragen(Thema thema, int anz);
 
         /**
          * Liefert Themaobjekt zu ThemaID.

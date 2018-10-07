@@ -53,7 +53,7 @@ namespace MCAPP_Project.Core.Services
                 quizFrage.quizID = quiz.quizID;
                 quizFrage.frageID = f.FrageId;
                 quizFrage.richtig_beantwortet = frageRichtig;
-                quizRepo.SaveAntwort(quizFrage);
+                quizRepo.SaveQuiz_Frage(quizFrage);
 
             }
 
@@ -94,6 +94,9 @@ namespace MCAPP_Project.Core.Services
             return fragerichtig;
         }
 
-
+        public async Task<bool> FrageNochNichtRichtigBeantwortet(long frageID)
+        {
+            return await quizRepo.FrageNochNichtRichtigBeantwortet(frageID);
+        }
     }
 }

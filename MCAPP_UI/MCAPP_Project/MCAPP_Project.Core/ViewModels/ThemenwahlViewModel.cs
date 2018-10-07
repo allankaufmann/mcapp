@@ -61,7 +61,7 @@ namespace MCAPP_Project.Core.ViewModels
             }
 
             List<Frage> gezogeneFragen = new List<Frage>();
-            gezogeneFragen = fragenService.GetFragen(gewaelteThemen, 10);
+            gezogeneFragen = await fragenService.GetFragen(gewaelteThemen, 10);
 
             Quiz quiz = await quizService.CreateQuiz();
             quiz.fragen = gezogeneFragen;

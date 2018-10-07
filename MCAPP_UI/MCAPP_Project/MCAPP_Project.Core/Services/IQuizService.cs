@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MCAPP_Project.Core.Services
 {
-    interface IQuizService
+    public interface IQuizService
     {
         /*
          * Liefert neue Quiz-Instanz. 
@@ -23,6 +23,12 @@ namespace MCAPP_Project.Core.Services
          * Prüft, ob eine einzelne Frage korrekt beantwortet wurde. 
          */
         Boolean FrageRichtigBeantwortet(Frage frage);
+
+        /*
+         * Prüft, ob Frage bereits beantwortet wurde bzw. ob 
+         * Frage beim letzten Mal falsch beantwortet wurde.
+         */
+        Task<bool> FrageNochNichtRichtigBeantwortet(long frageID);
 
     }
 }
