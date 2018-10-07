@@ -50,6 +50,7 @@ namespace MCAPP_Project.Core.Services
                 }
 
                 Quiz_Frage quizFrage = new Quiz_Frage();
+                quizFrage.datum = DateTime.Now;
                 quizFrage.quizID = quiz.quizID;
                 quizFrage.frageID = f.FrageId;
                 quizFrage.richtig_beantwortet = frageRichtig;

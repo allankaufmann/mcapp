@@ -21,5 +21,7 @@ namespace MCAPP_Project.Core.Models
         public long frageID { get; set; }
 
         public bool richtig_beantwortet { get; set; }
+
+        public DateTime datum { get; set; }
     }
 }

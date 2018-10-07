@@ -52,20 +52,29 @@ namespace MCAPP_Project.Core.Repositories
         public async Task<bool> FrageNochNichtRichtigBeantwortet(long frageID)
         {
 
+            /*
+             * Es werden alle Beantwortungen nach Datum sortiert zu dieser
+             * Frage geladen. Tatsächlich interessiert uns nur der erste Eintrag.
+             */
             List<Quiz_Frage> fragen = await connection.Table<Quiz_Frage>()
-                .Where(v => v.quiz_Frage_ID == frageID).ToListAsync();
+                .Where(v => v.frageID == frageID)
+                .OrderByDescending(v=>v.datum)
+                .ToListAsync();
 
-            Boolean nichtbeantwortet = true;
-
-            foreach (Quiz_Frage f in fragen)
+            /*
+             * Wenn Frage in der Vergangenheit falsch oder richtig beantwortet wurde, 
+             * dann wird dies ignoriert. Es zählt, ob die Frage beim letzten Mal
+             * korrekt beantwortet wurde.
+             */
+            if (fragen.Count>0)
             {
-                if (f.richtig_beantwortet)
-                {
-                    nichtbeantwortet = false;
-                }
+                Quiz_Frage f = fragen[0];
+                return !f.richtig_beantwortet;
             }
 
-            return nichtbeantwortet;
+
+
+            return false;
         }
     }
 }
