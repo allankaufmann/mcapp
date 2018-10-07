@@ -31,6 +31,24 @@ namespace MCAPP_Test.Tests
             Assert.Greater(q2.quizID, q1.quizID);
         }
 
+        [Test] 
+        public async Task nichtBeantworteteFragen()
+        {
+            /*
+             * Im Dummyrepository wurden 1 und 7 nicht
+             * beantwortet!
+             */
+
+            Boolean nichtBeantwortet = await quizService.FrageNochNichtRichtigBeantwortet(2);
+            Assert.IsFalse(nichtBeantwortet);
+
+            nichtBeantwortet = await quizService.FrageNochNichtRichtigBeantwortet(1);
+            Assert.IsTrue(nichtBeantwortet);
+        }
+
+
+
+
 
     }
 }

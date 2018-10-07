@@ -8,6 +8,7 @@ using NUnit.Framework;
 using MCAPP_Project.Core.Services;
 using MCAPP_Project.Core.Repositories;
 using MCAPP_Project.Core.Models;
+using System.Threading.Tasks;
 
 namespace MCAPP_UI.Tests
 {
@@ -245,6 +246,97 @@ namespace MCAPP_UI.Tests
             Assert.AreEqual(0, verteilung[2]);
 
         }
+
+        [Test]
+        public async Task zufallsFrageOhneBereitsbeantworteteFragen()
+        {
+            Thema t = service.GetThema(1);
+            List<Frage> fragen = await service.GetZufallsFragen(t, 5);
+
+            Boolean foundBeantworteFragen = false;
+
+            foreach (Frage f in fragen) {
+
+                if (f.FrageId==2 || f.FrageId == 4 || f.FrageId == 6
+                    || f.FrageId == 8 || f.FrageId == 10)                   
+                {
+                    foundBeantworteFragen = true;
+                }
+
+            }
+            Assert.IsFalse(foundBeantworteFragen);
+        }
+
+        [Test]
+        public async Task zufallsFrageMitNichtBeantworteteFragen()
+        {
+            Thema t = service.GetThema(1);
+            List<Frage> fragen = await service.GetZufallsFragen(t, 6);
+
+            Boolean foundFrage1 = false;
+            Boolean foundFrage3 = false;
+            Boolean foundFrage5 = false;
+            Boolean foundFrage7 = false;
+            Boolean foundFrage9 = false;
+            Boolean foundFrage11 = false;
+
+
+            foreach (Frage f in fragen)
+            {
+
+                if (f.FrageId==1)
+                {
+                    foundFrage1 = true;
+                } else if (f.FrageId == 3)
+                {
+                    foundFrage3 = true;
+                }
+                else if (f.FrageId == 5)
+                {
+                    foundFrage5 = true;
+                }
+                else if (f.FrageId == 7)
+                {
+                    foundFrage7 = true;
+                }
+                else if (f.FrageId == 9)
+                {
+                    foundFrage9 = true;
+                }
+                else if (f.FrageId == 11)
+                {
+                    foundFrage11 = true;
+                }
+            }
+
+            Boolean ok = foundFrage1 && foundFrage3
+                && foundFrage5 && foundFrage7 && foundFrage9 && foundFrage11;
+
+            Assert.IsTrue(ok);
+        }
+
+        [Test]
+        public async Task ZufallsFrageEnthaeltAuchBeantworteFragen()
+        {
+            Thema t = service.GetThema(1);
+            List<Frage> fragen = await service.GetZufallsFragen(t, 7);
+
+            Boolean foundBeantworteFragen = false;
+
+            foreach (Frage f in fragen)
+            {
+
+                if (f.FrageId == 2 || f.FrageId == 4 || f.FrageId == 6
+                    || f.FrageId == 8 || f.FrageId == 10)
+                {
+                    foundBeantworteFragen = true;
+                }
+
+            }
+            Assert.IsTrue(foundBeantworteFragen);
+        }
+
+
 
     }
 }

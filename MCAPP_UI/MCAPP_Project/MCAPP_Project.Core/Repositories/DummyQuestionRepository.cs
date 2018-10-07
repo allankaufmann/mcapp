@@ -12,7 +12,20 @@ namespace MCAPP_Project.Core.Repositories
 
         public Task<bool> FrageNochNichtRichtigBeantwortet(long frageID)
         {
-            Task<bool> t = Task.FromResult<bool>(false);
+            Boolean nichtBeantwortet = false;
+
+            if (frageID == 1 ||
+                frageID == 3 ||
+                frageID == 5 ||
+                frageID == 7 ||
+                frageID == 9 ||
+                frageID ==11)
+            {
+                nichtBeantwortet = true;
+            }
+
+
+            Task<bool> t = Task.FromResult<bool>(nichtBeantwortet);
             return t;
         }
 
