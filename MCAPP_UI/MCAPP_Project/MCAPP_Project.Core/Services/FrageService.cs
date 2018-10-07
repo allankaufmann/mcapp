@@ -287,13 +287,23 @@ namespace MCAPP_Project.Core.Services
             List<Frage> alleFragen = GetFragen(thema.ThemaID);
             List<Frage> zufallsFragen = new List<Frage>();
 
+            List<Frage> nichtBeantworteteFragen = new List<Frage>();
+
             foreach (Frage f in alleFragen)
             {
                 bool frageNochNicht = await quizService.FrageNochNichtRichtigBeantwortet(f.FrageId);
-                Console.WriteLine(frageNochNicht);
 
+                if (frageNochNicht)
+                {
+                    nichtBeantworteteFragen.Add(f);
+                }
             }
 
+            foreach (Frage f in nichtBeantworteteFragen)
+            {
+                alleFragen.Remove(f);
+            }
+            
 
 
             for (int i = 0; i < anz; i++)
@@ -301,14 +311,17 @@ namespace MCAPP_Project.Core.Services
 
                 lock (syncLock)
                 {
-                    if (alleFragen.Count == 0)
+                    if (alleFragen.Count == 0 && nichtBeantworteteFragen.Count == 0)
                     {
                         break;
                     }
 
-                    int index = random.Next(0, alleFragen.Count);
-                    zufallsFragen.Add(alleFragen[index]);
-                    alleFragen.RemoveAt(index);
+                    List<Frage> fragenListe = (nichtBeantworteteFragen.Count > 0) ? nichtBeantworteteFragen : alleFragen;
+
+
+                    int index = random.Next(0, fragenListe.Count);
+                    zufallsFragen.Add(fragenListe[index]);
+                    fragenListe.RemoveAt(index);
                 }
             }
 
