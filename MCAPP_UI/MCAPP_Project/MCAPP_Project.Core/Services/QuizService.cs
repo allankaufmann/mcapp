@@ -3,16 +3,19 @@ using MCAPP_Project.Core.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MCAPP_Project.Core.Services
 {
     public class QuizService : IQuizService
     {
         readonly IFragenRepository repository;
+        readonly IQuizRepository quizRepo;
 
-        public QuizService(IFragenRepository repository)
+        public QuizService(IFragenRepository repository, IQuizRepository quizRepo)
         {
             this.repository = repository;
+            this.quizRepo = quizRepo;
         }
 
         public Quiz CreateAuswertung(Thema thema, Quiz quiz)
@@ -21,6 +24,9 @@ namespace MCAPP_Project.Core.Services
 
             return quiz;
         }
+
+
+
 
         private String createAuswertungText(Thema thema, Quiz quiz)
         {
@@ -36,8 +42,19 @@ namespace MCAPP_Project.Core.Services
 
                 if (frageRichtig)
                 {
+                    quiz.FrageRichtigBeantwortet.Add(f.FrageId, true);
                     anzahlRichtig++;
+                } else
+                {
+                    quiz.FrageRichtigBeantwortet.Add(f.FrageId, false);
                 }
+
+                Quiz_Frage quizFrage = new Quiz_Frage();
+                quizFrage.quizID = quiz.quizID;
+                quizFrage.frageID = f.FrageId;
+                quizFrage.richtig_beantwortet = frageRichtig;
+                quizRepo.SaveAntwort(quizFrage);
+
             }
 
             text = anzahlRichtig + "/" + fragen.Count + " richtig beantwortet!";
@@ -47,11 +64,13 @@ namespace MCAPP_Project.Core.Services
 
 
 
-        public Quiz GetNewQuiz()
+        public async Task<Quiz> CreateQuiz()
         {
             Quiz quiz = new Quiz();
-            quiz.quizID = repository.GetNewQuizID();
-            quiz.datum = new DateTime();
+            quiz.datum = DateTime.Now;
+            await quizRepo.Save(quiz);
+            
+
 
             return quiz;
         }
@@ -74,5 +93,7 @@ namespace MCAPP_Project.Core.Services
 
             return fragerichtig;
         }
+
+
     }
 }

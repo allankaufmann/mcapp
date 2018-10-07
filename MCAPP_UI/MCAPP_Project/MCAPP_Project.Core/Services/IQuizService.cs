@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MCAPP_Project.Core.Services
 {
@@ -10,7 +11,7 @@ namespace MCAPP_Project.Core.Services
         /*
          * Liefert neue Quiz-Instanz. 
          */
-        Quiz GetNewQuiz();
+        Task<Quiz> CreateQuiz();
 
         /*
          * Wertet nach Beendigung des Quiz die eingegebenen Antworten aus

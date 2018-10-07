@@ -14,11 +14,17 @@ namespace MCAPP_Project.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
+            CreatableTypes()
+                .EndingWith("Repository")
+                .AsInterfaces()
+                .RegisterAsLazySingleton();
+
             //RegisterNavigationServiceAppStart<ViewModels.SampleQuestionViewModel>();
             //RegisterNavigationServiceAppStart<ViewModels.QuestionTableViewModel>();
             RegisterNavigationServiceAppStart<ViewModels.ThemenwahlViewModel>();
             Mvx.RegisterType<IFragenRepository, DummyFragenRepository>();
             Mvx.RegisterType<IQuizService, QuizService>();
+            Mvx.RegisterType<IQuizRepository, QuizRepository>();
             
             
             //

@@ -1,4 +1,6 @@
 ﻿using MCAPP_Project.Core.Models;
+using SQLite;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,21 +10,31 @@ namespace MCAPP_Project.Core.Models
     public class Quiz
     {
 
+        [PrimaryKey, AutoIncrement]
         public long quizID { get; set; }
 
         public DateTime datum { get; set; }
 
+        [Ignore]
         public List<Frage> fragen { get; set; }
 
+        [Ignore]
         public int position { get; set; }
 
+        [Ignore]
         public List<Thema> gewaelteThemen { get; set; }
 
+        [Ignore]
         public Dictionary<Thema, String> AuswertungsTexte { get; set; }
+
+        [Ignore]
+        public Dictionary<long, bool> FrageRichtigBeantwortet { get; set; }
+
 
         public Quiz()
         {
             AuswertungsTexte = new Dictionary<Thema, string>();
+            FrageRichtigBeantwortet = new Dictionary<long, bool>();
         }
 
 
