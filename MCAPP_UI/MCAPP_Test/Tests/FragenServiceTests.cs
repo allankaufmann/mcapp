@@ -22,7 +22,7 @@ namespace MCAPP_UI.Tests
         public void SetUp()
         {
             IFragenRepository repo = new DummyFragenRepository();
-            IQuizRepository repoQuiz = new DummyQuestionRepository();
+            IQuizRepository repoQuiz = new DummyQuizRepository();
             quizService = new QuizService(repo, repoQuiz);
             service = new FrageService(repo, quizService);
 

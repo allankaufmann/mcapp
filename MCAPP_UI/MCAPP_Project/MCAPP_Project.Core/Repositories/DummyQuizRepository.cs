@@ -6,7 +6,7 @@ using MCAPP_Project.Core.Models;
 
 namespace MCAPP_Project.Core.Repositories
 {
-    public class DummyQuestionRepository : IQuizRepository
+    public class DummyQuizRepository : IQuizRepository
     {
         int quizCounter = 0;
 

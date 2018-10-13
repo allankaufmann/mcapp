@@ -18,13 +18,13 @@ namespace MCAPP_Test.Tests
         [SetUp]
         public void SetUp()
         {
-            IFragenRepository repo = new DummyFragenRepository();
-            IQuizRepository repo2 = new DummyQuestionRepository();
-            quizService = new QuizService(repo, repo2);
+            IFragenRepository repoFragen = new DummyFragenRepository();
+            IQuizRepository repoQuiz = new DummyQuizRepository();
+            quizService = new QuizService(repoFragen, repoQuiz);
         }
 
         [Test]
-        public async Task increaseQuizIDAsync()
+        public async Task increaseQuizID()
         {
             Quiz q1 = await quizService.CreateQuiz();
             Quiz q2 = await quizService.CreateQuiz();
