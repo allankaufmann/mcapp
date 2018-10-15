@@ -1,0 +1,25 @@
+
+{
+    "mcappWebApp": {
+        "thema" : {
+            "home": {
+                "title": "Themas",
+                "createLabel": "Thema erstellen",
+                "createOrEditLabel": "Thema erstellen oder bearbeiten",
+                "search": "Suche nach Thema"
+            },
+            "created": "Thema erstellt mit ID {{ param }}",
+            "updated": "Thema aktualisiert mit ID {{ param }}",
+            "deleted": "Thema gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Thema {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Thema"
+            },
+            "themaID": "Thema ID",
+            "themaText": "Thema Text",
+            "frage": "Frage"
+        }
+    }
+}

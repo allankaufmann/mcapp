@@ -1,0 +1,32 @@
+{
+    "name": "QuizFrage",
+    "fields": [
+        {
+            "fieldName": "richtig",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "quizID",
+            "otherEntityName": "quiz",
+            "otherEntityRelationshipName": "quizFrage"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "frageID",
+            "otherEntityName": "frage",
+            "otherEntityRelationshipName": "quizFrage"
+        }
+    ],
+    "changelogDate": "20181015192546",
+    "entityTableName": "quiz_frage",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

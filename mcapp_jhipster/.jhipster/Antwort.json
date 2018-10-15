@@ -1,0 +1,43 @@
+{
+    "name": "Antwort",
+    "fields": [
+        {
+            "fieldName": "antwortID",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "position",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "wahr",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "text",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bild",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "frageID",
+            "otherEntityName": "frage",
+            "otherEntityRelationshipName": "antwort"
+        }
+    ],
+    "changelogDate": "20181015192544",
+    "entityTableName": "antwort",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

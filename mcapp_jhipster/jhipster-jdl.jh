@@ -1,0 +1,41 @@
+entity Thema {
+	themaID Long, 
+    themaText String
+}
+
+enum Fragetyp {
+    TEXT, BILD
+}
+
+entity Frage {
+	frageID Long, 
+    frageTyp Fragetyp,
+    themaID Long
+}
+
+entity Antwort {
+	antwortID Long,
+	position Long, 
+	wahr Boolean,
+	text String,
+	bild ImageBlob 
+}
+
+relationship OneToMany {
+	Frage{themaID} to Thema,
+    Antwort{frageID} to Frage,
+    QuizFrage{quizID} to Quiz, 
+    QuizFrage{frageID} to Frage
+}
+
+entity Quiz {
+	quizID Long, 
+	datum LocalDate
+}
+
+entity QuizFrage {
+	richtig Boolean
+}
+
+
+
