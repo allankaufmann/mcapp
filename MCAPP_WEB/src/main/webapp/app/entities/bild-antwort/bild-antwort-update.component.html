@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-bild-antwort-heading" jhiTranslate="mcappWebApp.bildAntwort.home.createOrEditLabel">Create or edit a Bild Antwort</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!bildAntwort.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="bildAntwort.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mcappWebApp.bildAntwort.position" for="field_position">Position</label>
+                    <input type="number" class="form-control" name="position" id="field_position"
+                        [(ngModel)]="bildAntwort.position" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mcappWebApp.bildAntwort.wahr" for="field_wahr">Wahr</label>
+                    <input type="checkbox" class="form-control" name="wahr" id="field_wahr"
+                        [(ngModel)]="bildAntwort.wahr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mcappWebApp.bildAntwort.bild" for="field_bild">Bild</label>
+                    <div>
+                        <img [src]="'data:' + bildAntwort.bildContentType + ';base64,' + bildAntwort.bild" style="max-height: 100px;" *ngIf="bildAntwort.bild" alt="bildAntwort image"/>
+                        <div *ngIf="bildAntwort.bild" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{bildAntwort.bildContentType}}, {{byteSize(bildAntwort.bild)}}</span>
+                            <button type="button" (click)="clearInputImage('bild', 'bildContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_bild" (change)="setFileData($event, bildAntwort, 'bild', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="bild" id="field_bild"
+                        [(ngModel)]="bildAntwort.bild" />
+                    <input type="hidden" class="form-control" name="bildContentType" id="field_bildContentType"
+                        [(ngModel)]="bildAntwort.bildContentType" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

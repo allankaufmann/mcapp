@@ -7,14 +7,14 @@ enum Fragetyp {
 }
 
 entity Frage {
+	frageText String,
     frageTyp Fragetyp
 }
 
 entity TextAntwort {
 	position Long, 
 	wahr Boolean,
-	text String,
-	bild ImageBlob 
+	text String
 }
 
 entity BildAntwort {

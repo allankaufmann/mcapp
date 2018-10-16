@@ -1,0 +1,26 @@
+
+{
+    "mcappWebApp": {
+        "bildAntwort" : {
+            "home": {
+                "title": "Bild Antworts",
+                "createLabel": "Bild Antwort erstellen",
+                "createOrEditLabel": "Bild Antwort erstellen oder bearbeiten",
+                "search": "Suche nach Bild Antwort"
+            },
+            "created": "Bild Antwort erstellt mit ID {{ param }}",
+            "updated": "Bild Antwort aktualisiert mit ID {{ param }}",
+            "deleted": "Bild Antwort gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Bild Antwort {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Bild Antwort"
+            },
+            "position": "Position",
+            "wahr": "Wahr",
+            "bild": "Bild",
+            "frageID": "Frage ID"
+        }
+    }
+}

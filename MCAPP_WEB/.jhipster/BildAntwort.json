@@ -1,0 +1,35 @@
+{
+    "name": "BildAntwort",
+    "fields": [
+        {
+            "fieldName": "position",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "wahr",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "bild",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "frageID",
+            "otherEntityName": "frage",
+            "otherEntityRelationshipName": "bildAntwort"
+        }
+    ],
+    "changelogDate": "20181016201147",
+    "entityTableName": "bild_antwort",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

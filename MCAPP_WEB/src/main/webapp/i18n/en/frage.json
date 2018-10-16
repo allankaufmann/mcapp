@@ -1,0 +1,28 @@
+
+{
+    "mcappWebApp": {
+        "frage" : {
+            "home": {
+                "title": "Frages",
+                "createLabel": "Create a new Frage",
+                "createOrEditLabel": "Create or edit a Frage",
+                "search": "Search for Frage"
+            },
+            "created": "A new Frage is created with identifier {{ param }}",
+            "updated": "A Frage is updated with identifier {{ param }}",
+            "deleted": "A Frage is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Frage {{ id }}?"
+            },
+            "detail": {
+                "title": "Frage"
+            },
+            "frageText": "Frage Text",
+            "frageTyp": "Frage Typ",
+            "themaID": "Thema ID",
+            "textAntwort": "Text Antwort",
+            "bildAntwort": "Bild Antwort",
+            "quizFrage": "Quiz Frage"
+        }
+    }
+}

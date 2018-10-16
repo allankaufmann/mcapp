@@ -1,0 +1,26 @@
+{
+    "name": "Thema",
+    "fields": [
+        {
+            "fieldName": "themaText",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "frage",
+            "otherEntityName": "frage",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181016201144",
+    "entityTableName": "thema",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

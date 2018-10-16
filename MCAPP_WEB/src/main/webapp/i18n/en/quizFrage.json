@@ -1,0 +1,25 @@
+
+{
+    "mcappWebApp": {
+        "quizFrage" : {
+            "home": {
+                "title": "Quiz Frages",
+                "createLabel": "Create a new Quiz Frage",
+                "createOrEditLabel": "Create or edit a Quiz Frage",
+                "search": "Search for Quiz Frage"
+            },
+            "created": "A new Quiz Frage is created with identifier {{ param }}",
+            "updated": "A Quiz Frage is updated with identifier {{ param }}",
+            "deleted": "A Quiz Frage is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Quiz Frage {{ id }}?"
+            },
+            "detail": {
+                "title": "Quiz Frage"
+            },
+            "richtig": "Richtig",
+            "quizID": "Quiz ID",
+            "frageID": "Frage ID"
+        }
+    }
+}

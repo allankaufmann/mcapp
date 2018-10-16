@@ -1,0 +1,24 @@
+
+{
+    "mcappWebApp": {
+        "quiz" : {
+            "home": {
+                "title": "Quizzes",
+                "createLabel": "Quiz erstellen",
+                "createOrEditLabel": "Quiz erstellen oder bearbeiten",
+                "search": "Suche nach Quiz"
+            },
+            "created": "Quiz erstellt mit ID {{ param }}",
+            "updated": "Quiz aktualisiert mit ID {{ param }}",
+            "deleted": "Quiz gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Quiz {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Quiz"
+            },
+            "datum": "Datum",
+            "quizFrage": "Quiz Frage"
+        }
+    }
+}

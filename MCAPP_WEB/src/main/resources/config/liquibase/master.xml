@@ -5,6 +5,15 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181016201144_added_entity_Thema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181016201145_added_entity_Frage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181016201146_added_entity_TextAntwort.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181016201147_added_entity_BildAntwort.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181016201148_added_entity_Quiz.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181016201149_added_entity_QuizFrage.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20181016201144_added_entity_constraints_Thema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181016201145_added_entity_constraints_Frage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181016201148_added_entity_constraints_Quiz.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

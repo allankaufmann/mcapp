@@ -1,0 +1,34 @@
+{
+    "name": "TextAntwort",
+    "fields": [
+        {
+            "fieldName": "position",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "wahr",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "text",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "frageID",
+            "otherEntityName": "frage",
+            "otherEntityRelationshipName": "textAntwort"
+        }
+    ],
+    "changelogDate": "20181016201146",
+    "entityTableName": "text_antwort",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

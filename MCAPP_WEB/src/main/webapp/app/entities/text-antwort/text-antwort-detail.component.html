@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="textAntwort">
+            <h2><span jhiTranslate="mcappWebApp.textAntwort.detail.title">Text Antwort</span> {{textAntwort.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mcappWebApp.textAntwort.position">Position</span></dt>
+                <dd>
+                    <span>{{textAntwort.position}}</span>
+                </dd>
+                <dt><span jhiTranslate="mcappWebApp.textAntwort.wahr">Wahr</span></dt>
+                <dd>
+                    <span>{{textAntwort.wahr}}</span>
+                </dd>
+                <dt><span jhiTranslate="mcappWebApp.textAntwort.text">Text</span></dt>
+                <dd>
+                    <span>{{textAntwort.text}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/text-antwort', textAntwort.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+{
+    "mcappWebApp": {
+        "Fragetyp" : {
+            "null": "",
+            "TEXT": "TEXT",
+            "BILD": "BILD"
+        }
+    }
+}

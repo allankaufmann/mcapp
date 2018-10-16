@@ -5,7 +5,6 @@ import java.time.Duration;
 import org.ehcache.config.builders.*;
 import org.ehcache.jsr107.Eh107Configuration;
 
-import io.github.jhipster.config.jcache.BeanClassLoaderAwareJCacheRegionFactory;
 import io.github.jhipster.config.JHipsterProperties;
 
 import org.springframework.boot.autoconfigure.cache.JCacheManagerCustomizer;
@@ -22,7 +21,6 @@ public class CacheConfiguration {
     private final javax.cache.configuration.Configuration<Object, Object> jcacheConfiguration;
 
     public CacheConfiguration(JHipsterProperties jHipsterProperties) {
-        BeanClassLoaderAwareJCacheRegionFactory.setBeanClassLoader(this.getClass().getClassLoader());
         JHipsterProperties.Cache.Ehcache ehcache =
             jHipsterProperties.getCache().getEhcache();
 
@@ -38,9 +36,6 @@ public class CacheConfiguration {
         return cm -> {
             cm.createCache(de.fernunihagen.mcapp.mcappweb.repository.UserRepository.USERS_BY_LOGIN_CACHE, jcacheConfiguration);
             cm.createCache(de.fernunihagen.mcapp.mcappweb.repository.UserRepository.USERS_BY_EMAIL_CACHE, jcacheConfiguration);
-            cm.createCache(de.fernunihagen.mcapp.mcappweb.domain.User.class.getName(), jcacheConfiguration);
-            cm.createCache(de.fernunihagen.mcapp.mcappweb.domain.Authority.class.getName(), jcacheConfiguration);
-            cm.createCache(de.fernunihagen.mcapp.mcappweb.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

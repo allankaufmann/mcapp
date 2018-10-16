@@ -1,0 +1,49 @@
+{
+    "name": "Frage",
+    "fields": [
+        {
+            "fieldName": "frageText",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "frageTyp",
+            "fieldType": "Fragetyp",
+            "fieldValues": "TEXT,BILD"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "themaID",
+            "otherEntityName": "thema",
+            "otherEntityRelationshipName": "frage"
+        },
+        {
+            "relationshipName": "textAntwort",
+            "otherEntityName": "textAntwort",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "bildAntwort",
+            "otherEntityName": "bildAntwort",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "quizFrage",
+            "otherEntityName": "quizFrage",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181016201145",
+    "entityTableName": "frage",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

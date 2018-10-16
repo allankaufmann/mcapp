@@ -1,0 +1,26 @@
+{
+    "name": "Quiz",
+    "fields": [
+        {
+            "fieldName": "datum",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "quizFrage",
+            "otherEntityName": "quizFrage",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181016201148",
+    "entityTableName": "quiz",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

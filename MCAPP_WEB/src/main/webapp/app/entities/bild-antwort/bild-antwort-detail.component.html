@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bildAntwort">
+            <h2><span jhiTranslate="mcappWebApp.bildAntwort.detail.title">Bild Antwort</span> {{bildAntwort.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mcappWebApp.bildAntwort.position">Position</span></dt>
+                <dd>
+                    <span>{{bildAntwort.position}}</span>
+                </dd>
+                <dt><span jhiTranslate="mcappWebApp.bildAntwort.wahr">Wahr</span></dt>
+                <dd>
+                    <span>{{bildAntwort.wahr}}</span>
+                </dd>
+                <dt><span jhiTranslate="mcappWebApp.bildAntwort.bild">Bild</span></dt>
+                <dd>
+                    <div *ngIf="bildAntwort.bild">
+                        <a (click)="openFile(bildAntwort.bildContentType, bildAntwort.bild)">
+                            <img [src]="'data:' + bildAntwort.bildContentType + ';base64,' + bildAntwort.bild" style="max-width: 100%;" alt="bildAntwort image"/>
+                        </a>
+                        {{bildAntwort.bildContentType}}, {{byteSize(bildAntwort.bild)}}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bild-antwort', bildAntwort.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
