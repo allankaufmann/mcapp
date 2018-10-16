@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "de.fernunihagen.mcapp.mcappweb",
+      "nativeLanguage": "de"
+    },
+    "jhipsterVersion": "5.4.2",
+    "applicationType": "monolith",
+    "baseName": "MCAPP_WEB",
+    "packageName": "de.fernunihagen.mcapp.mcappweb",
+    "packageFolder": "de/fernunihagen/mcapp/mcappweb",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YjJlZTZhYzU3MWRhYWU2MjgzZjY0ZmUwMmU4YzRiMGQ5ZThmNTBkYTRiYjBmN2FmMzkxN2ZhZTVmYTFlN2RkZmQwOGJlNTE4NzllNzQyMjYzZjJmYmMzMzE3NDNjYTk0YjM4NzMxN2JiODk2NDRkMmUzMDk5ZGQ3MjcwOWFiZTQ=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "de",
+    "languages": [
+      "de",
+      "en"
+    ]
+  }
+}
