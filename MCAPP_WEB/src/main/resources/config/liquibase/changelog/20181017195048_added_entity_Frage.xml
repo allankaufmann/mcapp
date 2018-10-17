@@ -15,22 +15,30 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity TextAntwort.
+        Added the entity Frage.
     -->
-    <changeSet id="20181016201146-1" author="jhipster">
-        <createTable tableName="text_antwort">
+    <changeSet id="20181017195048-1" author="jhipster">
+        <createTable tableName="frage">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="position" type="bigint">
+            <column name="frage_text" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
-            <column name="wahr" type="bit">
+            <column name="frage_typ" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
-            <column name="text" type="varchar(255)">
+            <column name="text_antwort_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="bild_antwort_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="quiz_frage_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

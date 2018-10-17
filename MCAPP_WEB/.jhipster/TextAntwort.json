@@ -22,7 +22,7 @@
             "otherEntityRelationshipName": "textAntwort"
         }
     ],
-    "changelogDate": "20181016201146",
+    "changelogDate": "20181017195049",
     "entityTableName": "text_antwort",
     "dto": "no",
     "pagination": "no",

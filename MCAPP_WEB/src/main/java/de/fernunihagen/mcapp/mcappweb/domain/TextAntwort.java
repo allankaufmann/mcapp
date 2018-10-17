@@ -1,6 +1,8 @@
 package de.fernunihagen.mcapp.mcappweb.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 
@@ -15,6 +17,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "text_antwort")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Document(indexName = "textantwort")
 public class TextAntwort implements Serializable {
 
@@ -34,6 +37,7 @@ public class TextAntwort implements Serializable {
     private String text;
 
     @OneToMany(mappedBy = "textAntwort")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Frage> frageIDS = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {

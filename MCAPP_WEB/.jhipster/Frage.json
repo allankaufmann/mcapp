@@ -37,7 +37,7 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20181016201145",
+    "changelogDate": "20181017195048",
     "entityTableName": "frage",
     "dto": "no",
     "pagination": "no",

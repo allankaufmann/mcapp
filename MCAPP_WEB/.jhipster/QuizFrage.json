@@ -20,7 +20,7 @@
             "otherEntityRelationshipName": "quizFrage"
         }
     ],
-    "changelogDate": "20181016201149",
+    "changelogDate": "20181017195052",
     "entityTableName": "quiz_frage",
     "dto": "no",
     "pagination": "no",

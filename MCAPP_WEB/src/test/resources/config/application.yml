@@ -17,17 +17,17 @@ eureka:
     client:
         enabled: false
     instance:
-        appname: MCAPP_WEB
-        instanceId: MCAPP_WEB:${spring.application.instance-id:${random.value}}
+        appname: mcapp_web
+        instanceId: mcapp_web:${spring.application.instance-id:${random.value}}
 
 spring:
     application:
-        name: MCAPP_WEB
+        name: mcapp_web
     cache:
         type: simple
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:mem:MCAPP_WEB;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+        url: jdbc:h2:mem:mcapp_web;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
         name:
         username:
         password:
@@ -101,7 +101,7 @@ jhipster:
         authentication:
             jwt:
                 # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-                base64-secret: MTc4MDMyMTM0ODFkY2FlOTRhZmU5MmFjZGE0ZDk4Njk0MzQyZGIyZmM2NDEzMjcwN2JmNmIxMThiZTQ1NmE0Yjg3MDUzMGIyMzMxMzYyOGQ5ODI0ZjgwNWNjNmU1NzQxODIzZTFiYjMzYWZkYzFhY2JkZTYxY2U1YzY2MmQ5NDI=
+                base64-secret: MTE1YWIzZjllMTRmNTM2NWFiNTYyM2M0OGFjZDMxYWE5ZjE3MDg5ZjVkMjZlMzFmMWRjYTgzMGFhZjZlMWMwOWZjNzA5MzQzZTE5YTJiNzY5YTM0MTQ0YzZhYjEwN2I2NDllZGFhYmM1ZDQxNjA0MGFiNDY0OWNiOGNkZWNkMTU=
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration

@@ -1,6 +1,8 @@
 package de.fernunihagen.mcapp.mcappweb.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 
@@ -14,6 +16,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "quiz")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Document(indexName = "quiz")
 public class Quiz implements Serializable {
 

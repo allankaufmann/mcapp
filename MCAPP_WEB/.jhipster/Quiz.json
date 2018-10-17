@@ -14,7 +14,7 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20181016201148",
+    "changelogDate": "20181017195051",
     "entityTableName": "quiz",
     "dto": "no",
     "pagination": "no",

@@ -14,7 +14,7 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20181016201144",
+    "changelogDate": "20181017195047",
     "entityTableName": "thema",
     "dto": "no",
     "pagination": "no",

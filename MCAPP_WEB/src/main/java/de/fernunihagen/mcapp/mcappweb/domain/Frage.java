@@ -2,6 +2,8 @@ package de.fernunihagen.mcapp.mcappweb.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 
@@ -18,6 +20,7 @@ import de.fernunihagen.mcapp.mcappweb.domain.enumeration.Fragetyp;
  */
 @Entity
 @Table(name = "frage")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Document(indexName = "frage")
 public class Frage implements Serializable {
 
@@ -35,6 +38,7 @@ public class Frage implements Serializable {
     private Fragetyp frageTyp;
 
     @OneToMany(mappedBy = "frage")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Thema> themaIDS = new HashSet<>();
     @ManyToOne
     @JsonIgnoreProperties("frageIDS")

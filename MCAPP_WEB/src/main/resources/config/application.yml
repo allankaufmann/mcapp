@@ -62,7 +62,7 @@ spring:
     autoconfigure:
         exclude: org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchAutoConfiguration,org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchDataAutoConfiguration
     application:
-        name: MCAPP_WEB
+        name: mcapp_web
     jpa:
         open-in-view: false
         hibernate:
@@ -109,11 +109,11 @@ jhipster:
         #allow-credentials: true
         #max-age: 1800
     mail:
-        from: MCAPP_WEB@localhost
+        from: mcapp_web@localhost
     swagger:
         default-include-pattern: /api/.*
-        title: MCAPP_WEB API
-        description: MCAPP_WEB API documentation
+        title: mcapp_web API
+        description: mcapp_web API documentation
         version: 0.0.1
         terms-of-service-url:
         contact-name:
@@ -123,7 +123,7 @@ jhipster:
         license-url:
 
 logging:
-    file: target/MCAPP_WEB.log
+    file: target/mcapp_web.log
 
 # ===================================================================
 # Application specific properties

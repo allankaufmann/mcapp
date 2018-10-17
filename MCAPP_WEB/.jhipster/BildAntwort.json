@@ -23,7 +23,7 @@
             "otherEntityRelationshipName": "bildAntwort"
         }
     ],
-    "changelogDate": "20181016201147",
+    "changelogDate": "20181017195050",
     "entityTableName": "bild_antwort",
     "dto": "no",
     "pagination": "no",
