@@ -1,6 +1,6 @@
 package de.fernunihagen.mcapp.mcappweb.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -9,6 +9,8 @@ import javax.persistence.*;
 import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -29,10 +31,9 @@ public class Quiz implements Serializable {
     @Column(name = "datum")
     private LocalDate datum;
 
-    @ManyToOne
-    @JsonIgnoreProperties("quizIDS")
-    private QuizFrage quizFrage;
-
+    @OneToMany(mappedBy = "quiz")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<QuizFrage> quizFrageIDS = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -55,17 +56,29 @@ public class Quiz implements Serializable {
         this.datum = datum;
     }
 
-    public QuizFrage getQuizFrage() {
-        return quizFrage;
+    public Set<QuizFrage> getQuizFrageIDS() {
+        return quizFrageIDS;
     }
 
-    public Quiz quizFrage(QuizFrage quizFrage) {
-        this.quizFrage = quizFrage;
+    public Quiz quizFrageIDS(Set<QuizFrage> quizFrages) {
+        this.quizFrageIDS = quizFrages;
         return this;
     }
 
-    public void setQuizFrage(QuizFrage quizFrage) {
-        this.quizFrage = quizFrage;
+    public Quiz addQuizFrageID(QuizFrage quizFrage) {
+        this.quizFrageIDS.add(quizFrage);
+        quizFrage.setQuiz(this);
+        return this;
+    }
+
+    public Quiz removeQuizFrageID(QuizFrage quizFrage) {
+        this.quizFrageIDS.remove(quizFrage);
+        quizFrage.setQuiz(null);
+        return this;
+    }
+
+    public void setQuizFrageIDS(Set<QuizFrage> quizFrages) {
+        this.quizFrageIDS = quizFrages;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

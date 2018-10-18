@@ -1,6 +1,6 @@
 package de.fernunihagen.mcapp.mcappweb.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -8,8 +8,6 @@ import javax.persistence.*;
 
 import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -36,9 +34,10 @@ public class TextAntwort implements Serializable {
     @Column(name = "text")
     private String text;
 
-    @OneToMany(mappedBy = "textAntwort")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Frage> frageIDS = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties("textAntwortIDS")
+    private Frage frage;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -87,29 +86,17 @@ public class TextAntwort implements Serializable {
         this.text = text;
     }
 
-    public Set<Frage> getFrageIDS() {
-        return frageIDS;
+    public Frage getFrage() {
+        return frage;
     }
 
-    public TextAntwort frageIDS(Set<Frage> frages) {
-        this.frageIDS = frages;
+    public TextAntwort frage(Frage frage) {
+        this.frage = frage;
         return this;
     }
 
-    public TextAntwort addFrageID(Frage frage) {
-        this.frageIDS.add(frage);
-        frage.setTextAntwort(this);
-        return this;
-    }
-
-    public TextAntwort removeFrageID(Frage frage) {
-        this.frageIDS.remove(frage);
-        frage.setTextAntwort(null);
-        return this;
-    }
-
-    public void setFrageIDS(Set<Frage> frages) {
-        this.frageIDS = frages;
+    public void setFrage(Frage frage) {
+        this.frage = frage;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

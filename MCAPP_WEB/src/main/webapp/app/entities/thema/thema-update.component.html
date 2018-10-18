@@ -15,13 +15,6 @@
                         [(ngModel)]="thema.themaText" />
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="mcappWebApp.thema.frage" for="field_frage">Frage</label>
-                    <select class="form-control" id="field_frage" name="frage" [(ngModel)]="thema.frage" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="frageOption.id === thema.frage?.id ? thema.frage : frageOption" *ngFor="let frageOption of frages; trackBy: trackFrageById">{{frageOption.id}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

@@ -8,10 +8,10 @@
     ],
     "relationships": [
         {
-            "relationshipName": "quizFrage",
+            "relationshipType": "one-to-many",
+            "relationshipName": "quizFrageID",
             "otherEntityName": "quizFrage",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
+            "otherEntityRelationshipName": "quiz"
         }
     ],
     "changelogDate": "20181017195051",

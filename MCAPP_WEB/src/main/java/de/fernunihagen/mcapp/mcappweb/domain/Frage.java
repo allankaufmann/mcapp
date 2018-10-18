@@ -37,21 +37,19 @@ public class Frage implements Serializable {
     @Column(name = "frage_typ")
     private Fragetyp frageTyp;
 
+    @ManyToOne
+    @JsonIgnoreProperties("frageIDS")
+    private Thema thema;
+
     @OneToMany(mappedBy = "frage")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Thema> themaIDS = new HashSet<>();
-    @ManyToOne
-    @JsonIgnoreProperties("frageIDS")
-    private TextAntwort textAntwort;
-
-    @ManyToOne
-    @JsonIgnoreProperties("frageIDS")
-    private BildAntwort bildAntwort;
-
-    @ManyToOne
-    @JsonIgnoreProperties("frageIDS")
-    private QuizFrage quizFrage;
-
+    private Set<TextAntwort> textAntwortIDS = new HashSet<>();
+    @OneToMany(mappedBy = "frage")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<BildAntwort> bildAntwortIDS = new HashSet<>();
+    @OneToMany(mappedBy = "frage")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<QuizFrage> quizFrageIDS = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -87,68 +85,92 @@ public class Frage implements Serializable {
         this.frageTyp = frageTyp;
     }
 
-    public Set<Thema> getThemaIDS() {
-        return themaIDS;
+    public Thema getThema() {
+        return thema;
     }
 
-    public Frage themaIDS(Set<Thema> themas) {
-        this.themaIDS = themas;
+    public Frage thema(Thema thema) {
+        this.thema = thema;
         return this;
     }
 
-    public Frage addThemaID(Thema thema) {
-        this.themaIDS.add(thema);
-        thema.setFrage(this);
+    public void setThema(Thema thema) {
+        this.thema = thema;
+    }
+
+    public Set<TextAntwort> getTextAntwortIDS() {
+        return textAntwortIDS;
+    }
+
+    public Frage textAntwortIDS(Set<TextAntwort> textAntworts) {
+        this.textAntwortIDS = textAntworts;
         return this;
     }
 
-    public Frage removeThemaID(Thema thema) {
-        this.themaIDS.remove(thema);
-        thema.setFrage(null);
+    public Frage addTextAntwortID(TextAntwort textAntwort) {
+        this.textAntwortIDS.add(textAntwort);
+        textAntwort.setFrage(this);
         return this;
     }
 
-    public void setThemaIDS(Set<Thema> themas) {
-        this.themaIDS = themas;
-    }
-
-    public TextAntwort getTextAntwort() {
-        return textAntwort;
-    }
-
-    public Frage textAntwort(TextAntwort textAntwort) {
-        this.textAntwort = textAntwort;
+    public Frage removeTextAntwortID(TextAntwort textAntwort) {
+        this.textAntwortIDS.remove(textAntwort);
+        textAntwort.setFrage(null);
         return this;
     }
 
-    public void setTextAntwort(TextAntwort textAntwort) {
-        this.textAntwort = textAntwort;
+    public void setTextAntwortIDS(Set<TextAntwort> textAntworts) {
+        this.textAntwortIDS = textAntworts;
     }
 
-    public BildAntwort getBildAntwort() {
-        return bildAntwort;
+    public Set<BildAntwort> getBildAntwortIDS() {
+        return bildAntwortIDS;
     }
 
-    public Frage bildAntwort(BildAntwort bildAntwort) {
-        this.bildAntwort = bildAntwort;
+    public Frage bildAntwortIDS(Set<BildAntwort> bildAntworts) {
+        this.bildAntwortIDS = bildAntworts;
         return this;
     }
 
-    public void setBildAntwort(BildAntwort bildAntwort) {
-        this.bildAntwort = bildAntwort;
-    }
-
-    public QuizFrage getQuizFrage() {
-        return quizFrage;
-    }
-
-    public Frage quizFrage(QuizFrage quizFrage) {
-        this.quizFrage = quizFrage;
+    public Frage addBildAntwortID(BildAntwort bildAntwort) {
+        this.bildAntwortIDS.add(bildAntwort);
+        bildAntwort.setFrage(this);
         return this;
     }
 
-    public void setQuizFrage(QuizFrage quizFrage) {
-        this.quizFrage = quizFrage;
+    public Frage removeBildAntwortID(BildAntwort bildAntwort) {
+        this.bildAntwortIDS.remove(bildAntwort);
+        bildAntwort.setFrage(null);
+        return this;
+    }
+
+    public void setBildAntwortIDS(Set<BildAntwort> bildAntworts) {
+        this.bildAntwortIDS = bildAntworts;
+    }
+
+    public Set<QuizFrage> getQuizFrageIDS() {
+        return quizFrageIDS;
+    }
+
+    public Frage quizFrageIDS(Set<QuizFrage> quizFrages) {
+        this.quizFrageIDS = quizFrages;
+        return this;
+    }
+
+    public Frage addQuizFrageID(QuizFrage quizFrage) {
+        this.quizFrageIDS.add(quizFrage);
+        quizFrage.setFrage(this);
+        return this;
+    }
+
+    public Frage removeQuizFrageID(QuizFrage quizFrage) {
+        this.quizFrageIDS.remove(quizFrage);
+        quizFrage.setFrage(null);
+        return this;
+    }
+
+    public void setQuizFrageIDS(Set<QuizFrage> quizFrages) {
+        this.quizFrageIDS = quizFrages;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

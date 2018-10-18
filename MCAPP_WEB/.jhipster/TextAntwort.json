@@ -16,10 +16,10 @@
     ],
     "relationships": [
         {
-            "relationshipType": "one-to-many",
-            "relationshipName": "frageID",
+            "relationshipName": "frage",
             "otherEntityName": "frage",
-            "otherEntityRelationshipName": "textAntwort"
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         }
     ],
     "changelogDate": "20181017195049",

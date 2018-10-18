@@ -9,12 +9,6 @@
                 <dd>
                     <span>{{quiz.datum}}</span>
                 </dd>
-                <dt><span jhiTranslate="mcappWebApp.quiz.quizFrage">Quiz Frage</span></dt>
-                <dd>
-                    <div *ngIf="quiz.quizFrage">
-                        <a [routerLink]="['/quiz-frage', quiz.quizFrage?.id, 'view']">{{quiz.quizFrage?.id}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

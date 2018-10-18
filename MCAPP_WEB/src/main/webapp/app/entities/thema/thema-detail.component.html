@@ -9,12 +9,6 @@
                 <dd>
                     <span>{{thema.themaText}}</span>
                 </dd>
-                <dt><span jhiTranslate="mcappWebApp.thema.frage">Frage</span></dt>
-                <dd>
-                    <div *ngIf="thema.frage">
-                        <a [routerLink]="['/frage', thema.frage?.id, 'view']">{{thema.frage?.id}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

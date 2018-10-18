@@ -17,6 +17,12 @@
                 <dd>
                     <span>{{textAntwort.text}}</span>
                 </dd>
+                <dt><span jhiTranslate="mcappWebApp.textAntwort.frage">Frage</span></dt>
+                <dd>
+                    <div *ngIf="textAntwort.frage">
+                        <a [routerLink]="['/frage', textAntwort.frage?.id, 'view']">{{textAntwort.frage?.id}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

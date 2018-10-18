@@ -24,11 +24,11 @@ entity BildAntwort {
 }
 
 relationship OneToMany {
-	Frage{themaID} to Thema,
-    TextAntwort{frageID} to Frage,
-    BildAntwort{frageID} to Frage,
-    QuizFrage{quizID} to Quiz, 
-    QuizFrage{frageID} to Frage
+	Thema{frageID} to Frage,
+    Frage{textAntwortID} to TextAntwort,
+    Frage{bildAntwortID} to BildAntwort,
+    Quiz{quizFrageID} to QuizFrage, 
+    Frage{quizFrageID} to QuizFrage 
 }
 
 entity Quiz {

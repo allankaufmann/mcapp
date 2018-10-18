@@ -23,24 +23,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="mcappWebApp.frage.textAntwort" for="field_textAntwort">Text Antwort</label>
-                    <select class="form-control" id="field_textAntwort" name="textAntwort" [(ngModel)]="frage.textAntwort" >
+                    <label class="form-control-label" jhiTranslate="mcappWebApp.frage.thema" for="field_thema">Thema</label>
+                    <select class="form-control" id="field_thema" name="thema" [(ngModel)]="frage.thema" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="textAntwortOption.id === frage.textAntwort?.id ? frage.textAntwort : textAntwortOption" *ngFor="let textAntwortOption of textantworts; trackBy: trackTextAntwortById">{{textAntwortOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="mcappWebApp.frage.bildAntwort" for="field_bildAntwort">Bild Antwort</label>
-                    <select class="form-control" id="field_bildAntwort" name="bildAntwort" [(ngModel)]="frage.bildAntwort" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="bildAntwortOption.id === frage.bildAntwort?.id ? frage.bildAntwort : bildAntwortOption" *ngFor="let bildAntwortOption of bildantworts; trackBy: trackBildAntwortById">{{bildAntwortOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="mcappWebApp.frage.quizFrage" for="field_quizFrage">Quiz Frage</label>
-                    <select class="form-control" id="field_quizFrage" name="quizFrage" [(ngModel)]="frage.quizFrage" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="quizFrageOption.id === frage.quizFrage?.id ? frage.quizFrage : quizFrageOption" *ngFor="let quizFrageOption of quizfrages; trackBy: trackQuizFrageById">{{quizFrageOption.id}}</option>
+                        <option [ngValue]="themaOption.id === frage.thema?.id ? frage.thema : themaOption" *ngFor="let themaOption of themas; trackBy: trackThemaById">{{themaOption.id}}</option>
                     </select>
                 </div>
             </div>

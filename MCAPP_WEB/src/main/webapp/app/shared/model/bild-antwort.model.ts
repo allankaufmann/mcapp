@@ -6,7 +6,7 @@ export interface IBildAntwort {
     wahr?: boolean;
     bildContentType?: string;
     bild?: any;
-    frageIDS?: IFrage[];
+    frage?: IFrage;
 }
 
 export class BildAntwort implements IBildAntwort {
@@ -16,7 +16,7 @@ export class BildAntwort implements IBildAntwort {
         public wahr?: boolean,
         public bildContentType?: string,
         public bild?: any,
-        public frageIDS?: IFrage[]
+        public frage?: IFrage
     ) {
         this.wahr = this.wahr || false;
     }

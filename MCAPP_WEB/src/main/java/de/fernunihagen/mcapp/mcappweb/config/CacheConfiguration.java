@@ -52,6 +52,11 @@ public class CacheConfiguration {
             cm.createCache(de.fernunihagen.mcapp.mcappweb.domain.QuizFrage.class.getName(), jcacheConfiguration);
             cm.createCache(de.fernunihagen.mcapp.mcappweb.domain.QuizFrage.class.getName() + ".quizIDS", jcacheConfiguration);
             cm.createCache(de.fernunihagen.mcapp.mcappweb.domain.QuizFrage.class.getName() + ".frageIDS", jcacheConfiguration);
+            cm.createCache(de.fernunihagen.mcapp.mcappweb.domain.Frage.class.getName() + ".textAntwortIDS", jcacheConfiguration);
+            cm.createCache(de.fernunihagen.mcapp.mcappweb.domain.Frage.class.getName() + ".bildAntwortIDS", jcacheConfiguration);
+            cm.createCache(de.fernunihagen.mcapp.mcappweb.domain.Frage.class.getName() + ".quizFrageIDS", jcacheConfiguration);
+            cm.createCache(de.fernunihagen.mcapp.mcappweb.domain.Quiz.class.getName() + ".quizFrageIDS", jcacheConfiguration);
+            cm.createCache(de.fernunihagen.mcapp.mcappweb.domain.Thema.class.getName() + ".frageIDS", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

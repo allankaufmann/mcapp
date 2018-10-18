@@ -1,6 +1,6 @@
 package de.fernunihagen.mcapp.mcappweb.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -8,8 +8,6 @@ import javax.persistence.*;
 
 import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -40,9 +38,10 @@ public class BildAntwort implements Serializable {
     @Column(name = "bild_content_type")
     private String bildContentType;
 
-    @OneToMany(mappedBy = "bildAntwort")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Frage> frageIDS = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties("bildAntwortIDS")
+    private Frage frage;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -104,29 +103,17 @@ public class BildAntwort implements Serializable {
         this.bildContentType = bildContentType;
     }
 
-    public Set<Frage> getFrageIDS() {
-        return frageIDS;
+    public Frage getFrage() {
+        return frage;
     }
 
-    public BildAntwort frageIDS(Set<Frage> frages) {
-        this.frageIDS = frages;
+    public BildAntwort frage(Frage frage) {
+        this.frage = frage;
         return this;
     }
 
-    public BildAntwort addFrageID(Frage frage) {
-        this.frageIDS.add(frage);
-        frage.setBildAntwort(this);
-        return this;
-    }
-
-    public BildAntwort removeFrageID(Frage frage) {
-        this.frageIDS.remove(frage);
-        frage.setBildAntwort(null);
-        return this;
-    }
-
-    public void setFrageIDS(Set<Frage> frages) {
-        this.frageIDS = frages;
+    public void setFrage(Frage frage) {
+        this.frage = frage;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

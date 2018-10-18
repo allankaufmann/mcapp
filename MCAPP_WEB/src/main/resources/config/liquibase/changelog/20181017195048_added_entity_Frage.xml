@@ -30,15 +30,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="text_antwort_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="bild_antwort_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="quiz_frage_id" type="bigint">
+            <column name="thema_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

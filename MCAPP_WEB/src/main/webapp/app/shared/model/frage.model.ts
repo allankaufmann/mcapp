@@ -12,10 +12,10 @@ export interface IFrage {
     id?: number;
     frageText?: string;
     frageTyp?: Fragetyp;
-    themaIDS?: IThema[];
-    textAntwort?: ITextAntwort;
-    bildAntwort?: IBildAntwort;
-    quizFrage?: IQuizFrage;
+    thema?: IThema;
+    textAntwortIDS?: ITextAntwort[];
+    bildAntwortIDS?: IBildAntwort[];
+    quizFrageIDS?: IQuizFrage[];
 }
 
 export class Frage implements IFrage {
@@ -23,9 +23,9 @@ export class Frage implements IFrage {
         public id?: number,
         public frageText?: string,
         public frageTyp?: Fragetyp,
-        public themaIDS?: IThema[],
-        public textAntwort?: ITextAntwort,
-        public bildAntwort?: IBildAntwort,
-        public quizFrage?: IQuizFrage
+        public thema?: IThema,
+        public textAntwortIDS?: ITextAntwort[],
+        public bildAntwortIDS?: IBildAntwort[],
+        public quizFrageIDS?: IQuizFrage[]
     ) {}
 }

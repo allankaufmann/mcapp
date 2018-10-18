@@ -6,12 +6,8 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { IFrage } from 'app/shared/model/frage.model';
 import { FrageService } from './frage.service';
-import { ITextAntwort } from 'app/shared/model/text-antwort.model';
-import { TextAntwortService } from 'app/entities/text-antwort';
-import { IBildAntwort } from 'app/shared/model/bild-antwort.model';
-import { BildAntwortService } from 'app/entities/bild-antwort';
-import { IQuizFrage } from 'app/shared/model/quiz-frage.model';
-import { QuizFrageService } from 'app/entities/quiz-frage';
+import { IThema } from 'app/shared/model/thema.model';
+import { ThemaService } from 'app/entities/thema';
 
 @Component({
     selector: 'jhi-frage-update',
@@ -21,18 +17,12 @@ export class FrageUpdateComponent implements OnInit {
     frage: IFrage;
     isSaving: boolean;
 
-    textantworts: ITextAntwort[];
-
-    bildantworts: IBildAntwort[];
-
-    quizfrages: IQuizFrage[];
+    themas: IThema[];
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private frageService: FrageService,
-        private textAntwortService: TextAntwortService,
-        private bildAntwortService: BildAntwortService,
-        private quizFrageService: QuizFrageService,
+        private themaService: ThemaService,
         private activatedRoute: ActivatedRoute
     ) {}
 
@@ -41,21 +31,9 @@ export class FrageUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ frage }) => {
             this.frage = frage;
         });
-        this.textAntwortService.query().subscribe(
-            (res: HttpResponse<ITextAntwort[]>) => {
-                this.textantworts = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.bildAntwortService.query().subscribe(
-            (res: HttpResponse<IBildAntwort[]>) => {
-                this.bildantworts = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.quizFrageService.query().subscribe(
-            (res: HttpResponse<IQuizFrage[]>) => {
-                this.quizfrages = res.body;
+        this.themaService.query().subscribe(
+            (res: HttpResponse<IThema[]>) => {
+                this.themas = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -91,15 +69,7 @@ export class FrageUpdateComponent implements OnInit {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 
-    trackTextAntwortById(index: number, item: ITextAntwort) {
-        return item.id;
-    }
-
-    trackBildAntwortById(index: number, item: IBildAntwort) {
-        return item.id;
-    }
-
-    trackQuizFrageById(index: number, item: IQuizFrage) {
+    trackThemaById(index: number, item: IThema) {
         return item.id;
     }
 }

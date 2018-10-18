@@ -19,10 +19,10 @@
             },
             "frageText": "Frage Text",
             "frageTyp": "Frage Typ",
-            "themaID": "Thema ID",
-            "textAntwort": "Text Antwort",
-            "bildAntwort": "Bild Antwort",
-            "quizFrage": "Quiz Frage"
+            "thema": "Thema",
+            "textAntwortID": "Text Antwort ID",
+            "bildAntwortID": "Bild Antwort ID",
+            "quizFrageID": "Quiz Frage ID"
         }
     }
 }

@@ -20,7 +20,7 @@
             "position": "Position",
             "wahr": "Wahr",
             "bild": "Bild",
-            "frageID": "Frage ID"
+            "frage": "Frage"
         }
     }
 }

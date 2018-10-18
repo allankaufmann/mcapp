@@ -15,5 +15,8 @@
     <include file="config/liquibase/changelog/20181017195047_added_entity_constraints_Thema.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181017195048_added_entity_constraints_Frage.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181017195051_added_entity_constraints_Quiz.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181017195049_added_entity_constraints_TextAntwort.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181017195050_added_entity_constraints_BildAntwort.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181017195052_added_entity_constraints_QuizFrage.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

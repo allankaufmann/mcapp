@@ -13,22 +13,10 @@
                 <dd>
                     <span jhiTranslate="{{'mcappWebApp.Fragetyp.' + frage.frageTyp}}">{{frage.frageTyp}}</span>
                 </dd>
-                <dt><span jhiTranslate="mcappWebApp.frage.textAntwort">Text Antwort</span></dt>
+                <dt><span jhiTranslate="mcappWebApp.frage.thema">Thema</span></dt>
                 <dd>
-                    <div *ngIf="frage.textAntwort">
-                        <a [routerLink]="['/text-antwort', frage.textAntwort?.id, 'view']">{{frage.textAntwort?.id}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="mcappWebApp.frage.bildAntwort">Bild Antwort</span></dt>
-                <dd>
-                    <div *ngIf="frage.bildAntwort">
-                        <a [routerLink]="['/bild-antwort', frage.bildAntwort?.id, 'view']">{{frage.bildAntwort?.id}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="mcappWebApp.frage.quizFrage">Quiz Frage</span></dt>
-                <dd>
-                    <div *ngIf="frage.quizFrage">
-                        <a [routerLink]="['/quiz-frage', frage.quizFrage?.id, 'view']">{{frage.quizFrage?.id}}</a>
+                    <div *ngIf="frage.thema">
+                        <a [routerLink]="['/thema', frage.thema?.id, 'view']">{{frage.thema?.id}}</a>
                     </div>
                 </dd>
             </dl>

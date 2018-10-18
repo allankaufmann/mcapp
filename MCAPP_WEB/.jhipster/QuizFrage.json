@@ -8,16 +8,16 @@
     ],
     "relationships": [
         {
-            "relationshipType": "one-to-many",
-            "relationshipName": "quizID",
-            "otherEntityName": "quiz",
-            "otherEntityRelationshipName": "quizFrage"
+            "relationshipName": "frage",
+            "otherEntityName": "frage",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         },
         {
-            "relationshipType": "one-to-many",
-            "relationshipName": "frageID",
-            "otherEntityName": "frage",
-            "otherEntityRelationshipName": "quizFrage"
+            "relationshipName": "quiz",
+            "otherEntityName": "quiz",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         }
     ],
     "changelogDate": "20181017195052",

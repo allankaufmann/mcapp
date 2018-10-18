@@ -31,7 +31,6 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="mcappWebApp.thema.themaText">Thema Text</span></th>
-            <th><span jhiTranslate="mcappWebApp.thema.frage">Frage</span></th>
             <th></th>
             </tr>
             </thead>
@@ -39,11 +38,6 @@
             <tr *ngFor="let thema of themas ;trackBy: trackId">
                 <td><a [routerLink]="['/thema', thema.id, 'view' ]">{{thema.id}}</a></td>
                 <td>{{thema.themaText}}</td>
-                <td>
-                    <div *ngIf="thema.frage">
-                        <a [routerLink]="['../frage', thema.frage?.id, 'view' ]" >{{thema.frage?.id}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

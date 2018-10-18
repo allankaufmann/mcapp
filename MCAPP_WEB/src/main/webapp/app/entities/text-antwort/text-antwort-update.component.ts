@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { JhiAlertService } from 'ng-jhipster';
 
 import { ITextAntwort } from 'app/shared/model/text-antwort.model';
 import { TextAntwortService } from './text-antwort.service';
+import { IFrage } from 'app/shared/model/frage.model';
+import { FrageService } from 'app/entities/frage';
 
 @Component({
     selector: 'jhi-text-antwort-update',
@@ -14,13 +17,26 @@ export class TextAntwortUpdateComponent implements OnInit {
     textAntwort: ITextAntwort;
     isSaving: boolean;
 
-    constructor(private textAntwortService: TextAntwortService, private activatedRoute: ActivatedRoute) {}
+    frages: IFrage[];
+
+    constructor(
+        private jhiAlertService: JhiAlertService,
+        private textAntwortService: TextAntwortService,
+        private frageService: FrageService,
+        private activatedRoute: ActivatedRoute
+    ) {}
 
     ngOnInit() {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ textAntwort }) => {
             this.textAntwort = textAntwort;
         });
+        this.frageService.query().subscribe(
+            (res: HttpResponse<IFrage[]>) => {
+                this.frages = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
     }
 
     previousState() {
@@ -47,5 +63,13 @@ export class TextAntwortUpdateComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
+    }
+
+    private onError(errorMessage: string) {
+        this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    trackFrageById(index: number, item: IFrage) {
+        return item.id;
     }
 }

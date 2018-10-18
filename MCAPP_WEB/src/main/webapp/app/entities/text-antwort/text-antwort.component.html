@@ -33,6 +33,7 @@
             <th><span jhiTranslate="mcappWebApp.textAntwort.position">Position</span></th>
             <th><span jhiTranslate="mcappWebApp.textAntwort.wahr">Wahr</span></th>
             <th><span jhiTranslate="mcappWebApp.textAntwort.text">Text</span></th>
+            <th><span jhiTranslate="mcappWebApp.textAntwort.frage">Frage</span></th>
             <th></th>
             </tr>
             </thead>
@@ -42,6 +43,11 @@
                 <td>{{textAntwort.position}}</td>
                 <td>{{textAntwort.wahr}}</td>
                 <td>{{textAntwort.text}}</td>
+                <td>
+                    <div *ngIf="textAntwort.frage">
+                        <a [routerLink]="['../frage', textAntwort.frage?.id, 'view' ]" >{{textAntwort.frage?.id}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

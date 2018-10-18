@@ -18,7 +18,7 @@
                 "title": "Thema"
             },
             "themaText": "Thema Text",
-            "frage": "Frage"
+            "frageID": "Frage ID"
         }
     }
 }

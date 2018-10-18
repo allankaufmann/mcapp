@@ -22,6 +22,12 @@
                         {{bildAntwort.bildContentType}}, {{byteSize(bildAntwort.bild)}}
                     </div>
                 </dd>
+                <dt><span jhiTranslate="mcappWebApp.bildAntwort.frage">Frage</span></dt>
+                <dd>
+                    <div *ngIf="bildAntwort.frage">
+                        <a [routerLink]="['/frage', bildAntwort.frage?.id, 'view']">{{bildAntwort.frage?.id}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

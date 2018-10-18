@@ -31,6 +31,8 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="mcappWebApp.quizFrage.richtig">Richtig</span></th>
+            <th><span jhiTranslate="mcappWebApp.quizFrage.frage">Frage</span></th>
+            <th><span jhiTranslate="mcappWebApp.quizFrage.quiz">Quiz</span></th>
             <th></th>
             </tr>
             </thead>
@@ -38,6 +40,16 @@
             <tr *ngFor="let quizFrage of quizFrages ;trackBy: trackId">
                 <td><a [routerLink]="['/quiz-frage', quizFrage.id, 'view' ]">{{quizFrage.id}}</a></td>
                 <td>{{quizFrage.richtig}}</td>
+                <td>
+                    <div *ngIf="quizFrage.frage">
+                        <a [routerLink]="['../frage', quizFrage.frage?.id, 'view' ]" >{{quizFrage.frage?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="quizFrage.quiz">
+                        <a [routerLink]="['../quiz', quizFrage.quiz?.id, 'view' ]" >{{quizFrage.quiz?.id}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

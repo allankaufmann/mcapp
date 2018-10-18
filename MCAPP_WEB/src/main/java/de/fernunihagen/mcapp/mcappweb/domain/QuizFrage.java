@@ -1,6 +1,6 @@
 package de.fernunihagen.mcapp.mcappweb.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -8,8 +8,6 @@ import javax.persistence.*;
 
 import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -30,12 +28,14 @@ public class QuizFrage implements Serializable {
     @Column(name = "richtig")
     private Boolean richtig;
 
-    @OneToMany(mappedBy = "quizFrage")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Quiz> quizIDS = new HashSet<>();
-    @OneToMany(mappedBy = "quizFrage")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Frage> frageIDS = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties("quizFrageIDS")
+    private Frage frage;
+
+    @ManyToOne
+    @JsonIgnoreProperties("quizFrageIDS")
+    private Quiz quiz;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -58,54 +58,30 @@ public class QuizFrage implements Serializable {
         this.richtig = richtig;
     }
 
-    public Set<Quiz> getQuizIDS() {
-        return quizIDS;
+    public Frage getFrage() {
+        return frage;
     }
 
-    public QuizFrage quizIDS(Set<Quiz> quizzes) {
-        this.quizIDS = quizzes;
+    public QuizFrage frage(Frage frage) {
+        this.frage = frage;
         return this;
     }
 
-    public QuizFrage addQuizID(Quiz quiz) {
-        this.quizIDS.add(quiz);
-        quiz.setQuizFrage(this);
+    public void setFrage(Frage frage) {
+        this.frage = frage;
+    }
+
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public QuizFrage quiz(Quiz quiz) {
+        this.quiz = quiz;
         return this;
     }
 
-    public QuizFrage removeQuizID(Quiz quiz) {
-        this.quizIDS.remove(quiz);
-        quiz.setQuizFrage(null);
-        return this;
-    }
-
-    public void setQuizIDS(Set<Quiz> quizzes) {
-        this.quizIDS = quizzes;
-    }
-
-    public Set<Frage> getFrageIDS() {
-        return frageIDS;
-    }
-
-    public QuizFrage frageIDS(Set<Frage> frages) {
-        this.frageIDS = frages;
-        return this;
-    }
-
-    public QuizFrage addFrageID(Frage frage) {
-        this.frageIDS.add(frage);
-        frage.setQuizFrage(this);
-        return this;
-    }
-
-    public QuizFrage removeFrageID(Frage frage) {
-        this.frageIDS.remove(frage);
-        frage.setQuizFrage(null);
-        return this;
-    }
-
-    public void setFrageIDS(Set<Frage> frages) {
-        this.frageIDS = frages;
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

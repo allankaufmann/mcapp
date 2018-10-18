@@ -1,6 +1,6 @@
 package de.fernunihagen.mcapp.mcappweb.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -8,6 +8,8 @@ import javax.persistence.*;
 
 import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -28,10 +30,9 @@ public class Thema implements Serializable {
     @Column(name = "thema_text")
     private String themaText;
 
-    @ManyToOne
-    @JsonIgnoreProperties("themaIDS")
-    private Frage frage;
-
+    @OneToMany(mappedBy = "thema")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Frage> frageIDS = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -54,17 +55,29 @@ public class Thema implements Serializable {
         this.themaText = themaText;
     }
 
-    public Frage getFrage() {
-        return frage;
+    public Set<Frage> getFrageIDS() {
+        return frageIDS;
     }
 
-    public Thema frage(Frage frage) {
-        this.frage = frage;
+    public Thema frageIDS(Set<Frage> frages) {
+        this.frageIDS = frages;
         return this;
     }
 
-    public void setFrage(Frage frage) {
-        this.frage = frage;
+    public Thema addFrageID(Frage frage) {
+        this.frageIDS.add(frage);
+        frage.setThema(this);
+        return this;
+    }
+
+    public Thema removeFrageID(Frage frage) {
+        this.frageIDS.remove(frage);
+        frage.setThema(null);
+        return this;
+    }
+
+    public void setFrageIDS(Set<Frage> frages) {
+        this.frageIDS = frages;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

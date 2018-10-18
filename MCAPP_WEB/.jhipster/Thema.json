@@ -8,10 +8,10 @@
     ],
     "relationships": [
         {
-            "relationshipName": "frage",
+            "relationshipType": "one-to-many",
+            "relationshipName": "frageID",
             "otherEntityName": "frage",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
+            "otherEntityRelationshipName": "thema"
         }
     ],
     "changelogDate": "20181017195047",

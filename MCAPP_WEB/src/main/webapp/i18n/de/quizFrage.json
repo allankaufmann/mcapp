@@ -18,8 +18,8 @@
                 "title": "Quiz Frage"
             },
             "richtig": "Richtig",
-            "quizID": "Quiz ID",
-            "frageID": "Frage ID"
+            "frage": "Frage",
+            "quiz": "Quiz"
         }
     }
 }

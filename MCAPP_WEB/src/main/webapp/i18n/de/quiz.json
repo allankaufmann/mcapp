@@ -18,7 +18,7 @@
                 "title": "Quiz"
             },
             "datum": "Datum",
-            "quizFrage": "Quiz Frage"
+            "quizFrageID": "Quiz Frage ID"
         }
     }
 }

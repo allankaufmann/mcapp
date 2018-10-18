@@ -33,6 +33,7 @@
             <th><span jhiTranslate="mcappWebApp.bildAntwort.position">Position</span></th>
             <th><span jhiTranslate="mcappWebApp.bildAntwort.wahr">Wahr</span></th>
             <th><span jhiTranslate="mcappWebApp.bildAntwort.bild">Bild</span></th>
+            <th><span jhiTranslate="mcappWebApp.bildAntwort.frage">Frage</span></th>
             <th></th>
             </tr>
             </thead>
@@ -46,6 +47,11 @@
                         <img [src]="'data:' + bildAntwort.bildContentType + ';base64,' + bildAntwort.bild" style="max-height: 30px;" alt="bildAntwort image"/>
                     </a>
                     <span *ngIf="bildAntwort.bild">{{bildAntwort.bildContentType}}, {{byteSize(bildAntwort.bild)}}</span>
+                </td>
+                <td>
+                    <div *ngIf="bildAntwort.frage">
+                        <a [routerLink]="['../frage', bildAntwort.frage?.id, 'view' ]" >{{bildAntwort.frage?.id}}</a>
+                    </div>
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

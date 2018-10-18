@@ -15,6 +15,20 @@
                         [(ngModel)]="quizFrage.richtig" />
                 </div>
 
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mcappWebApp.quizFrage.frage" for="field_frage">Frage</label>
+                    <select class="form-control" id="field_frage" name="frage" [(ngModel)]="quizFrage.frage" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="frageOption.id === quizFrage.frage?.id ? quizFrage.frage : frageOption" *ngFor="let frageOption of frages; trackBy: trackFrageById">{{frageOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mcappWebApp.quizFrage.quiz" for="field_quiz">Quiz</label>
+                    <select class="form-control" id="field_quiz" name="quiz" [(ngModel)]="quizFrage.quiz" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="quizOption.id === quizFrage.quiz?.id ? quizFrage.quiz : quizOption" *ngFor="let quizOption of quizzes; trackBy: trackQuizById">{{quizOption.id}}</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

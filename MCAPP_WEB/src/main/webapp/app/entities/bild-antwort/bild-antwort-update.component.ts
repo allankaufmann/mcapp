@@ -2,10 +2,12 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { JhiDataUtils } from 'ng-jhipster';
+import { JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 
 import { IBildAntwort } from 'app/shared/model/bild-antwort.model';
 import { BildAntwortService } from './bild-antwort.service';
+import { IFrage } from 'app/shared/model/frage.model';
+import { FrageService } from 'app/entities/frage';
 
 @Component({
     selector: 'jhi-bild-antwort-update',
@@ -15,9 +17,13 @@ export class BildAntwortUpdateComponent implements OnInit {
     bildAntwort: IBildAntwort;
     isSaving: boolean;
 
+    frages: IFrage[];
+
     constructor(
         private dataUtils: JhiDataUtils,
+        private jhiAlertService: JhiAlertService,
         private bildAntwortService: BildAntwortService,
+        private frageService: FrageService,
         private elementRef: ElementRef,
         private activatedRoute: ActivatedRoute
     ) {}
@@ -27,6 +33,12 @@ export class BildAntwortUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ bildAntwort }) => {
             this.bildAntwort = bildAntwort;
         });
+        this.frageService.query().subscribe(
+            (res: HttpResponse<IFrage[]>) => {
+                this.frages = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
     }
 
     byteSize(field) {
@@ -69,5 +81,13 @@ export class BildAntwortUpdateComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
+    }
+
+    private onError(errorMessage: string) {
+        this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    trackFrageById(index: number, item: IFrage) {
+        return item.id;
     }
 }

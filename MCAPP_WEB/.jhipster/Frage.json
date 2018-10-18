@@ -13,28 +13,28 @@
     ],
     "relationships": [
         {
-            "relationshipType": "one-to-many",
-            "relationshipName": "themaID",
+            "relationshipName": "thema",
             "otherEntityName": "thema",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "textAntwortID",
+            "otherEntityName": "textAntwort",
             "otherEntityRelationshipName": "frage"
         },
         {
-            "relationshipName": "textAntwort",
-            "otherEntityName": "textAntwort",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipName": "bildAntwort",
+            "relationshipType": "one-to-many",
+            "relationshipName": "bildAntwortID",
             "otherEntityName": "bildAntwort",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
+            "otherEntityRelationshipName": "frage"
         },
         {
-            "relationshipName": "quizFrage",
+            "relationshipType": "one-to-many",
+            "relationshipName": "quizFrageID",
             "otherEntityName": "quizFrage",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
+            "otherEntityRelationshipName": "frage"
         }
     ],
     "changelogDate": "20181017195048",
