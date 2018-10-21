@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,29 +8,24 @@ namespace MCAPP_Project.Core.Models
 {
     public class Thema
     {
-        private String themaText;
+       
 
-        private Boolean themaGewaehlt = false;
-
-        private long themaID;
-
+        [PrimaryKey, AutoIncrement]
         public long ThemaID
         {
-            get { return this.themaID; }
-            set { this.themaID = value; }
+            get; set;
         }
 
 
         public String ThemaText
         {
-            get { return this.themaText; }
-            set { this.themaText = value; }
+            get; set;
         }
 
+        [Ignore]
         public Boolean ThemaGewaehlt
         {
-            get { return this.themaGewaehlt; }
-            set { this.themaGewaehlt = value; }
+            get; set;
         }
 
 

@@ -12,6 +12,9 @@ namespace MCAPP_Project.Core.Services
         readonly IFragenRepository repository;
         readonly IQuizRepository quizRepo;
 
+        private static int quizCounter;
+
+
         public QuizService(IFragenRepository repository, IQuizRepository quizRepo)
         {
             this.repository = repository;
@@ -54,8 +57,11 @@ namespace MCAPP_Project.Core.Services
                 quizFrage.quizID = quiz.quizID;
                 quizFrage.frageID = f.FrageId;
                 quizFrage.richtig_beantwortet = frageRichtig;
-                quizRepo.SaveQuiz_Frage(quizFrage);
 
+                if (!MCAPP_PROPERTIES.DEMO_MODUS)
+                {
+                    quizRepo.SaveQuiz_Frage(quizFrage);
+                }           
             }
 
             text = anzahlRichtig + "/" + fragen.Count + " richtig beantwortet!";
@@ -65,13 +71,18 @@ namespace MCAPP_Project.Core.Services
 
 
 
-        public async Task<Quiz> CreateQuiz()
+        public Quiz CreateQuiz()
         {
             Quiz quiz = new Quiz();
             quiz.datum = DateTime.Now;
-            await quizRepo.Save(quiz);
-            
 
+            if(!MCAPP_PROPERTIES.DEMO_MODUS)
+            {
+                quizRepo.Save(quiz);
+            } else
+            {
+                quiz.quizID = quizCounter++;
+            }
 
             return quiz;
         }

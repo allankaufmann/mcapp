@@ -9,9 +9,9 @@ namespace MCAPP_Project.Core.Repositories
     public interface IQuizRepository
     {
 
-        Task Save(Quiz quiz);
+        Quiz Save(Quiz quiz);
 
-        Task SaveQuiz_Frage(Quiz_Frage quizFrage);
+        Quiz_Frage SaveQuiz_Frage(Quiz_Frage quizFrage);
 
         Task<List<Quiz>> GetAll();
 

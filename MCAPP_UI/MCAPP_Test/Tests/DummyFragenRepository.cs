@@ -6,7 +6,7 @@ using MCAPP_Project.Core.Models;
 using MCAPP_Project.Core.Repositories;
 using MCAPP_Project.Core.Services;
 
-namespace MCAPP_Project.Core.Repositories
+namespace MCAPP_Test.Tests
 {
     /**
      * Beispielrepository für UnitTests und Entwicklung ohne DB.
@@ -20,6 +20,9 @@ namespace MCAPP_Project.Core.Repositories
         private List<Thema> themen;
 
         private List<Frage> alleFragen;
+
+        private long QuizCounter = 0;
+
 
         public DummyFragenRepository()
         {
@@ -149,14 +152,15 @@ namespace MCAPP_Project.Core.Repositories
         }
 
 
-        public List<Thema> GetAllThemen()
+        public async Task<List<Thema>> GetAllThemen()
         {
             return this.themen;
         }
 
 
 
-        public List<Frage> GetAllFragen()
+
+        public Task<List<Frage>> GetAllFragen()
         {
             throw new NotImplementedException();
         }
@@ -216,5 +220,9 @@ namespace MCAPP_Project.Core.Repositories
             return fragen;
         }
 
+        public long GetNewQuizID()
+        {
+            return this.QuizCounter++;
+        }
     }
 }

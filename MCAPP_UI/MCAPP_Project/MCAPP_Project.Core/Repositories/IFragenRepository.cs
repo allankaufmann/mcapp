@@ -27,7 +27,7 @@ namespace MCAPP_Project.Core.Repositories
         List<Thema> GetAllThemen();
 
         // Quatsch
-        Task<List<Frage>> GetAllFragen();
+        List<Frage> GetAllFragen();
 
         // Quatsch
         Task Save(Frage frage);
@@ -47,9 +47,6 @@ namespace MCAPP_Project.Core.Repositories
          * Liefert Liste aller Fragen zu einem bestimmten Thema. 
          */
         List<Frage> GetFragen(long themaID);
-
-        long GetNewQuizID();
-
 
     }
 }

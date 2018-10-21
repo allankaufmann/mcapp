@@ -28,6 +28,7 @@ namespace MCAPP_Project.Core.Models
 
         public string Fragetext { get; set; }
 
+        [Ignore]
         public List<Textantwort> antworten { get; set; }
 
         /*

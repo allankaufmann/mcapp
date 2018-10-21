@@ -12,6 +12,10 @@ namespace MCAPP_Project.Core
 
         static readonly public String SERVER_PASSWORD = "user";
 
+        // Wird von Anwendung auf true gesetzt, 
+        // wenn Web-Service nicht vorhanden ist oder keine Themen vorhanden sind
+        static public Boolean DEMO_MODUS = false;
+
 
     }
 }

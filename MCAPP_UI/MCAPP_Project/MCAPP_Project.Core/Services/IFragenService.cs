@@ -12,7 +12,7 @@ namespace MCAPP_Project.Core.Services
     {
         Task AddNewFrage(Frage frage);
 
-        Task<List<Frage>> GetAllFragen();
+        List<Frage> GetAllFragen();
 
         /*
         * Liefert eine Beispielfrage.

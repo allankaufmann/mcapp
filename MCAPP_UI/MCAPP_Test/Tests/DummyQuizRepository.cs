@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using MCAPP_Project.Core.Models;
+using MCAPP_Project.Core.Repositories;
 
-namespace MCAPP_Project.Core.Repositories
+namespace MCAPP_Test.Tests
 {
     public class DummyQuizRepository : IQuizRepository
     {

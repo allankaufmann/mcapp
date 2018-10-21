@@ -29,18 +29,22 @@ namespace MCAPP_Project.Core.Repositories
             connection.GetConnection().CreateTable<Quiz>();
         }
 
-        public Task Save(Quiz quiz)
+        public Quiz Save(Quiz quiz)
         {
-            Task ta = connection.InsertAsync(quiz);
 
-            return ta;
+
+
+            //Task ta = connection.InsertAsync(quiz);
+
+            return null;
 
         }
 
-        public Task SaveQuiz_Frage(Quiz_Frage quizFrage)
+        public Quiz_Frage SaveQuiz_Frage(Quiz_Frage quizFrage)
         {
-            Task ta = connection.InsertAsync(quizFrage);
-            return ta;
+            //Task ta = connection.InsertAsync(quizFrage);
+            //return ta;
+            return null;
         }
 
 

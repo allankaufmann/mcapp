@@ -11,7 +11,7 @@ namespace MCAPP_Project.Core.Services
         /*
          * Liefert neue Quiz-Instanz. 
          */
-        Task<Quiz> CreateQuiz();
+        Quiz CreateQuiz();
 
         /*
          * Wertet nach Beendigung des Quiz die eingegebenen Antworten aus

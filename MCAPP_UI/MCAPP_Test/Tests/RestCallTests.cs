@@ -1,4 +1,5 @@
 ﻿using MCAPP_Project.Core;
+using MCAPP_Project.Core.Models;
 using MCAPP_Project.Core.Services;
 using Newtonsoft.Json;
 using NUnit.Framework;
@@ -35,16 +36,10 @@ namespace MCAPP_Test.Tests
                                         "application/json");//CONTENT-TYPE header
 
                 httpClient.BaseAddress = new Uri(MCAPP_PROPERTIES.SERVER_BASE_URL);
-
-
                 var response = await httpClient.SendAsync(request);
                 var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-
                 this.token = JsonConvert.DeserializeObject<Token>(json);
             }
-
-
-
         }
 
         [Test]
@@ -60,11 +55,24 @@ namespace MCAPP_Test.Tests
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "/api/frages");
             var response = await httpClient.SendAsync(request);
             var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-            Console.WriteLine(json);
 
+            List<Frage> fragen = JsonConvert.DeserializeObject <List<Frage>>(json);
+
+            Assert.Greater(fragen.Count, 0);
         }
 
+        [Test]
+        public async Task holeThemen()
+        {
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.ID_TOKEN);
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "/api/themas");
+            var response = await httpClient.SendAsync(request);
+            var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
+            List<Thema> themen = JsonConvert.DeserializeObject<List<Thema>>(json);
+
+            Assert.Greater(themen.Count, 0);
+        }
 
     }
 }

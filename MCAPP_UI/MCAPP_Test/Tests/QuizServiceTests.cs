@@ -1,5 +1,4 @@
 ﻿using MCAPP_Project.Core.Models;
-using MCAPP_Project.Core.Repositories;
 using MCAPP_Project.Core.Services;
 using NUnit.Framework;
 using System;
@@ -18,8 +17,8 @@ namespace MCAPP_Test.Tests
         [SetUp]
         public void SetUp()
         {
-            IFragenRepository repoFragen = new DummyFragenRepository();
-            IQuizRepository repoQuiz = new DummyQuizRepository();
+            DummyFragenRepository repoFragen = new DummyFragenRepository();
+            DummyQuizRepository repoQuiz = new DummyQuizRepository();
             quizService = new QuizService(repoFragen, repoQuiz);
         }
 

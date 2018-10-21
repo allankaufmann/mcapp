@@ -30,7 +30,7 @@ namespace MCAPP_Project.Core.Services
             return repository.Save(frage);
         }
 
-        public Task<List<Frage>> GetAllFragen()
+        public List<Frage> GetAllFragen()
         {
             return repository.GetAllFragen();
         }
