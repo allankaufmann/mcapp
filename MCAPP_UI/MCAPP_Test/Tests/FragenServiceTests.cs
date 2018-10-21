@@ -10,7 +10,7 @@ using MCAPP_Project.Core.Repositories;
 using MCAPP_Project.Core.Models;
 using System.Threading.Tasks;
 
-namespace MCAPP_UI.Tests
+namespace MCAPP_Test.Tests
 {
     [TestFixture]
     public class FragenServiceTests
