@@ -35,20 +35,16 @@ namespace MCAPP_Test.Tests
             throw new NotImplementedException();
         }
 
-        public Task Save(Quiz quiz)
+        public Quiz Save(Quiz quiz)
         {
 
 
             quiz.quizID = this.quizCounter++;
 
-            Task<Quiz> t = Task.FromResult<Quiz>(quiz);
-            return t;
-
-
-
+            return quiz;
         }
 
-        public Task SaveQuiz_Frage(Quiz_Frage quizFrage)
+        public Quiz_Frage SaveQuiz_Frage(Quiz_Frage quizFrage)
         {
             throw new NotImplementedException();
         }

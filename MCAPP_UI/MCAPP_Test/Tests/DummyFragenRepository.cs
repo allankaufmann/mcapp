@@ -152,7 +152,7 @@ namespace MCAPP_Test.Tests
         }
 
 
-        public async Task<List<Thema>> GetAllThemen()
+        public List<Thema> GetAllThemen()
         {
             return this.themen;
         }
@@ -160,7 +160,7 @@ namespace MCAPP_Test.Tests
 
 
 
-        public Task<List<Frage>> GetAllFragen()
+        public List<Frage> GetAllFragen()
         {
             throw new NotImplementedException();
         }

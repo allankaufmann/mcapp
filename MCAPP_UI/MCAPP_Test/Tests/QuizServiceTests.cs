@@ -23,10 +23,10 @@ namespace MCAPP_Test.Tests
         }
 
         [Test]
-        public async Task increaseQuizID()
+        public void increaseQuizID()
         {
-            Quiz q1 = await quizService.CreateQuiz();
-            Quiz q2 = await quizService.CreateQuiz();
+            Quiz q1 = quizService.CreateQuiz();
+            Quiz q2 = quizService.CreateQuiz();
             Assert.Greater(q2.quizID, q1.quizID);
         }
 
