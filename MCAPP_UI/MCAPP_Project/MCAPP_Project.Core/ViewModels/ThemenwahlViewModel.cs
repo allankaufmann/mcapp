@@ -16,6 +16,7 @@ namespace MCAPP_Project.Core.ViewModels
     {
         private readonly IFragenService fragenService;
         private readonly IQuizService quizService;
+        private readonly IMCAPPWebService mcappwebservice;
 
         List<Thema> themenListe;
 
@@ -26,6 +27,11 @@ namespace MCAPP_Project.Core.ViewModels
 
         public ThemenwahlViewModel(IMvxNavigationService navigationService)
         {
+            this.mcappwebservice = Mvx.Resolve<IMCAPPWebService>();
+
+            //List<Thema> liste = mcappwebservice.GetThemen();
+
+
             
             this.Tables = new ObservableCollection<ThemaViewModel>();
             this.fragenService = Mvx.Resolve<IFragenService>();

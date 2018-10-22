@@ -25,8 +25,12 @@ namespace MCAPP_Project.Core
             Mvx.RegisterType<IFragenRepository, FragenRepository>();
             Mvx.RegisterType<IQuizService, QuizService>();
             Mvx.RegisterType<IQuizRepository, QuizRepository>();
+            Mvx.RegisterType<IMCAPPWebRepositorie, MCAPPWebRepositorie>();
+            Mvx.RegisterType<IMCAPPWebService, MCAPPWebService>();
             
-            
+
+
+
             //
         }
     }

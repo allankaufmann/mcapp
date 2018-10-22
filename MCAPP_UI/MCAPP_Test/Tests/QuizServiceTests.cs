@@ -44,10 +44,5 @@ namespace MCAPP_Test.Tests
             nichtBeantwortet = await quizService.FrageNochNichtRichtigBeantwortet(1);
             Assert.IsTrue(nichtBeantwortet);
         }
-
-
-
-
-
     }
 }
