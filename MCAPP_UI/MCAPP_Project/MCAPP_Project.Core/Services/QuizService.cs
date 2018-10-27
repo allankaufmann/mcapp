@@ -45,17 +45,17 @@ namespace MCAPP_Project.Core.Services
 
                 if (frageRichtig)
                 {
-                    quiz.FrageRichtigBeantwortet.Add(f.FrageId, true);
+                    quiz.FrageRichtigBeantwortet.Add(f.id, true);
                     anzahlRichtig++;
                 } else
                 {
-                    quiz.FrageRichtigBeantwortet.Add(f.FrageId, false);
+                    quiz.FrageRichtigBeantwortet.Add(f.id, false);
                 }
 
                 Quiz_Frage quizFrage = new Quiz_Frage();
                 quizFrage.datum = DateTime.Now;
                 quizFrage.quizID = quiz.quizID;
-                quizFrage.frageID = f.FrageId;
+                quizFrage.frageID = f.id;
                 quizFrage.richtig_beantwortet = frageRichtig;
 
                 if (!MCAPP_PROPERTIES.DEMO_MODUS)

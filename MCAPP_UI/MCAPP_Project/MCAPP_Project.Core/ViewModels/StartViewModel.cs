@@ -101,8 +101,9 @@ namespace MCAPP_Project.Core.ViewModels
                 List<Frage> fragenLokal = fragenService.GetAllFragen();
 
                 Dictionary<long, Frage> fragenLokalDict = new Dictionary<long, Frage>();
-                foreach (Frage f in fragenLokal) {
-                    fragenLokalDict.Add(f.FrageId, f);
+                foreach (Frage f in fragenLokal)
+                {
+                    fragenLokalDict.Add(f.id, f);
                 }
 
 
@@ -112,19 +113,20 @@ namespace MCAPP_Project.Core.ViewModels
                 {
                     if (MCAPP_PROPERTIES.DEMO_MODUS)
                     {
-                        await fragenService.AddNewFrage(f);
+                        fragenService.AddNewFrage(f);
                         refresh = true;
                         MCAPP_PROPERTIES.DEMO_MODUS = false;
                         continue;
                     }
 
-                    if (!fragenLokalDict.ContainsKey(f.FrageId))
+                    if (!fragenLokalDict.ContainsKey(f.id))
                     {
                         // neue Fragen
-                        await fragenService.AddNewFrage(f);
+                        fragenService.AddNewFrage(f);
                         refresh = true;
 
-                    } else
+                    }
+                    else
                     {
                         // vorhandene Frage
 
@@ -147,4 +149,5 @@ namespace MCAPP_Project.Core.ViewModels
             }
 
         }
+    }
 }

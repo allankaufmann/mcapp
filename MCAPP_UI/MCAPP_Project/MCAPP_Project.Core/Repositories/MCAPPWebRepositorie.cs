@@ -49,6 +49,37 @@ namespace MCAPP_Project.Core.Repositories
 
             List<Frage> fragen = JsonConvert.DeserializeObject<List<Frage>>(json);
 
+
+            // Da Textantworten nicht mitgeliefert werden, werden diese zugeladen. 
+            request = new HttpRequestMessage(HttpMethod.Get, "/api/text-antworts");
+            response = httpClient.SendAsync(request).Result;
+            json = response.Content.ReadAsStringAsync().Result;
+
+            List<Textantwort> antworten = JsonConvert.DeserializeObject<List<Textantwort>>(json);
+
+
+            Dictionary<long, List<Textantwort>> antwortDict = new Dictionary<long, List<Textantwort>>();
+            foreach (Textantwort a in antworten)
+            {
+                if (!antwortDict.ContainsKey(a.frage_id))
+                {
+                    antwortDict.Add(a.frage_id, new List<Textantwort>());
+                }
+                List<Textantwort> list = antwortDict[a.frage_id];
+                list.Add(a);
+            }
+
+            foreach (Frage f in fragen)
+            {
+                if (antwortDict.ContainsKey(f.id))
+                {
+                    f.antworten = antwortDict[f.id];
+                }
+            }           
+          
+            // Muss noch in lokale DB gespeichert werden.....
+
+
             return fragen;
 
         }

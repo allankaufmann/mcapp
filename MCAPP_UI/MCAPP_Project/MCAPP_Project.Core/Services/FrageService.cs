@@ -31,7 +31,7 @@ namespace MCAPP_Project.Core.Services
         }
 
 
-        public Task AddNewFrage(Frage frage)
+        public int AddNewFrage(Frage frage)
         {
             return repository.Save(frage);
         }
@@ -302,7 +302,7 @@ namespace MCAPP_Project.Core.Services
 
             foreach (Frage f in alleFragen)
             {
-                bool frageNochNicht = await quizService.FrageNochNichtRichtigBeantwortet(f.FrageId);
+                bool frageNochNicht = await quizService.FrageNochNichtRichtigBeantwortet(f.id);
 
                 if (frageNochNicht)
                 {

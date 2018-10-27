@@ -22,8 +22,7 @@ namespace MCAPP_Project.Core.Models
         /*
          * ID der Frage. Dient der Identifikation der Frage sowohl client- als auch serverseitig.
          */
-        [PrimaryKey, AutoIncrement]
-        public long FrageId { get; set; }
+        public long id { get; set; }
 
 
         public string Fragetext { get; set; }
@@ -32,11 +31,22 @@ namespace MCAPP_Project.Core.Models
         public List<Textantwort> antworten { get; set; }
 
         /*
-         * Diese Frage gehört zu diesem Thema.
+         * Für die lokale DB wird der primitive Wert benötigt, 
+         * für die Webservice hingegen das Thema-Objekt. Daher wird hier
+         * der Getter-verwendet.
          */
-        public long themaID { get; set; }
+        public long thema_id {
+            get {
+                if (this.thema == null)
+                {
+                    return 0;
+                }
+                return this.thema.id; }
+            set { }
+        }
 
-
+        [Ignore]
+        public Thema thema { get; set; }
 
     }
 }

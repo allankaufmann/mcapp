@@ -65,7 +65,7 @@ namespace MCAPP_Project.Core.Repositories
 
             foreach (Frage f in this.alleFragen)
             {
-                if (f.themaID == themaID)
+                if (f.thema_id == themaID)
                 {
                     fragen.Add(f);
                 }
@@ -121,10 +121,10 @@ namespace MCAPP_Project.Core.Repositories
             return true;
         }
 
-        public Task Save(Frage frage)
+        public int Save(Frage frage)
         {
-            //return connection.InsertOrReplaceAsync(frage);         
-            return null;
+            return connection.InsertOrReplace(frage);         
+        
         }
 
         List<Thema> IFragenRepository.GetAllThemen()

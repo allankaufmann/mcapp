@@ -48,7 +48,7 @@ namespace MCAPP_Test.Tests
             Boolean ok = true;
             foreach(Frage f in fragen)
             {
-                if (f.themaID!=1)
+                if (f.thema_id!=1)
                 {
                     ok = false;
                 }
@@ -82,7 +82,7 @@ namespace MCAPP_Test.Tests
                 Boolean found = false;
                 foreach (Frage f in fragen)
                 {
-                    if (f.themaID == t.id)
+                    if (f.thema_id == t.id)
                     {
                         found = true;
                     }
@@ -130,8 +130,8 @@ namespace MCAPP_Test.Tests
             Dictionary<long, List<Frage>> fragenListe = service.GetFragenDictionary(themen);
             Assert.AreEqual(2, fragenListe.Count);
 
-            Assert.AreEqual(1, fragenListe[1][0].themaID);
-            Assert.AreEqual(2, fragenListe[2][0].themaID);
+            Assert.AreEqual(1, fragenListe[1][0].thema_id);
+            Assert.AreEqual(2, fragenListe[2][0].thema_id);
         }
 
         [Test]
@@ -149,13 +149,13 @@ namespace MCAPP_Test.Tests
 
             foreach (Frage f in fragen)
             {
-                if (f.themaID==1)
+                if (f.thema_id==1)
                 {
                     countThema1++;
-                } else if (f.themaID==2)
+                } else if (f.thema_id==2)
                 {
                     countThema2++;
-                } else if (f.themaID==3)
+                } else if (f.thema_id==3)
                 {
                     countThema3++;
                 }
@@ -256,8 +256,8 @@ namespace MCAPP_Test.Tests
 
             foreach (Frage f in fragen) {
 
-                if (f.FrageId==2 || f.FrageId == 4 || f.FrageId == 6
-                    || f.FrageId == 8 || f.FrageId == 10)                   
+                if (f.id==2 || f.id == 4 || f.id == 6
+                    || f.id == 8 || f.id == 10)                   
                 {
                     foundBeantworteFragen = true;
                 }
@@ -283,26 +283,26 @@ namespace MCAPP_Test.Tests
             foreach (Frage f in fragen)
             {
 
-                if (f.FrageId==1)
+                if (f.id==1)
                 {
                     foundFrage1 = true;
-                } else if (f.FrageId == 3)
+                } else if (f.id == 3)
                 {
                     foundFrage3 = true;
                 }
-                else if (f.FrageId == 5)
+                else if (f.id == 5)
                 {
                     foundFrage5 = true;
                 }
-                else if (f.FrageId == 7)
+                else if (f.id == 7)
                 {
                     foundFrage7 = true;
                 }
-                else if (f.FrageId == 9)
+                else if (f.id == 9)
                 {
                     foundFrage9 = true;
                 }
-                else if (f.FrageId == 11)
+                else if (f.id == 11)
                 {
                     foundFrage11 = true;
                 }
@@ -325,8 +325,8 @@ namespace MCAPP_Test.Tests
             foreach (Frage f in fragen)
             {
 
-                if (f.FrageId == 2 || f.FrageId == 4 || f.FrageId == 6
-                    || f.FrageId == 8 || f.FrageId == 10)
+                if (f.id == 2 || f.id == 4 || f.id == 6
+                    || f.id == 8 || f.id == 10)
                 {
                     foundBeantworteFragen = true;
                 }

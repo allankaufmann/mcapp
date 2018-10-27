@@ -37,9 +37,9 @@ namespace MCAPP_Project.Core.Services
         public Frage Build()
         {
             Frage frage = new Frage();
-            frage.FrageId = this.FrageId;
+            frage.id = this.FrageId;
             frage.Fragetext = this.Fragetext;
-            frage.themaID = this.themaID;
+            frage.thema_id = this.themaID;
             frage.antworten = this.antworten;
             return frage;
         }

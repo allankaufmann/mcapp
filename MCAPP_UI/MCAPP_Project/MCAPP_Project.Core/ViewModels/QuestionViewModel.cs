@@ -58,7 +58,7 @@ namespace MCAPP_Project.Core.ViewModels
             get {
                 if (frage!=null)
                 {
-                    Thema t = service.GetThema(frage.themaID);
+                    Thema t = service.GetThema(frage.thema_id);
                     return t.ThemaText;
                 }
 

@@ -12,7 +12,7 @@ namespace MCAPP_Project.Core.Services
     {
         Boolean refreshData();
 
-        Task AddNewFrage(Frage frage);
+        int AddNewFrage(Frage frage);
 
         int SaveThema(Thema thema);
 

@@ -211,7 +211,7 @@ namespace MCAPP_Test.Tests
 
             foreach (Frage f in this.alleFragen)
             {
-                if (f.themaID == themaID)
+                if (f.thema_id == themaID)
                 {
                     fragen.Add(f);
                 }
