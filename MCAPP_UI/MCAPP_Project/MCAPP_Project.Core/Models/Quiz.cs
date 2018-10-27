@@ -47,7 +47,7 @@ namespace MCAPP_Project.Core.Models
 
             foreach (Frage f in this.fragen)
             {
-                if (f.themaID==thema.ThemaID)
+                if (f.themaID==thema.id)
                 {
                     fragen.Add(f);
                 }

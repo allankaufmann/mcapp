@@ -11,6 +11,8 @@ namespace MCAPP_Project.Core.Services
     {
         Task<List<Thema>> GetThemen();
 
+        Task<List<Frage>> GetFragen();
+
 
     }
 
@@ -23,6 +25,10 @@ namespace MCAPP_Project.Core.Services
             this.repo = repo;
         }
 
+        public Task<List<Frage>> GetFragen()
+        {
+            return repo.GetFragen();
+        }
 
         public Task<List<Thema>> GetThemen()
         {

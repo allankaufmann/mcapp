@@ -36,7 +36,7 @@ namespace MCAPP_Project.Core.Services
             return repository.Save(frage);
         }
 
-        public int AddNewThema(Thema thema)
+        public int SaveThema(Thema thema)
         {
             return repository.SaveThema(thema);
         }
@@ -62,7 +62,7 @@ namespace MCAPP_Project.Core.Services
 
             foreach (Thema t in gewaelteThemen)
             {
-                List<Frage> fragen = GetFragen(t.ThemaID);
+                List<Frage> fragen = GetFragen(t.id);
                 foreach (Frage f in fragen)
                 {
                     fragenListe.Add(f);
@@ -78,12 +78,12 @@ namespace MCAPP_Project.Core.Services
             foreach (Thema t in gewaelteThemen)
             {
                 List<Frage> fragenListe = new List<Frage>();
-                List<Frage> fragen = GetFragen(t.ThemaID);
+                List<Frage> fragen = GetFragen(t.id);
                 foreach (Frage f in fragen)
                 {
                     fragenListe.Add(f);
                 }
-                fragenDictionary.Add(t.ThemaID, fragenListe);
+                fragenDictionary.Add(t.id, fragenListe);
 
             }
             return fragenDictionary;
@@ -108,7 +108,7 @@ namespace MCAPP_Project.Core.Services
              */
             for (int i = 0; i < gewaelteThemen.Count; i++)
             {
-                int count = GetFragen(gewaelteThemen[i].ThemaID).Count;
+                int count = GetFragen(gewaelteThemen[i].id).Count;
                 if (durchschnittFragenProThema <= count)
                 {
                     anzahlProThema[i] = durchschnittFragenProThema;
@@ -155,7 +155,7 @@ namespace MCAPP_Project.Core.Services
                          * Sofern noch eine weitere Frage vorhanden ist, wird
                          * der Counter erhöht. 
                          */
-                        int count = GetFragen(gewaelteThemen[j].ThemaID).Count;
+                        int count = GetFragen(gewaelteThemen[j].id).Count;
                         if (count > anzahlProThema[j] + 1)
                         {
                             anzahlProThema[j]++;
@@ -282,7 +282,7 @@ namespace MCAPP_Project.Core.Services
             List<Thema> themen = GetAllThemen();
             foreach (Thema t in themen)
             {
-                if(t.ThemaID==themaID)
+                if(t.id==themaID)
                 {
                     return t;
                 }
@@ -295,7 +295,7 @@ namespace MCAPP_Project.Core.Services
 
         public async Task<List<Frage>> GetZufallsFragen(Thema thema, int anz)
         {
-            List<Frage> alleFragen = GetFragen(thema.ThemaID);
+            List<Frage> alleFragen = GetFragen(thema.id);
             List<Frage> zufallsFragen = new List<Frage>();
 
             List<Frage> nichtBeantworteteFragen = new List<Frage>();

@@ -14,7 +14,7 @@ namespace MCAPP_Project.Core.Services
 
         Task AddNewFrage(Frage frage);
 
-        int AddNewThema(Thema thema);
+        int SaveThema(Thema thema);
 
         List<Frage> GetAllFragen();
 

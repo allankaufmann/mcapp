@@ -62,7 +62,7 @@ namespace MCAPP_Test.Tests
         {
             Thema t = service.GetThema(1);
 
-            Assert.AreEqual(1, t.ThemaID);
+            Assert.AreEqual(1, t.id);
         }
 
         [Test]
@@ -82,7 +82,7 @@ namespace MCAPP_Test.Tests
                 Boolean found = false;
                 foreach (Frage f in fragen)
                 {
-                    if (f.themaID == t.ThemaID)
+                    if (f.themaID == t.id)
                     {
                         found = true;
                     }

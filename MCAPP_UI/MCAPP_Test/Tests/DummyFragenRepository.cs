@@ -170,7 +170,7 @@ namespace MCAPP_Test.Tests
         private Thema getThema(long id, String text)
         {
             Thema thema = new Thema();
-            thema.ThemaID = id;
+            thema.id = id;
             thema.ThemaText = text;
 
             return thema;
@@ -223,6 +223,11 @@ namespace MCAPP_Test.Tests
         public long GetNewQuizID()
         {
             return this.QuizCounter++;
+        }
+
+        public int SaveThema(Thema thema)
+        {
+            throw new NotImplementedException();
         }
     }
 }
