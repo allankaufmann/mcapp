@@ -21,7 +21,9 @@ namespace MCAPP_Project.Core
 
             //RegisterNavigationServiceAppStart<ViewModels.SampleQuestionViewModel>();
             //RegisterNavigationServiceAppStart<ViewModels.QuestionTableViewModel>();
-            RegisterNavigationServiceAppStart<ViewModels.ThemenwahlViewModel>();
+            //RegisterNavigationServiceAppStart<ViewModels.ThemenwahlViewModel>();
+            RegisterNavigationServiceAppStart<ViewModels.StartViewModel>();
+
             Mvx.RegisterType<IFragenRepository, FragenRepository>();
             Mvx.RegisterType<IQuizService, QuizService>();
             Mvx.RegisterType<IQuizRepository, QuizRepository>();

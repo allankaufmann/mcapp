@@ -35,10 +35,12 @@ namespace MCAPP_Project.Core.ViewModels
             this.StartQuizCommand = new MvxAsyncCommand(StartQuiz, ThemaIstGewaehlt);
 
             this.themenListe = fragenService.GetAllThemen();
-            
-            doSomething();
 
+            initViews();
+        }
 
+        private void initViews()
+        {
             Tables.Add(new ThemaViewModel(StartQuizCommand));
 
             foreach (Thema t in themenListe)
@@ -47,25 +49,7 @@ namespace MCAPP_Project.Core.ViewModels
             }
 
             Tables.Add(new ThemaViewModel(StartQuizCommand));
-        }
-
-        public async Task doSomething()
-        {
-            try
-            {
-                List<Thema> liste = await mcappwebservice.GetThemen();
-                Console.WriteLine("erg: " + liste.Count);
-            }
-            catch (MCAPPWebserviceException ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-
-
-
-        }
-
-
+        }      
 
         public IMvxAsyncCommand StartQuizCommand { get; }
 
@@ -88,7 +72,6 @@ namespace MCAPP_Project.Core.ViewModels
             quiz.position = 0;
             quiz.gewaelteThemen = gewaelteThemen;
 
-
             await navigationService.Navigate(typeof(QuestionTableViewModel), quiz);
         }
 
@@ -106,8 +89,5 @@ namespace MCAPP_Project.Core.ViewModels
             }
             return false;
         }
-
-
-
     }
 }

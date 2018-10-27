@@ -125,6 +125,10 @@
     <Compile Include="Views\SampleQuestion.designer.cs">
       <DependentUpon>SampleQuestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\StartView.cs" />
+    <Compile Include="Views\StartView.designer.cs">
+      <DependentUpon>StartView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Themenwahl\StartButtonCell.cs" />
     <Compile Include="Views\Themenwahl\StartButtonCell.designer.cs">
       <DependentUpon>StartButtonCell.cs</DependentUpon>
@@ -148,6 +152,7 @@
     <InterfaceDefinition Include="Views\Fragentabelle\QuestionTableView.storyboard" />
     <InterfaceDefinition Include="Views\Themenwahl\ThemenwahlView.storyboard" />
     <InterfaceDefinition Include="Views\Auswertung\AuswertungTabelle.storyboard" />
+    <InterfaceDefinition Include="Views\StartView.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Setup.cs" />
@@ -161,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
+    <Content Include="Views\logo_fernuni_hagen.svg" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -230,6 +236,18 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-83.5x83.5_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Images.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Images.imageset\Uni_hagen_logo.svg.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Images.imageset\Uni_hagen_logo.svg1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Images.imageset\Uni_hagen_logo.svg2.png">
       <Visible>false</Visible>
     </ImageAsset>
   </ItemGroup>
