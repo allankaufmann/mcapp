@@ -3,12 +3,15 @@ using MCAPP_Project.Core.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MCAPP_Project.Core.Services
 {
     public interface IMCAPPWebService
     {
-        List<Thema> GetThemen();
+        Task<List<Thema>> GetThemen();
+
+
     }
 
     public class MCAPPWebService : IMCAPPWebService
@@ -21,7 +24,7 @@ namespace MCAPP_Project.Core.Services
         }
 
 
-        public List<Thema> GetThemen()
+        public Task<List<Thema>> GetThemen()
         {
             return repo.GetThemen();
         }

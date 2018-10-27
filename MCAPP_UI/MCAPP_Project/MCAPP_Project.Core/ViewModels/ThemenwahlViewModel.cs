@@ -28,29 +28,43 @@ namespace MCAPP_Project.Core.ViewModels
         public ThemenwahlViewModel(IMvxNavigationService navigationService)
         {
             this.mcappwebservice = Mvx.Resolve<IMCAPPWebService>();
-
-            //List<Thema> liste = mcappwebservice.GetThemen();
-
-
-            
-            this.Tables = new ObservableCollection<ThemaViewModel>();
             this.fragenService = Mvx.Resolve<IFragenService>();
-            this.themenListe = fragenService.GetAllThemen();
+            this.quizService = Mvx.IocConstruct<QuizService>();
             this.navigationService = navigationService;
-            this.quizService = Mvx.IocConstruct<QuizService>(); 
+            this.Tables = new ObservableCollection<ThemaViewModel>();
+            this.StartQuizCommand = new MvxAsyncCommand(StartQuiz, ThemaIstGewaehlt);
 
-            StartQuizCommand = new MvxAsyncCommand(StartQuiz, ThemaIstGewaehlt);
+            this.themenListe = fragenService.GetAllThemen();
+            
+            doSomething();
 
 
             Tables.Add(new ThemaViewModel(StartQuizCommand));
 
-            foreach(Thema t in themenListe)
+            foreach (Thema t in themenListe)
             {
                 Tables.Add(new ThemaViewModel(StartQuizCommand, t));
             }
 
             Tables.Add(new ThemaViewModel(StartQuizCommand));
         }
+
+        public async Task doSomething()
+        {
+            try
+            {
+                List<Thema> liste = await mcappwebservice.GetThemen();
+                Console.WriteLine("erg: " + liste.Count);
+            }
+            catch (MCAPPWebserviceException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+
+
+        }
+
 
 
         public IMvxAsyncCommand StartQuizCommand { get; }
