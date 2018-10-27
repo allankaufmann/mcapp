@@ -131,5 +131,10 @@ namespace MCAPP_Project.Core.Repositories
         {
             return this.themen;
         }
+
+        public int SaveThema(Thema thema)
+        {
+            return connection.InsertOrReplace(thema);
+        }
     }
 }

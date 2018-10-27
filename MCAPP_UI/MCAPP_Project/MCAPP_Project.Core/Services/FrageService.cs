@@ -25,9 +25,20 @@ namespace MCAPP_Project.Core.Services
             this.quizService = quizService;
         }
 
+        public Boolean refreshData()
+        {
+            return repository.loadThemen();
+        }
+
+
         public Task AddNewFrage(Frage frage)
         {
             return repository.Save(frage);
+        }
+
+        public int AddNewThema(Thema thema)
+        {
+            return repository.SaveThema(thema);
         }
 
         public List<Frage> GetAllFragen()

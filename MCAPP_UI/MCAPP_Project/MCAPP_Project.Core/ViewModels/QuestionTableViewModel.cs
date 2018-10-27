@@ -65,15 +65,7 @@ namespace MCAPP_Project.Core.ViewModels
             } else
             {
                 await navigationService.Navigate(typeof(AuswertungTabelleViewModel), this.quiz);
-            }
-
-
-
-
-
-            
+            }            
         }
-
-
     }
 }

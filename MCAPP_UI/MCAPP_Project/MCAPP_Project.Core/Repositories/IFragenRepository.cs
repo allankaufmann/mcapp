@@ -29,8 +29,10 @@ namespace MCAPP_Project.Core.Repositories
         // Quatsch
         List<Frage> GetAllFragen();
 
-        // Quatsch
+        
         Task Save(Frage frage);
+
+        int SaveThema(Thema thema);
 
         /*
          * Liefert eine Beispielfrage.

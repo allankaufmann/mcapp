@@ -8,7 +8,13 @@ namespace MCAPP_Project.Core.Models
 {
     public class Thema
     {
-       
+
+        [Ignore]
+        public long id
+        {
+            get; set;
+        }
+
 
         [PrimaryKey, AutoIncrement]
         public long ThemaID

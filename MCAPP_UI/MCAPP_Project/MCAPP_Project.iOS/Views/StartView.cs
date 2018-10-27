@@ -36,6 +36,17 @@ namespace MCAPP_Project.iOS.Views
 
             logo.Image = UIImage.FromBundle("Uni_hagen_logo.svg");
 
+            /*
+              Beispiel für Dialog
+            var okAlertController = UIAlertController.Create("Title", "The message", UIAlertControllerStyle.Alert);
+            //Add Action
+            okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+
+            // Present Alert
+            PresentViewController(okAlertController, true, null);*/
+
+
+
             // Perform any additional setup after loading the view, typically from a nib.
         }
 

@@ -10,7 +10,11 @@ namespace MCAPP_Project.Core.Services
 {
     public interface IFragenService
     {
+        Boolean refreshData();
+
         Task AddNewFrage(Frage frage);
+
+        int AddNewThema(Thema thema);
 
         List<Frage> GetAllFragen();
 
