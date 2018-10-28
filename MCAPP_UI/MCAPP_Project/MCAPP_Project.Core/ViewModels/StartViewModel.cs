@@ -1,5 +1,6 @@
 ﻿using MCAPP_Project.Core.Models;
 using MCAPP_Project.Core.Services;
+using MCAPP_Project.Core.Utils;
 using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
@@ -35,7 +36,7 @@ namespace MCAPP_Project.Core.ViewModels
         {
             await synchronisiereThemen();
 
-            //await syncronisiereFragen();
+            await syncronisiereFragen();
 
             // Nach Syncronisation der DB wird zur Themenwahl navigiert.
             await navigationService.Navigate(typeof(ThemenwahlViewModel));
@@ -98,14 +99,9 @@ namespace MCAPP_Project.Core.ViewModels
             {
                 List<Frage> fragenWeb = await mcappwebservice.GetFragen();
 
-                List<Frage> fragenLokal = fragenService.GetAllFragen();
+                List<Frage> fragenInDB = fragenService.GetAllFragen();
 
-                Dictionary<long, Frage> fragenLokalDict = new Dictionary<long, Frage>();
-                foreach (Frage f in fragenLokal)
-                {
-                    fragenLokalDict.Add(f.id, f);
-                }
-
+                Dictionary<long, Frage> fragenInDBDict = MCAPPUtils.convertListToDictionary(fragenInDB);
 
                 Boolean refresh = false;
 
@@ -113,27 +109,29 @@ namespace MCAPP_Project.Core.ViewModels
                 {
                     if (MCAPP_PROPERTIES.DEMO_MODUS)
                     {
-                        fragenService.AddNewFrage(f);
+                        fragenService.SaveFrage(f);
                         refresh = true;
                         MCAPP_PROPERTIES.DEMO_MODUS = false;
                         continue;
                     }
 
-                    if (!fragenLokalDict.ContainsKey(f.id))
-                    {
-                        // neue Fragen
-                        fragenService.AddNewFrage(f);
-                        refresh = true;
+                    // Frage wird gespeichert, unabhängig ob vorhanden oder nicht
+                    fragenService.SaveFrage(f);
+                    refresh = true;
 
-                    }
-                    else
-                    {
-                        // vorhandene Frage
-
-                    }
-
-
+                    // Wir nehmen jede verarbeite Frage aus der Map heraus. 
+                    // Damit wird später geprüft, ob inzwischen Fragen gelöscht wurden.
+                    fragenInDBDict.Remove(f.id);
                 }
+
+                foreach (Frage f in fragenInDBDict.Values)
+                {
+
+                    // Todo löschen!
+                    //fragenService.gel
+                }
+
+
 
                 if (refresh)
                 {
@@ -149,5 +147,7 @@ namespace MCAPP_Project.Core.ViewModels
             }
 
         }
+
+
     }
 }

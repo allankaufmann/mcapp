@@ -8,6 +8,7 @@ using System.IO;
 using MCAPP_Project.Core.Models;
 using System.Threading.Tasks;
 using MCAPP_Project.Core.Services;
+using MCAPP_Project.Core.Utils;
 
 namespace MCAPP_Project.Core.Repositories
 {
@@ -37,6 +38,7 @@ namespace MCAPP_Project.Core.Repositories
             connection = new SQLiteConnection("/Users/allan/test.db");
             connection.CreateTable<Frage>();
             connection.CreateTable<Thema>();
+            connection.CreateTable<Textantwort>();
 
             loadThemen();
             loadFragen();
@@ -83,24 +85,48 @@ namespace MCAPP_Project.Core.Repositories
         {
             this.alleFragen = new List<Frage>();
 
-            if (MCAPP_PROPERTIES.DEMO_MODUS)
+            try
             {
-                FragenBuilder builder = new FragenBuilder();
-                Frage frage = builder.createFrage(0, "Demo Frage", 0)
-                    .WithAntwort("Demo Antwort 1", true)
-                    .WithAntwort("Demo Antwort 2", false)
-                    .WithAntwort("Demo Antwort 3", false)
-                    .WithAntwort("Demo Antwort 4", false)
-                    .WithAntwort("Demo Antwort 5", false)
-                    .WithAntwort("Demo Antwort 6", false)
-                    .WithAntwort("Demo Antwort 7", false)
-                    .WithAntwort("Demo Antwort 8", false)
-                    .Build();
-                this.alleFragen.Add(frage);
+                if (MCAPP_PROPERTIES.DEMO_MODUS)
+                {
+                    FragenBuilder builder = new FragenBuilder();
+                    Frage frage = builder.createFrage(0, "Demo Frage", 0)
+                        .WithAntwort("Demo Antwort 1", true)
+                        .WithAntwort("Demo Antwort 2", false)
+                        .WithAntwort("Demo Antwort 3", false)
+                        .WithAntwort("Demo Antwort 4", false)
+                        .WithAntwort("Demo Antwort 5", false)
+                        .WithAntwort("Demo Antwort 6", false)
+                        .WithAntwort("Demo Antwort 7", false)
+                        .WithAntwort("Demo Antwort 8", false)
+                        .Build();
+                    this.alleFragen.Add(frage);
+                    return true;
+                }
 
+                this.alleFragen = connection.Table<Frage>().ToList<Frage>();
+                Dictionary<long, Frage> alleFragenDict = MCAPPUtils.convertListToDictionary(this.alleFragen);
+
+                List<Textantwort> antworten = connection.Table<Textantwort>().ToList<Textantwort>();
+                foreach (Textantwort a in antworten)
+                {
+                    if (alleFragenDict.ContainsKey(a.frage_id))
+                    {
+                        Frage f = alleFragenDict[a.frage_id];
+                        if (f.antworten == null)
+                        {
+                            f.antworten = new List<Textantwort>();
+                        }
+                        f.antworten.Add(a);
+                    }
+                }
+                return true;
             }
-
-            return true;
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }          
         }
 
         public bool loadThemen()
@@ -121,10 +147,31 @@ namespace MCAPP_Project.Core.Repositories
             return true;
         }
 
-        public int Save(Frage frage)
+        public int SaveFrage(Frage frage)
         {
-            return connection.InsertOrReplace(frage);         
-        
+
+            int rows = 0;
+            int antwortRows = 0;
+
+            try
+            {
+                rows = connection.InsertOrReplace(frage);
+
+                if (frage.antworten != null && frage.antworten.Count > 0)
+                {
+                    foreach (Antwort a in frage.antworten)
+                    {
+                        antwortRows+= connection.InsertOrReplace(a);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(rows + " Fragen wurden in DB geschrieben!");
+                Console.WriteLine(antwortRows + " Antworten wurden in DB geschrieben!");
+                Console.WriteLine(e.ToString());
+            }                      
+            return rows;   
         }
 
         List<Thema> IFragenRepository.GetAllThemen()

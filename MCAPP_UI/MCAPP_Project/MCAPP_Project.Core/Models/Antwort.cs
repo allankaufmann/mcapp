@@ -14,6 +14,7 @@ namespace MCAPP_Project.Core.Models
         /*
          * ID der Frage. Dient der Identifikation der Frage sowohl client- als auch serverseitig.
          */
+        [PrimaryKey, AutoIncrement]
         public long id { set; get; }
 
         /*
@@ -33,16 +34,12 @@ namespace MCAPP_Project.Core.Models
         [Ignore]
         public Frage frage { get; set; }
 
+
+
+
         public long frage_id
         {
-            set { }
-            get {
-                if (this.frage==null)
-                {
-                    return 0;
-                }
-                return this.frage.id;
-            }
+            set; get;
         }
 
 

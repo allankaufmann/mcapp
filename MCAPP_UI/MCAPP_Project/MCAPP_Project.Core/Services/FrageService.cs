@@ -31,9 +31,9 @@ namespace MCAPP_Project.Core.Services
         }
 
 
-        public int AddNewFrage(Frage frage)
+        public int SaveFrage(Frage frage)
         {
-            return repository.Save(frage);
+            return repository.SaveFrage(frage);
         }
 
         public int SaveThema(Thema thema)

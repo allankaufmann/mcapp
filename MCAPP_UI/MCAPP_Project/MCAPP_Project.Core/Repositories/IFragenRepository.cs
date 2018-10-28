@@ -30,7 +30,7 @@ namespace MCAPP_Project.Core.Repositories
         List<Frage> GetAllFragen();
 
         
-        int Save(Frage frage);
+        int SaveFrage(Frage frage);
 
         int SaveThema(Thema thema);
 
