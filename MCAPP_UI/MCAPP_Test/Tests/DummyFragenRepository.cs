@@ -229,5 +229,10 @@ namespace MCAPP_Test.Tests
         {
             throw new NotImplementedException();
         }
+
+        public int SaveFrage(Frage frage)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -16,18 +16,11 @@ namespace MCAPP_Project.Core.Repositories
          */
         Boolean loadThemen();
 
-        /**
-         * Lädt sämtliche hinterlegten Fragen.
-         */
-        Boolean loadFragen();
 
         /**
          * Liefert Liste aller vorhandenen Themen.
          */
         List<Thema> GetAllThemen();
-
-        // Quatsch
-        List<Frage> GetAllFragen();
 
         
         int SaveFrage(Frage frage);

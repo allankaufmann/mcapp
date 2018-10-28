@@ -16,8 +16,6 @@ namespace MCAPP_Project.Core.Services
 
         int SaveThema(Thema thema);
 
-        List<Frage> GetAllFragen();
-
         /*
         * Liefert eine Beispielfrage.
         */
@@ -27,6 +25,8 @@ namespace MCAPP_Project.Core.Services
          * Liefert Liste aller vorhandenen Themen.
          */
         List<Thema> GetAllThemen();
+
+        List<Frage> GetAllFragen();
 
         /**
          * Liefert alle Fragen, die einem bestimmten Thema zugeordnet sind. 

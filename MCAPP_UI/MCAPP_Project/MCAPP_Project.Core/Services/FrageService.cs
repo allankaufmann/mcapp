@@ -41,15 +41,16 @@ namespace MCAPP_Project.Core.Services
             return repository.SaveThema(thema);
         }
 
-        public List<Frage> GetAllFragen()
-        {
-            return repository.GetAllFragen();
-        }
-
         public List<Thema> GetAllThemen()
         {
             return repository.GetAllThemen();
         }
+
+        public List<Frage> GetAllFragen()
+        {
+            return repository.GetAlleFragen();
+        }
+
 
         public List<Frage> GetFragen(long themaID)
         {

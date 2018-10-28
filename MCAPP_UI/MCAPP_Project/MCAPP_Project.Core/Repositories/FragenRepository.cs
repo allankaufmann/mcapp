@@ -18,7 +18,7 @@ namespace MCAPP_Project.Core.Repositories
     public class FragenRepository : IFragenRepository
     {
 
-        private List<Frage> alleFragen;
+        //private List<Frage> alleFragen;
         private List<Thema> themen;
 
         //readonly SQLiteAsyncConnection connection;
@@ -39,22 +39,17 @@ namespace MCAPP_Project.Core.Repositories
             connection.CreateTable<Frage>();
             connection.CreateTable<Thema>();
             connection.CreateTable<Textantwort>();
+            connection.CreateTable<Quiz_Frage>();
+            connection.CreateTable<Quiz>();
 
             loadThemen();
-            loadFragen();
-
         }
 
-        public List<Frage> GetAlleFragen()
-        {
-            return this.alleFragen;
-        }
 
-        public List<Frage> GetAllFragen()
-        {
-            
-            return this.alleFragen;
-        }
+
+
+
+
 
         public List<Thema> GetAllThemen()
         {
@@ -65,7 +60,7 @@ namespace MCAPP_Project.Core.Repositories
         {
             List<Frage> fragen = new List<Frage>();
 
-            foreach (Frage f in this.alleFragen)
+            foreach (Frage f in this.GetAlleFragen())
             {
                 if (f.thema_id == themaID)
                 {
@@ -81,9 +76,9 @@ namespace MCAPP_Project.Core.Repositories
             throw new NotImplementedException();
         }
 
-        public bool loadFragen()
+        public List<Frage> GetAlleFragen()
         {
-            this.alleFragen = new List<Frage>();
+            List<Frage> alleFragen = new List<Frage>();
 
             try
             {
@@ -100,12 +95,12 @@ namespace MCAPP_Project.Core.Repositories
                         .WithAntwort("Demo Antwort 7", false)
                         .WithAntwort("Demo Antwort 8", false)
                         .Build();
-                    this.alleFragen.Add(frage);
-                    return true;
+                    alleFragen.Add(frage);
+                    return alleFragen;
                 }
 
-                this.alleFragen = connection.Table<Frage>().ToList<Frage>();
-                Dictionary<long, Frage> alleFragenDict = MCAPPUtils.convertListToDictionary(this.alleFragen);
+                alleFragen = connection.Table<Frage>().ToList<Frage>();
+                Dictionary<long, Frage> alleFragenDict = MCAPPUtils.convertListToDictionary(alleFragen);
 
                 List<Textantwort> antworten = connection.Table<Textantwort>().ToList<Textantwort>();
                 foreach (Textantwort a in antworten)
@@ -120,12 +115,12 @@ namespace MCAPP_Project.Core.Repositories
                         f.antworten.Add(a);
                     }
                 }
-                return true;
+                return alleFragen;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                return false;
+                return alleFragen;
             }          
         }
 
