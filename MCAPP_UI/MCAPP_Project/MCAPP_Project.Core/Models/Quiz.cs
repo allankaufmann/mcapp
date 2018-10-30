@@ -30,6 +30,9 @@ namespace MCAPP_Project.Core.Models
         [Ignore]
         public Dictionary<long, bool> FrageRichtigBeantwortet { get; set; }
 
+        [Ignore]
+        public Boolean ended { get; set; }
+
 
         public Quiz()
         {

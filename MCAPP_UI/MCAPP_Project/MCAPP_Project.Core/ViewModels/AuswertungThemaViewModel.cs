@@ -1,5 +1,6 @@
 ﻿using MCAPP_Project.Core.Models;
 using MCAPP_Project.Core.Services;
+using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
 using System;
@@ -20,11 +21,19 @@ namespace MCAPP_Project.Core.ViewModels
 
         public AuswertungThemaViewModel(Thema thema, Quiz quiz)
         {
+            //navigationService.Close(this);
             quizService = Mvx.Resolve<IQuizService>();
 
             this.thema = thema;
             this.quiz = quiz;
-            this.quiz = quizService.CreateAuswertung(thema, quiz);
+
+            if (!this.quiz.ended)
+            {
+                this.quiz.ended = true;
+                this.quiz = quizService.CreateAuswertung(thema, quiz);
+            }
+
+            
         }
 
         public String auswertungText

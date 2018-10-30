@@ -1,4 +1,5 @@
 ﻿using MCAPP_Project.Core.Models;
+using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace MCAPP_Project.Core.ViewModels
 
         public ObservableCollection<AuswertungThemaViewModel> Tables { get; }
 
-        public AuswertungTabelleViewModel()
+        public AuswertungTabelleViewModel(IMvxNavigationService navigationService)
         {
             Tables = new ObservableCollection<AuswertungThemaViewModel>();
         }
