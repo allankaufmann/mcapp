@@ -27,7 +27,7 @@ namespace MCAPP_Test.Tests
         {
             Quiz q1 = quizService.CreateQuiz();
             Quiz q2 = quizService.CreateQuiz();
-            Assert.Greater(q2.quizID, q1.quizID);
+            Assert.Greater(q2.id, q1.id);
         }
 
         [Test] 

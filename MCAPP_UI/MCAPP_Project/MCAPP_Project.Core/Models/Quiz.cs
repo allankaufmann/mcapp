@@ -11,7 +11,7 @@ namespace MCAPP_Project.Core.Models
     {
 
         [PrimaryKey, AutoIncrement]
-        public long quizID { get; set; }
+        public long id { get; set; }
 
         public DateTime datum { get; set; }
 

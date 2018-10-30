@@ -54,7 +54,7 @@ namespace MCAPP_Project.Core.Services
 
                 Quiz_Frage quizFrage = new Quiz_Frage();
                 quizFrage.datum = DateTime.Now;
-                quizFrage.quizID = quiz.quizID;
+                quizFrage.quizID = quiz.id;
                 quizFrage.frageID = f.id;
                 quizFrage.richtig_beantwortet = frageRichtig;
 
@@ -81,7 +81,7 @@ namespace MCAPP_Project.Core.Services
                 quizRepo.Save(quiz);
             } else
             {
-                quiz.quizID = quizCounter++;
+                quiz.id = quizCounter++;
             }
 
             return quiz;

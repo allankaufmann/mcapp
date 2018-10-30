@@ -39,7 +39,7 @@ namespace MCAPP_Test.Tests
         {
 
 
-            quiz.quizID = this.quizCounter++;
+            quiz.id = this.quizCounter++;
 
             return quiz;
         }

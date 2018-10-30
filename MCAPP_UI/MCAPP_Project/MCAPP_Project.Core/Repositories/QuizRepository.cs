@@ -10,7 +10,8 @@ namespace MCAPP_Project.Core.Repositories
 {
     public class QuizRepository : IQuizRepository
     {
-        readonly SQLiteAsyncConnection connection;
+        //readonly SQLiteAsyncConnection connection;
+        readonly SQLiteConnection connection;
 
         public QuizRepository()
         {
@@ -22,36 +23,37 @@ namespace MCAPP_Project.Core.Repositories
             //var datafile = PortablePath.Combine(local, "test2.db");
             //connection = new SQLiteAsyncConnection(datafile);
 
-            connection = new SQLiteAsyncConnection("/Users/allan/test.db");
+            connection = new SQLiteConnection("/Users/allan/test.db");
 
             
-            connection.GetConnection().CreateTable<Quiz_Frage>();
-            connection.GetConnection().CreateTable<Quiz>();
+            connection.CreateTable<Quiz_Frage>();
+            connection.CreateTable<Quiz>();
         }
 
         public Quiz Save(Quiz quiz)
         {
-
-
-
-            //Task ta = connection.InsertAsync(quiz);
-
-            return null;
-
+                        try
+            {
+                connection.Insert(quiz);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+                                   return quiz;
         }
 
         public Quiz_Frage SaveQuiz_Frage(Quiz_Frage quizFrage)
         {
-            //Task ta = connection.InsertAsync(quizFrage);
-            //return ta;
-            return null;
+            connection.Insert(quizFrage);
+            return quizFrage;
         }
 
 
-        public Task<List<Quiz>> GetAll()
+        /*public Task<List<Quiz>> GetAll()
         {
-            return connection.Table<Quiz>().ToListAsync();
-        }
+            return connection.Table<Quiz>().ToList();
+        }*/
 
         public async Task<bool> FrageNochNichtRichtigBeantwortet(long frageID)
         {
@@ -60,10 +62,10 @@ namespace MCAPP_Project.Core.Repositories
              * Es werden alle Beantwortungen nach Datum sortiert zu dieser
              * Frage geladen. Tatsächlich interessiert uns nur der erste Eintrag.
              */
-            List<Quiz_Frage> fragen = await connection.Table<Quiz_Frage>()
+            List<Quiz_Frage> fragen = connection.Table<Quiz_Frage>()
                 .Where(v => v.frageID == frageID)
                 .OrderByDescending(v=>v.datum)
-                .ToListAsync();
+                .ToList();
 
             /*
              * Wenn Frage in der Vergangenheit falsch oder richtig beantwortet wurde, 
