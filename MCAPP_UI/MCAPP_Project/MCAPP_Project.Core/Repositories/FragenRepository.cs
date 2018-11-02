@@ -62,7 +62,7 @@ namespace MCAPP_Project.Core.Repositories
 
             foreach (Frage f in this.GetAlleFragen())
             {
-                if (f.thema_id == themaID)
+                if (f.thema_id == themaID && (f.antworten!=null && f.antworten.Count > 0))
                 {
                     fragen.Add(f);
                 }
