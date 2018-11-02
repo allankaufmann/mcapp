@@ -18,7 +18,18 @@ namespace MCAPP_Project.iOS.Views.Auswertung
 
         protected override UITableViewCell GetOrCreateCellFor(UITableView tableView, NSIndexPath indexPath, object item)
         {
+            nint count = tableView.NumberOfRowsInSection(0);
+
+            if (indexPath.LongRow == (count - 1))
+            {
+                ReStartButtonCell cell = (ReStartButtonCell)tableView.DequeueReusableCell("ReStartbuttonCell");
+                return cell;
+            }
+
             return (ThemaAuswertungCell)tableView.DequeueReusableCell("ThemaAuswertungCell");
+
+
+
         }
 
 

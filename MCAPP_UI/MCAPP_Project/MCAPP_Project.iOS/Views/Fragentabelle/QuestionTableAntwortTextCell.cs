@@ -4,12 +4,42 @@ using Foundation;
 using MCAPP_Project.Core.ViewModels;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.iOS.Views;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform.Core;
 using UIKit;
 
 namespace MCAPP_Project.iOS.Views
 {
     public partial class QuestionTableAntwortTextCell : MvxTableViewCell
     {
+
+        private IMvxInteraction<Boolean> _interaction;
+        public IMvxInteraction<Boolean> Interaction
+        {
+            get => _interaction;
+            set
+            {
+                if (_interaction != null)
+                    _interaction.Requested -= OnInteractionRequested;
+
+                _interaction = value;
+                _interaction.Requested += OnInteractionRequested;
+            }
+        }
+
+        private async void OnInteractionRequested(object sender, MvxValueEventArgs<Boolean> eventArgs)
+        {
+            var editable = eventArgs.Value;
+            AntwortTextView.Editable = editable;
+            /*var yesNoQuestion = eventArgs.Value;
+            // show dialog
+            var status = await ShowDialog(yesNoQuestion.Question);
+            yesNoQuestion.YesNoCallback(status == DialogStatus.Yes);*/
+
+        }
+
+
+
 
 
         protected QuestionTableAntwortTextCell(IntPtr handle) : base(handle)
@@ -19,8 +49,16 @@ namespace MCAPP_Project.iOS.Views
             {
                 var set = this.CreateBindingSet<QuestionTableAntwortTextCell, QuestionViewModel>();
                 set.Bind(AntwortTextView).To(vm => vm.AntwortText);
+                
+                //set.Bind(AntwortTextView).For(v => v.Editable).To(vm => vm.Editable);
                 set.Bind(Schalter).To(vm => vm.AntwortAuswahl);
                 set.Apply();
+
+
+                var set2 = this.CreateBindingSet<QuestionTableAntwortTextCell, QuestionTableViewModel>();
+                set2.Bind(this).For(view => view.Interaction).To(viewModel => viewModel.Interaction);
+                set2.Apply();
+
 
             });
 

@@ -52,7 +52,6 @@ namespace MCAPP_Project.Core.ViewModels
             set { this.antwort.Auswahl = value; }
         }
 
-
         public String Thema
         {
             get {

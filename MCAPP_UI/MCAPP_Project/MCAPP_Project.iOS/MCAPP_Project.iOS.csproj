@@ -99,6 +99,10 @@
     <Compile Include="Views\Auswertung\AuswertungTabelle.designer.cs">
       <DependentUpon>AuswertungTabelle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Auswertung\ReStartButtonCell.cs" />
+    <Compile Include="Views\Auswertung\ReStartButtonCell.designer.cs">
+      <DependentUpon>ReStartButtonCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Auswertung\ThemaAuswertungCell.cs" />
     <Compile Include="Views\Auswertung\ThemaAuswertungCell.designer.cs">
       <DependentUpon>ThemaAuswertungCell.cs</DependentUpon>
@@ -151,7 +155,9 @@
     <InterfaceDefinition Include="Views\SampleQuestion.storyboard" />
     <InterfaceDefinition Include="Views\Fragentabelle\QuestionTableView.storyboard" />
     <InterfaceDefinition Include="Views\Themenwahl\ThemenwahlView.storyboard" />
-    <InterfaceDefinition Include="Views\Auswertung\AuswertungTabelle.storyboard" />
+    <InterfaceDefinition Include="Views\Auswertung\AuswertungTabelle.storyboard">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
     <InterfaceDefinition Include="Views\StartView.storyboard" />
   </ItemGroup>
   <ItemGroup>

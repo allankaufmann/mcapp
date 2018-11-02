@@ -47,10 +47,8 @@ namespace MCAPP_Project.iOS.Views
             set.Apply();
 
 
-
-
-            // Perform any additional setup after loading the view, typically from a nib.
         }
+
 
         public override void ViewWillAppear(bool animated)
         {
@@ -64,6 +62,26 @@ namespace MCAPP_Project.iOS.Views
 
         public override void ViewWillDisappear(bool animated)
         {
+            Boolean found = false;
+
+            foreach(UIViewController c in NavigationController.ViewControllers)
+            {
+                if (this.Equals(c))
+                {
+                    found = true;
+                }
+            }
+
+            if (!found)
+            {
+                // hier kommt man an, wenn der "Zurück"-Button betätigt wurde.
+
+                Console.WriteLine("zurueck");
+            }
+
+
+
+
             base.ViewWillDisappear(animated);
         }
 

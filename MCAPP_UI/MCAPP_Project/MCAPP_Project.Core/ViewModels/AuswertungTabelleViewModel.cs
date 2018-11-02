@@ -15,9 +15,12 @@ namespace MCAPP_Project.Core.ViewModels
 
         public ObservableCollection<AuswertungThemaViewModel> Tables { get; }
 
+        IMvxNavigationService navigationService;
+
         public AuswertungTabelleViewModel(IMvxNavigationService navigationService)
         {
             Tables = new ObservableCollection<AuswertungThemaViewModel>();
+            this.navigationService = navigationService;
         }
 
         public override void Prepare(Quiz parameter)
@@ -26,8 +29,12 @@ namespace MCAPP_Project.Core.ViewModels
 
             foreach (Thema t in quiz.gewaelteThemen)
             {
-                Tables.Add(new AuswertungThemaViewModel(t, parameter));
+                Tables.Add(new AuswertungThemaViewModel(this.navigationService, t, parameter));
             }
+
+            Tables.Add(new AuswertungThemaViewModel(this.navigationService));
+
+
         }
     }
 }

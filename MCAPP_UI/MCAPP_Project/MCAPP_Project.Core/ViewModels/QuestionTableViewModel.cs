@@ -60,6 +60,8 @@ namespace MCAPP_Project.Core.ViewModels
 
             if (quiz.fragen.Count> (newpos))
             {
+                _interaction.Raise(this.quiz.ended);
+
                 this.quiz.position = this.quiz.position + 1;
                 await navigationService.Navigate(typeof(QuestionTableViewModel), this.quiz);
             } else
@@ -67,5 +69,11 @@ namespace MCAPP_Project.Core.ViewModels
                 await navigationService.Navigate(typeof(AuswertungTabelleViewModel), this.quiz);
             }            
         }
+
+        private MvxInteraction<Boolean> _interaction = new MvxInteraction<Boolean>();
+        public IMvxInteraction<Boolean> Interaction => _interaction;
+
+
+
     }
 }

@@ -6,6 +6,7 @@ using MvvmCross.Platform;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MCAPP_Project.Core.ViewModels
 {
@@ -18,11 +19,22 @@ namespace MCAPP_Project.Core.ViewModels
 
         readonly IQuizService quizService;
 
+        public IMvxAsyncCommand ReStartQuizCommand { get; }
 
-        public AuswertungThemaViewModel(Thema thema, Quiz quiz)
+        readonly IMvxNavigationService navigationService;
+
+        public AuswertungThemaViewModel(IMvxNavigationService navigationService)
         {
+            this.navigationService = navigationService;
+            this.ReStartQuizCommand = new MvxAsyncCommand(StartQuiz, startEnabled);
+        }
+
+        public AuswertungThemaViewModel(IMvxNavigationService navigationService, Thema thema, Quiz quiz)
+        {
+            this.navigationService = navigationService;
             //navigationService.Close(this);
             quizService = Mvx.Resolve<IQuizService>();
+            this.ReStartQuizCommand = new MvxAsyncCommand(StartQuiz, startEnabled);
 
             this.thema = thema;
             this.quiz = quiz;
@@ -35,6 +47,29 @@ namespace MCAPP_Project.Core.ViewModels
 
             
         }
+
+        async Task StartQuiz()
+        {
+            await navigationService.Navigate(typeof(ThemenwahlViewModel));
+        }
+
+        public Boolean startEnabled()
+        {
+            return true;
+        }
+
+        public override void ViewDisappeared() 
+        {
+            base.ViewDisappeared();
+            Console.WriteLine("hm....moment");
+        }
+
+        protected override void ReloadFromBundle(IMvxBundle state)
+        {
+            base.ReloadFromBundle(state);
+            Console.WriteLine("hm....moment");
+        }
+
 
         public String auswertungText
         {

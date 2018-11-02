@@ -41,14 +41,8 @@ namespace MCAPP_Project.iOS.Views.Auswertung
             set.Bind(source).To(vm => vm.Tables);
             set.Apply();
 
-            /* Zurückbutton entfernt
-             * var root = NavigationController.TopViewController;
-            root.NavigationItem.SetLeftBarButtonItem(new UIBarButtonItem("", UIBarButtonItemStyle.Plain, (sender, args) =>
-            {
-                
-            }), true);*/
-
-            // Perform any additional setup after loading the view, typically from a nib.
+            // Zurück-Button entfernen
+            NavigationController.TopViewController.NavigationItem.SetHidesBackButton(true, true);
         }
 
         public override void ViewWillAppear(bool animated)

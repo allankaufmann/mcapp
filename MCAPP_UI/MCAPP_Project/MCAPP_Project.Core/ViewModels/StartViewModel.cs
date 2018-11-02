@@ -27,12 +27,12 @@ namespace MCAPP_Project.Core.ViewModels
             this.navigationService = navigationService;
             this.fragenService = Mvx.Resolve<IFragenService>();
             this.mcappwebservice = Mvx.Resolve<IMCAPPWebService>();
-            synchronisiereDB();
-
+            
+            synchronisiereDB();           
         }
 
-
-        public async Task synchronisiereDB()
+ 
+            public async Task synchronisiereDB()
         {
             await synchronisiereThemen();
 
