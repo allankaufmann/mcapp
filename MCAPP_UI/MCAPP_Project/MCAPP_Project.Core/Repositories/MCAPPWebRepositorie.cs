@@ -20,6 +20,8 @@ namespace MCAPP_Project.Core.Repositories
 
         Task<List<Frage>> GetFragen();
 
+        Task<Boolean> isAlive();
+
     }
 
     public class MCAPPWebRepositorie : IMCAPPWebRepositorie
@@ -132,6 +134,24 @@ namespace MCAPP_Project.Core.Repositories
             {
                 throw new MCAPPWebserviceException("Webservice fehler", e);
             }
+        }
+
+        public async Task<bool> isAlive()
+        {
+            HttpClient testhttpclient = new HttpClient();
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Head, MCAPP_PROPERTIES.SERVER_BASE_URL+"/api");
+            testhttpclient.Timeout = TimeSpan.FromSeconds(2);
+
+            try
+            {
+                var response = await testhttpclient.SendAsync(request);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
         }
     }
 

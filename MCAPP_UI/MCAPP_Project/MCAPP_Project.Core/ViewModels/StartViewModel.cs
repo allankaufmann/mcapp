@@ -34,9 +34,15 @@ namespace MCAPP_Project.Core.ViewModels
  
             public async Task synchronisiereDB()
         {
-            await synchronisiereThemen();
 
-            await syncronisiereFragen();
+            Boolean webserviceOnline = await mcappwebservice.isAlive();
+
+            if (webserviceOnline)
+            {
+                await synchronisiereThemen();
+
+                await syncronisiereFragen();
+            } 
 
             // Nach Syncronisation der DB wird zur Themenwahl navigiert.
             await navigationService.Navigate(typeof(ThemenwahlViewModel));

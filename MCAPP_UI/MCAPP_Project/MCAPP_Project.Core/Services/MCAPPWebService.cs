@@ -13,6 +13,7 @@ namespace MCAPP_Project.Core.Services
 
         Task<List<Frage>> GetFragen();
 
+        Task<Boolean> isAlive();
 
     }
 
@@ -33,6 +34,11 @@ namespace MCAPP_Project.Core.Services
         public Task<List<Thema>> GetThemen()
         {
             return repo.GetThemen();
+        }
+
+        public Task<bool> isAlive()
+        {
+            return repo.isAlive();
         }
     }
 
