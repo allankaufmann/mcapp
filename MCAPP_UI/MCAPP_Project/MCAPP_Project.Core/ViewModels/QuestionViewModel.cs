@@ -75,7 +75,10 @@ namespace MCAPP_Project.Core.ViewModels
         }
 
 
-
+        public bool Editable
+        {
+            get { return !this.quiz.ended;  }
+        }
 
 
     }

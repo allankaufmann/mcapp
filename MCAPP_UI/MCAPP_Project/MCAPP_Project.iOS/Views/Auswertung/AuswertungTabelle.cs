@@ -39,10 +39,21 @@ namespace MCAPP_Project.iOS.Views.Auswertung
 
             var set = this.CreateBindingSet<AuswertungTabelle, AuswertungTabelleViewModel>();
             set.Bind(source).To(vm => vm.Tables);
+
+            // Button zum Anzeigen der Lösungen
+            var button = new UIBarButtonItem(UIBarButtonSystemItem.FastForward);
+            NavigationItem.SetRightBarButtonItem(button, false);
+            set.Bind(button).To(vm => vm.SolutionButtonCommand);
+
+
             set.Apply();
 
             // Zurück-Button entfernen
             NavigationController.TopViewController.NavigationItem.SetHidesBackButton(true, true);
+
+
+
+
         }
 
         public override void ViewWillAppear(bool animated)

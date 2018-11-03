@@ -13,20 +13,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="274" customClass="ThemaAuswertungCell" reuseIdentifier="ThemaAuswertungCell" rowHeight="99">
-                                <rect key="frame" x="0.0" y="63" width="414" height="99"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="274" customClass="ThemaAuswertungCell" reuseIdentifier="ThemaAuswertungCell" rowHeight="120">
+                                <rect key="frame" x="0.0" y="63" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="274" id="275">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="98.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AuswertungText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="976" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0" misplaced="YES">
-                                            <rect key="frame" x="18" y="42" width="379" height="37"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AuswertungText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="976" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0" misplaced="YES" ambiguous="YES">
+                                            <rect key="frame" x="18" y="37" width="379" height="55"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ThemaText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1223" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ThemaText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1223" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" ambiguous="YES">
                                             <rect key="frame" x="18" y="8" width="350" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -34,11 +34,11 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint id="1472" firstItem="1223" firstAttribute="leading" secondItem="275" secondAttribute="leading" constant="18"/>
-                                        <constraint id="1473" firstItem="976" firstAttribute="top" secondItem="1223" secondAttribute="bottom" constant="13"/>
-                                        <constraint id="1474" firstAttribute="bottom" secondItem="976" secondAttribute="bottom" constant="24"/>
-                                        <constraint id="2181" firstItem="1223" firstAttribute="height" secondItem="275" secondAttribute="height" constant="-77.5"/>
                                         <constraint id="2182" firstItem="976" firstAttribute="leading" secondItem="275" secondAttribute="leading" constant="18"/>
+                                        <constraint id="4261" firstItem="1223" firstAttribute="leading" secondItem="275" secondAttribute="leading" constant="18"/>
+                                        <constraint id="4262" firstItem="1223" firstAttribute="top" secondItem="275" secondAttribute="top" constant="8"/>
+                                        <constraint id="4263" firstItem="976" firstAttribute="top" secondItem="1223" secondAttribute="bottom" constant="8"/>
+                                        <constraint id="5274" firstAttribute="bottom" secondItem="976" secondAttribute="bottom" constant="27"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -48,18 +48,21 @@
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2498" customClass="ReStartButtonCell" reuseIdentifier="ReStartbuttonCell" rowHeight="86">
-                                <rect key="frame" x="0.0" y="162" width="414" height="86"/>
+                                <rect key="frame" x="0.0" y="183" width="414" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2498" id="2499">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="85.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3492" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" buttonType="roundedRect">
-                                            <rect key="frame" x="65" y="0.0" width="284" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Starte Multiple Choice Quiz"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3492" translatesAutoresizingMaskIntoConstraints="NO" buttonType="roundedRect" misplaced="YES">
+                                            <rect key="frame" x="65" y="16" width="284" height="30"/>
+                                            <state key="normal" title="Starte neues Quiz"/>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint id="3767" firstItem="3492" firstAttribute="top" secondItem="2499" secondAttribute="top" constant="20"/>
+                                        <constraint id="3768" firstItem="3492" firstAttribute="leading" secondItem="2499" secondAttribute="leading" constant="65"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="ReStartButton" destination="3492" id="name-outlet-3492"/>

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MCAPP_Project.Core.ViewModels
 {
@@ -21,7 +22,20 @@ namespace MCAPP_Project.Core.ViewModels
         {
             Tables = new ObservableCollection<AuswertungThemaViewModel>();
             this.navigationService = navigationService;
+
+            SolutionButtonCommand = new MvxAsyncCommand(SolutionButton);
+
         }
+
+        async Task SolutionButton()
+        {
+            
+            this.quiz.ended = true;
+            this.quiz.position = 0;
+            await navigationService.Navigate(typeof(QuestionTableViewModel), quiz);
+        }
+
+
 
         public override void Prepare(Quiz parameter)
         {
@@ -33,8 +47,11 @@ namespace MCAPP_Project.Core.ViewModels
             }
 
             Tables.Add(new AuswertungThemaViewModel(this.navigationService));
-
-
         }
+
+
+        public IMvxAsyncCommand SolutionButtonCommand { get; set; }
+
+
     }
 }

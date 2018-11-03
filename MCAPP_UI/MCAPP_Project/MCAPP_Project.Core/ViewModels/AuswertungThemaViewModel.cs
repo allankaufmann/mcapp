@@ -41,7 +41,7 @@ namespace MCAPP_Project.Core.ViewModels
 
             if (!this.quiz.ended)
             {
-                this.quiz.ended = true;
+                //this.quiz.ended = true;
                 this.quiz = quizService.CreateAuswertung(thema, quiz);
             }
 
