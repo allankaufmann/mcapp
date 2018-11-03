@@ -15,7 +15,7 @@ namespace MCAPP_Project.iOS.Views
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView logo { get; set; }
+        UIKit.UIImageView BildStart { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -23,9 +23,9 @@ namespace MCAPP_Project.iOS.Views
 
         void ReleaseDesignerOutlets ()
         {
-            if (logo != null) {
-                logo.Dispose ();
-                logo = null;
+            if (BildStart != null) {
+                BildStart.Dispose ();
+                BildStart = null;
             }
 
             if (test != null) {

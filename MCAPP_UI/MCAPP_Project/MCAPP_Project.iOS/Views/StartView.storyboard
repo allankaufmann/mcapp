@@ -17,23 +17,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="486" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="25" y="364" width="364" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daten werden geladen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="486" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" ambiguous="YES">
+                                <rect key="frame" x="60" y="292" width="283" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1340" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="37" y="44" width="316" height="293"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.78431372549019607" green="0.19215686274509805" blue="0.19215686274509805" alpha="1"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1616" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" ambiguous="YES">
+                                <rect key="frame" x="132" y="76" width="150" height="140"/>
                             </imageView>
                         </subviews>
+                        <constraints>
+                            <constraint id="2363" firstItem="1616" firstAttribute="top" secondItem="260" secondAttribute="bottom" constant="42"/>
+                            <constraint id="2366" firstItem="486" firstAttribute="top" secondItem="1616" secondAttribute="bottom" constant="51"/>
+                            <constraint id="2832" firstItem="486" firstAttribute="leading" secondItem="264" secondAttribute="leadingMargin" constant="46"/>
+                            <constraint id="2833" firstAttribute="trailingMargin" secondItem="486" secondAttribute="trailing" constant="45"/>
+                            <constraint id="3071" firstItem="1616" firstAttribute="leading" secondItem="264" secondAttribute="leadingMargin" constant="37"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="test" destination="264" id="name-outlet-264"/>
-                        <outlet property="logo" destination="1340" id="name-outlet-1340"/>
+                        <outlet property="BildStart" destination="1616" id="name-outlet-1616"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="265" userLabel="First Responder" sceneMemberID="firstResponder"/>

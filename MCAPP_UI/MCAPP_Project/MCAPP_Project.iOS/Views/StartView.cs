@@ -27,6 +27,8 @@ namespace MCAPP_Project.iOS.Views
 
         #region View lifecycle
 
+        public UIImage LoadImage(string filename) { return UIImage.FromFile(filename); }
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
@@ -34,7 +36,8 @@ namespace MCAPP_Project.iOS.Views
             var set = this.CreateBindingSet<StartView, StartViewModel>();
             set.Apply();
 
-            logo.Image = UIImage.FromBundle("Uni_hagen_logo.svg");
+            BildStart.Image = UIImage.FromBundle("hagenlogo");
+
 
             /*
               Beispiel für Dialog
