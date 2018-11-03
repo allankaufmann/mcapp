@@ -41,11 +41,8 @@ namespace MCAPP_Project.Core.ViewModels
 
             if (!this.quiz.ended)
             {
-                //this.quiz.ended = true;
                 this.quiz = quizService.CreateAuswertung(thema, quiz);
-            }
-
-            
+            }            
         }
 
         async Task StartQuiz()
@@ -76,12 +73,8 @@ namespace MCAPP_Project.Core.ViewModels
             get
             {
                 return this.quiz.AuswertungsTexte[this.thema];   
-            }
-
-           
+            }           
         }
-
-
 
         public Thema Thema
         { get { return this.thema; } }

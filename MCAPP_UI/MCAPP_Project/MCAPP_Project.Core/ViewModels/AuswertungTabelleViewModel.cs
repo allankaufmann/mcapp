@@ -52,6 +52,12 @@ namespace MCAPP_Project.Core.ViewModels
 
         public IMvxAsyncCommand SolutionButtonCommand { get; set; }
 
+        public bool showSolution
+        {
+            get { return !this.quiz.ended;  }
+        }
+
+
 
     }
 }

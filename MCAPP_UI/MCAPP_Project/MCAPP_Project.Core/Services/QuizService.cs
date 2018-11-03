@@ -28,9 +28,6 @@ namespace MCAPP_Project.Core.Services
             return quiz;
         }
 
-
-
-
         private String createAuswertungText(Thema thema, Quiz quiz)
         {
             String text = "";
@@ -68,8 +65,6 @@ namespace MCAPP_Project.Core.Services
 
             return text;
         }
-
-
 
         public Quiz CreateQuiz()
         {

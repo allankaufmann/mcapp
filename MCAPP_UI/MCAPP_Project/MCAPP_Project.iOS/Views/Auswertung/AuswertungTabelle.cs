@@ -44,6 +44,7 @@ namespace MCAPP_Project.iOS.Views.Auswertung
             var button = new UIBarButtonItem(UIBarButtonSystemItem.FastForward);
             NavigationItem.SetRightBarButtonItem(button, false);
             set.Bind(button).To(vm => vm.SolutionButtonCommand);
+            set.Bind(button).For(v => v.Enabled).To(vm => vm.showSolution);
 
 
             set.Apply();
