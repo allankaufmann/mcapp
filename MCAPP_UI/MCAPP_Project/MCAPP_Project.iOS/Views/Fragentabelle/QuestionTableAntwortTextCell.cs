@@ -50,8 +50,19 @@ namespace MCAPP_Project.iOS.Views
                 var set = this.CreateBindingSet<QuestionTableAntwortTextCell, QuestionViewModel>();
                 set.Bind(AntwortTextView).To(vm => vm.AntwortText);
                 
+                // Schalter darf nur aktiviert sein, solange Quiz nicht beendet wurde
                 set.Bind(Schalter).For(v => v.Enabled).To(vm => vm.Editable);
+
+                // Schalter wird auf eingegebene Antwort gebunden
                 set.Bind(Schalter).To(vm => vm.AntwortAuswahl);
+
+                // Lösungsschalter wird auf Lösung gebunden
+                SchalterLoesung.Enabled = false;
+                set.Bind(SchalterLoesung).To(vm => vm.AntwortRichtig);
+                set.Bind(LblLoesung).For(v => v.Hidden).To(vm => vm.Editable);
+                set.Bind(SchalterLoesung).For(v => v.Hidden).To(vm => vm.Editable);
+
+
                 set.Apply();
 
 

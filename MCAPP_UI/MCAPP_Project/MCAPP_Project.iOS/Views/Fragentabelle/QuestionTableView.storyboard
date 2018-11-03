@@ -74,33 +74,49 @@
                                     <outlet property="FrageNrText" destination="16901" id="name-outlet-16901"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="2796" customClass="QuestionTableAntwortTextCell" reuseIdentifier="QuestionTableAntwortText" layoutMarginsFollowReadableWidth="YES" placeholderIntrinsicWidth="1" placeholderIntrinsicHeight="10" rowHeight="372">
-                                <rect key="frame" x="0.0" y="179" width="414" height="372"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="2796" customClass="QuestionTableAntwortTextCell" reuseIdentifier="QuestionTableAntwortText" layoutMarginsFollowReadableWidth="YES" placeholderIntrinsicWidth="1" placeholderIntrinsicHeight="10" rowHeight="152">
+                                <rect key="frame" x="0.0" y="179" width="414" height="152"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2796" id="2797">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="371.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="151.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="3514" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="3514" translatesAutoresizingMaskIntoConstraints="NO">
                                             <rect key="frame" x="12" y="8" width="51" height="31"/>
                                         </switch>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" id="4271" translatesAutoresizingMaskIntoConstraints="NO" text="Text" editable="NO" selectable="NO" horizontalCompressionResistancePriority="1" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" fixedFrame="YES" adjustsFontForContentSizeCategory="YES">
-                                            <rect key="frame" x="71" y="0.0" width="304" height="364"/>
+                                            <rect key="frame" x="71" y="0.0" width="304" height="300"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </textView>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="19030" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                            <rect key="frame" x="12" y="103" width="51" height="31"/>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lösung:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="19177" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                            <rect key="frame" x="9" y="67" width="56" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint id="6925" firstItem="3514" firstAttribute="leading" secondItem="2797" secondAttribute="leading" constant="12"/>
                                         <constraint id="12848" firstItem="3514" firstAttribute="top" secondItem="2797" secondAttribute="top" constant="8"/>
-                                        <constraint id="16638" firstAttribute="bottom" secondItem="3514" secondAttribute="bottom" constant="42"/>
+                                        <constraint id="19468" firstItem="19177" firstAttribute="top" secondItem="3514" secondAttribute="bottom" constant="28"/>
+                                        <constraint id="19483" firstItem="19030" firstAttribute="top" secondItem="19177" secondAttribute="bottom" constant="15"/>
+                                        <constraint id="20065" firstItem="19177" firstAttribute="leading" secondItem="2797" secondAttribute="leading" constant="9"/>
+                                        <constraint id="20066" firstItem="19030" firstAttribute="leading" secondItem="2797" secondAttribute="leading" constant="12"/>
+                                        <constraint id="20655" firstItem="19177" firstAttribute="top" secondItem="3514" secondAttribute="bottom" constant="28"/>
+                                        <constraint id="21222" firstAttribute="bottom" secondItem="19030" secondAttribute="bottom" constant="17"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="Schalter" destination="3514" id="name-outlet-3514"/>
                                     <outlet property="AntwortTextView" destination="4271" id="name-outlet-4271"/>
+                                    <outlet property="SchalterLoesung" destination="19030" id="name-outlet-19030"/>
+                                    <outlet property="LblLoesung" destination="19177" id="name-outlet-19177"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

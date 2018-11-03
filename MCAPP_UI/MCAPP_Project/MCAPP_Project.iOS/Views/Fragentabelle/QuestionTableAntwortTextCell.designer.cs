@@ -19,7 +19,15 @@ namespace MCAPP_Project.iOS.Views
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel LblLoesung { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UISwitch Schalter { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UISwitch SchalterLoesung { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
@@ -28,9 +36,19 @@ namespace MCAPP_Project.iOS.Views
                 AntwortTextView = null;
             }
 
+            if (LblLoesung != null) {
+                LblLoesung.Dispose ();
+                LblLoesung = null;
+            }
+
             if (Schalter != null) {
                 Schalter.Dispose ();
                 Schalter = null;
+            }
+
+            if (SchalterLoesung != null) {
+                SchalterLoesung.Dispose ();
+                SchalterLoesung = null;
             }
         }
     }

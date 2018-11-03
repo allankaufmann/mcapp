@@ -52,6 +52,11 @@ namespace MCAPP_Project.Core.ViewModels
             set { this.antwort.Auswahl = value; }
         }
 
+        public Boolean AntwortRichtig
+        {
+            get { return this.antwort.wahr; }
+        }
+
         public String Thema
         {
             get {
