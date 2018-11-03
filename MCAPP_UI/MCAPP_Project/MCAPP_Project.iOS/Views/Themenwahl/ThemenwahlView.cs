@@ -37,7 +37,8 @@ namespace MCAPP_Project.iOS.Views
             var set = this.CreateBindingSet<ThemenwahlView, ThemenwahlViewModel>();
             set.Bind(source).To(vm => vm.Tables);      
 
-            set.Apply();          
+            set.Apply();
+            NavigationController.TopViewController.NavigationItem.SetHidesBackButton(true, true);
 
             // Perform any additional setup after loading the view, typically from a nib.
         }
