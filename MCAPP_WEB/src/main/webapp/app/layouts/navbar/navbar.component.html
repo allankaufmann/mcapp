@@ -18,6 +18,19 @@
                     </span>
                 </a>
             </li>
+
+            <!-- Menüitem für Thema-->
+            <li  class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="thema" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon [icon]="'asterisk'" ></fa-icon>
+                        <span jhiTranslate="global.menu.entities.thema">Thema</span>
+                    </span>
+                </a>
+            </li>
+
+
+
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
             <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
