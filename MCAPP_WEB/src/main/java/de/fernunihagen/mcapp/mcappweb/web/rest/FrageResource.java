@@ -7,6 +7,7 @@ import de.fernunihagen.mcapp.mcappweb.repository.search.FrageSearchRepository;
 import de.fernunihagen.mcapp.mcappweb.web.rest.errors.BadRequestAlertException;
 import de.fernunihagen.mcapp.mcappweb.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+import io.micrometer.core.annotation.TimedSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -96,6 +97,24 @@ public class FrageResource {
     public List<Frage> getAllFrages() {
         log.debug("REST request to get all Frages");
         return frageRepository.findAll();
+    }
+
+    /**
+     * Methode sollte Fragen für Thema liefert. Methode ist für Tabelle nciht mehr notwendig,
+     * da Thema bereits frageIDS enthält. Abfrage wäre aber so ebenfalls möglich gewesen.
+     *
+     * @param themaid Thema zu der Fragen geliefert werden
+     * @return Liste der Fragen zum gesuchten Thema.
+     */
+
+    @GetMapping("/fragesByThema/{themaid}")
+    @Timed
+    public List<Frage> GetAllFragesByThema(@PathVariable Long themaid) {
+        String query = "THEMA = " + themaid;
+        log.debug("REST request to search Frages for query {}", query);
+        return StreamSupport
+            .stream(frageSearchRepository.search(queryStringQuery(query)).spliterator(), false)
+            .collect(Collectors.toList());
     }
 
     /**

@@ -31,6 +31,7 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="mcappWebApp.thema.themaText">Thema Text</span></th>
+            <th><span jhiTranslate="mcappWebApp.thema.anzFragen">Anzahl Fragen</span></th>
             <th></th>
             </tr>
             </thead>
@@ -38,6 +39,7 @@
             <tr *ngFor="let thema of themas ;trackBy: trackId">
                 <td><a [routerLink]="['/thema', thema.id, 'view' ]">{{thema.id}}</a></td>
                 <td>{{thema.themaText}}</td>
+                <td>{{ thema.frageIDS != null ? thema.frageIDS.length : 0 }}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

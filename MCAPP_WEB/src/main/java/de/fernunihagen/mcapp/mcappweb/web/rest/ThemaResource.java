@@ -95,7 +95,8 @@ public class ThemaResource {
     @Timed
     public List<Thema> getAllThemas() {
         log.debug("REST request to get all Themas");
-        return themaRepository.findAll();
+        List<Thema> themas = themaRepository.findAll();
+        return themas;
     }
 
     /**

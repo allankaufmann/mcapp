@@ -18,7 +18,8 @@
                 "title": "Thema"
             },
             "themaText": "Thema Text",
-            "frageID": "Frage ID"
+            "frageID": "Frage ID",
+            "anzFragen": "Anzahl Fragen"
         }
     }
 }
