@@ -29,6 +29,16 @@
                 </a>
             </li>
 
+            <!-- Menüitem für Frage -->
+            <li  class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="frage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon [icon]="'asterisk'" [fixedWidth]="true"></fa-icon>
+                        <span jhiTranslate="global.menu.entities.frage">Frage</span>
+                    </span>
+
+                </a>
+            </li>
 
 
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
