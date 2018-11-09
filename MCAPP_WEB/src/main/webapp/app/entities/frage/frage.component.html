@@ -43,7 +43,7 @@
                 <td jhiTranslate="{{'mcappWebApp.Fragetyp.' + frage.frageTyp}}">{{frage.frageTyp}}</td>
                 <td>
                     <div *ngIf="frage.thema">
-                        <a [routerLink]="['../thema', frage.thema?.id, 'view' ]" >{{frage.thema?.id}}</a>
+                        <a [routerLink]="['../thema', frage.thema?.id, 'view' ]" >{{frage.thema?.themaText}}</a>
                     </div>
                 </td>
                 <td class="text-right">
@@ -75,3 +75,5 @@
         </table>
     </div>
 </div>
+
+

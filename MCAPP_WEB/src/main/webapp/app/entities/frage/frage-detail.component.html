@@ -34,4 +34,53 @@
             </button>
         </div>
     </div>
+    <!--  Versuch Textantworten-->
+    <br>
+    <div class="col-8">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th><span jhiTranslate="global.field.id">ID</span></th>
+                    <th><span jhiTranslate="mcappWebApp.textAntwort.position">Position</span></th>
+                    <th><span jhiTranslate="mcappWebApp.textAntwort.wahr">Wahr</span></th>
+                    <th><span jhiTranslate="mcappWebApp.textAntwort.text">Text</span></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let textAntwort of frage.textAntwortIDS ;trackBy: trackId">
+                    <td><a [routerLink]="['/text-antwort', textAntwort.id, 'view' ]">{{textAntwort.id}}</a></td>
+                    <td>{{textAntwort.position}}</td>
+                    <td>{{textAntwort.wahr}}</td>
+                    <td>{{textAntwort.text}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <!--<button type="submit"
+                                    [routerLink]="['/text-antwort', textAntwort.id, 'view' ]"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon [icon]="'eye'"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+                            <button type="submit"
+                                    [routerLink]="['/text-antwort', textAntwort.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+                            <button type="submit"
+                                    [routerLink]="['/', { outlets: { popup: 'text-antwort/'+ textAntwort.id + '/delete'} }]"
+                                    replaceUrl="true"
+                                    queryParamsHandling="merge"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>-->
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

@@ -41,8 +41,8 @@ public class Frage implements Serializable {
     @JsonIgnoreProperties("frageIDS")
     private Thema thema;
 
-    @OneToMany(mappedBy = "frage")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @OneToMany(mappedBy = "frage", fetch=FetchType.EAGER)
+    @Cache(usage = CacheConcurrencyStrategy.NONE)
     private Set<TextAntwort> textAntwortIDS = new HashSet<>();
     @OneToMany(mappedBy = "frage")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
