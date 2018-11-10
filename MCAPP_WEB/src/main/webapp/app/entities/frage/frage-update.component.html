@@ -49,7 +49,7 @@
             <div>
                 <h2 id="page-heading">
                     <span jhiTranslate="mcappWebApp.textAntwort.home.title">Text Antworts</span>
-                    <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-text-antwort" [routerLink]="['/text-antwort/new']" >
+                    <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-text-antwort" [routerLink]="['/text-antwort/new']" [queryParams]="{frageid:frage.id}">
                         <fa-icon [icon]="'plus'"></fa-icon>
                         <span class="hidden-sm-down"  jhiTranslate="mcappWebApp.textAntwort.home.createLabel">Create new Text Antwort</span>
                     </button>
