@@ -43,6 +43,7 @@ namespace MCAPP_Project.Core.ViewModels
             {
                 await synchronisiereThemen();
 
+                // TODO: Bei gelöschten Fragen müssen Quiz_Fragen aufgeräumt werden -> sonst Exception ;)
                 await syncronisiereFragen();
 
                 await synchronisiereAuswertung();
@@ -62,33 +63,19 @@ namespace MCAPP_Project.Core.ViewModels
                 {
                     try
                     {
-                        // Quiz_Frage-Objekte werden noch benötigt!
 
+                        List<Quiz_Frage> quizfragen = this.quizService.GetAllQuiz_Frages(q);
 
-                        await this.mcappwebservice.sendQuizauswertung(q);
-
-  
+                        await this.mcappwebservice.sendQuizauswertung(q, quizfragen);  
 
                         q.auswertung_gesendet = true;
                         quizService.UpdateQuiz(q);
-
                     }
                     catch(Exception e)
                     {
                         Console.WriteLine(e);
                     }
-
-
-
-
-
-
                 }
-
-
-
-
-
             }
             catch (MCAPPWebserviceException ex)
             {

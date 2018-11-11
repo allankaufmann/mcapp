@@ -112,5 +112,21 @@ namespace MCAPP_Project.Core.Repositories
             }
             return quiz;
         }
+
+        public List<Quiz_Frage> GetAllQuiz_Frages(Quiz quiz)
+        {
+            List<Quiz_Frage> frageList = new List<Quiz_Frage>();
+            try
+            {
+                frageList = connection.Table<Quiz_Frage>()
+                    .Where(v => v.quizID == quiz.id)
+                    .ToList();
+
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            return frageList;
+        }
     }
 }

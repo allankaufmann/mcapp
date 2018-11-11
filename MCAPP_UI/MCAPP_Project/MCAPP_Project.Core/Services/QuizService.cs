@@ -115,5 +115,11 @@ namespace MCAPP_Project.Core.Services
         {
             return quizRepo.GetAllQuizNotSendet();
         }
+
+        public List<Quiz_Frage> GetAllQuiz_Frages(Quiz quiz)
+        {
+            return quizRepo.GetAllQuiz_Frages(quiz);
+        }
+
     }
 }

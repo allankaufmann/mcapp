@@ -37,5 +37,7 @@ namespace MCAPP_Project.Core.Services
          */
         List<Quiz> GetAllQuizNotSendet();
 
+        List<Quiz_Frage> GetAllQuiz_Frages(Quiz quiz);
+
     }
 }

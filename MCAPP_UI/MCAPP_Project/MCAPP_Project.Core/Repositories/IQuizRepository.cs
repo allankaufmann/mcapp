@@ -19,5 +19,11 @@ namespace MCAPP_Project.Core.Repositories
 
         List<Quiz> GetAllQuizNotSendet();
 
+        /**
+         * Liefert alle Quiz_Frage-Objektes zu einem Quiz-Objekt.
+         */
+        List<Quiz_Frage> GetAllQuiz_Frages(Quiz quiz);
+
+
     }
 }

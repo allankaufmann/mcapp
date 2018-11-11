@@ -25,7 +25,7 @@ namespace MCAPP_Project.Core.Repositories
         /*
          * Meldet Auswertung eines Quiz an Webanwendung.
          */
-        Task<Boolean> sendQuizauswertung(Quiz quiz);
+        Task<Boolean> sendQuizauswertung(Quiz quiz, List<Quiz_Frage> quizfragen);
 
 
     }
@@ -160,7 +160,7 @@ namespace MCAPP_Project.Core.Repositories
 
         }
 
-        public async Task<bool> sendQuizauswertung(Quiz quiz)
+        public async Task<bool> sendQuizauswertung(Quiz quiz, List<Quiz_Frage> quizfragen)
         {
             HttpClient testhttpclient = new HttpClient();
             if (token == null)
@@ -186,9 +186,28 @@ namespace MCAPP_Project.Core.Repositories
 
             var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             Quiz quizServer = JsonConvert.DeserializeObject<Quiz>(json);
-            
-            //quiz.
 
+
+
+            foreach(Quiz_Frage frage in quizfragen)
+            {
+                try
+                {
+                    request = new HttpRequestMessage(HttpMethod.Post, "api/quiz-frages");
+                    frage.quizID = quizServer.id;
+                    request.Content = new StringContent("{\"id\": null , \"richtig\": \"" + frage.richtig_beantwortet + "\",\"frage\": {\"id\":" + frage.frageID + "}, \"quiz\":{\"id\":" + quizServer.id + "}}",
+                        Encoding.UTF8,
+                        "application/json"
+                    );
+                    response = await httpClient.SendAsync(request);
+                    Quiz_Frage quizFrageServer = JsonConvert.DeserializeObject<Quiz_Frage>(json);
+                    Console.WriteLine(quizFrageServer.quiz_Frage_ID);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+            }
 
             return true;
         }

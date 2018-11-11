@@ -15,7 +15,7 @@ namespace MCAPP_Project.Core.Services
 
         Task<Boolean> isAlive();
 
-        Task<Boolean> sendQuizauswertung(Quiz quiz);
+        Task<Boolean> sendQuizauswertung(Quiz quiz, List<Quiz_Frage> quizfragen);
 
     }
 
@@ -43,9 +43,9 @@ namespace MCAPP_Project.Core.Services
             return repo.isAlive();
         }
 
-        public Task<bool> sendQuizauswertung(Quiz quiz)
+        public Task<bool> sendQuizauswertung(Quiz quiz, List<Quiz_Frage> quizfragen)
         {
-            return repo.sendQuizauswertung(quiz);
+            return repo.sendQuizauswertung(quiz, quizfragen);
         }
     }
 
