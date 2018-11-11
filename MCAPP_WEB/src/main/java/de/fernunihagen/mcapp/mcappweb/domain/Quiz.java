@@ -1,5 +1,6 @@
 package de.fernunihagen.mcapp.mcappweb.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -29,6 +30,7 @@ public class Quiz implements Serializable {
     private Long id;
 
     @Column(name = "datum")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate datum;
 
     @OneToMany(mappedBy = "quiz")

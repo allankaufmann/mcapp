@@ -5,14 +5,14 @@ import { UserRouteAccessService } from 'app/core';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TextAntwort } from 'app/shared/model/text-antwort.model';
-import {Frage, Fragetyp} from 'app/shared/model/frage.model';
+import { Frage, Fragetyp } from 'app/shared/model/frage.model';
 import { TextAntwortService } from './text-antwort.service';
 import { TextAntwortComponent } from './text-antwort.component';
 import { TextAntwortDetailComponent } from './text-antwort-detail.component';
 import { TextAntwortUpdateComponent } from './text-antwort-update.component';
 import { TextAntwortDeletePopupComponent } from './text-antwort-delete-dialog.component';
 import { ITextAntwort } from 'app/shared/model/text-antwort.model';
-import {FrageService} from "app/entities/frage";
+import { FrageService } from 'app/entities/frage';
 
 @Injectable({ providedIn: 'root' })
 export class TextAntwortResolve implements Resolve<ITextAntwort> {
@@ -37,8 +37,8 @@ export class TextAntwortResolve implements Resolve<ITextAntwort> {
         // Prüfen, ob frageID übergeben wurde und numerisch ist
         if (frageid && !isNaN(frageid)) {
             let f = new Frage();
-            f.id=Number(frageid);
-            t.frage=f;
+            f.id = Number(frageid);
+            t.frage = f;
         }
         return of(t);
     }
