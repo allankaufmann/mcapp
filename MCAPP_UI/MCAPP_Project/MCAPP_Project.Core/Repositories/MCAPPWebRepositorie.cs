@@ -22,6 +22,12 @@ namespace MCAPP_Project.Core.Repositories
 
         Task<Boolean> isAlive();
 
+        /*
+         * Meldet Auswertung eines Quiz an Webanwendung.
+         */
+        Task<Boolean> sendQuizauswertung(Quiz quiz);
+
+
     }
 
     public class MCAPPWebRepositorie : IMCAPPWebRepositorie
@@ -153,6 +159,47 @@ namespace MCAPP_Project.Core.Repositories
             }
 
         }
+
+        public async Task<bool> sendQuizauswertung(Quiz quiz)
+        {
+            HttpClient testhttpclient = new HttpClient();
+            if (token == null)
+            {
+                this.token = await holeToken();
+            }
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.ID_TOKEN);
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "api/quizzes");
+            
+            String datum = quiz.datum.ToString("yyyy-MM-dd");
+            request.Content = new StringContent("{\"id\": null , \"datum\": \"" + datum + "\",\"quizFrageIDS´\": null}",
+                Encoding.UTF8,
+                "application/json"
+            );
+
+            var response = await httpClient.SendAsync(request);
+
+            /*
+             * Der Server hat andere IDs, als die lokale DB. Nach dem POST des Quiz-Objekts, liefert der 
+             * WebService das erstellte Objekt zurück. Dieses enthält auch die ID auf dem Server. 
+             * Dies wird für die Unterobjekte Quiz_Frage benötigt.
+             */
+
+            var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            Quiz quizServer = JsonConvert.DeserializeObject<Quiz>(json);
+            
+            //quiz.
+
+
+            return true;
+        }
+
+        /*private async Task<bool> sendQuizFragen(long quizServerID)
+        {
+            return null;
+        }*/
+
+
+
     }
 
 

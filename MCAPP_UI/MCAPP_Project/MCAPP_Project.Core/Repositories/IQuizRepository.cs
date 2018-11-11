@@ -11,11 +11,13 @@ namespace MCAPP_Project.Core.Repositories
 
         Quiz Save(Quiz quiz);
 
+        Quiz Update(Quiz quiz);
+
         Quiz_Frage SaveQuiz_Frage(Quiz_Frage quizFrage);
 
-        //Task<List<Quiz>> GetAll();
-
         Task<bool> FrageNochNichtRichtigBeantwortet(long frageID);
+
+        List<Quiz> GetAllQuizNotSendet();
 
     }
 }

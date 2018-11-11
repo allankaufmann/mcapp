@@ -13,6 +13,8 @@ namespace MCAPP_Project.Core.Services
          */
         Quiz CreateQuiz();
 
+        Quiz UpdateQuiz(Quiz quiz);
+
         /*
          * Wertet nach Beendigung des Quiz die eingegebenen Antworten aus
          * und erstellt Auwertungstext zu einem Thema. 
@@ -29,6 +31,11 @@ namespace MCAPP_Project.Core.Services
          * Frage beim letzten Mal falsch beantwortet wurde.
          */
         Task<bool> FrageNochNichtRichtigBeantwortet(long frageID);
+
+        /*
+         * Liefert Liste aller Quizobjekte, dessen Auswertung noch nicht an den Server gesendet wurden.
+         */
+        List<Quiz> GetAllQuizNotSendet();
 
     }
 }

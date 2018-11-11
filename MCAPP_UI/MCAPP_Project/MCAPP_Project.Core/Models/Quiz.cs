@@ -15,6 +15,12 @@ namespace MCAPP_Project.Core.Models
 
         public DateTime datum { get; set; }
 
+        /*
+         * Markiert, wenn Auswertungsdaten an Webanwendung gesendet wurden. Stellt sicher, dass kein
+         * Mehrfachversand erfolgt.
+         */
+        public Boolean auswertung_gesendet { get; set; }
+
         [Ignore]
         public List<Frage> fragen { get; set; }
 

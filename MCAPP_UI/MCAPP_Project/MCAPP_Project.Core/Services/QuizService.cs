@@ -66,6 +66,11 @@ namespace MCAPP_Project.Core.Services
             return text;
         }
 
+        public Quiz UpdateQuiz(Quiz quiz)
+        {
+            return quizRepo.Update(quiz);
+        }
+
         public Quiz CreateQuiz()
         {
             Quiz quiz = new Quiz();
@@ -104,6 +109,11 @@ namespace MCAPP_Project.Core.Services
         public async Task<bool> FrageNochNichtRichtigBeantwortet(long frageID)
         {
             return await quizRepo.FrageNochNichtRichtigBeantwortet(frageID);
+        }
+
+        public List<Quiz> GetAllQuizNotSendet()
+        {
+            return quizRepo.GetAllQuizNotSendet();
         }
     }
 }

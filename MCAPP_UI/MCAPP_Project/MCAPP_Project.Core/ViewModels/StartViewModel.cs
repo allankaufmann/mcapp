@@ -19,6 +19,7 @@ namespace MCAPP_Project.Core.ViewModels
 
         private readonly IMCAPPWebService mcappwebservice;
         private readonly IFragenService fragenService;
+        private readonly IQuizService quizService;
 
 
 
@@ -27,6 +28,7 @@ namespace MCAPP_Project.Core.ViewModels
             this.navigationService = navigationService;
             this.fragenService = Mvx.Resolve<IFragenService>();
             this.mcappwebservice = Mvx.Resolve<IMCAPPWebService>();
+            this.quizService = Mvx.Resolve<IQuizService>();
             
             synchronisiereDB();           
         }
@@ -42,11 +44,59 @@ namespace MCAPP_Project.Core.ViewModels
                 await synchronisiereThemen();
 
                 await syncronisiereFragen();
+
+                await synchronisiereAuswertung();
             } 
 
             // Nach Syncronisation der DB wird zur Themenwahl navigiert.
             await navigationService.Navigate(typeof(ThemenwahlViewModel));
         }
+
+        private async Task synchronisiereAuswertung()
+        {
+            try
+            {
+                List<Quiz> quizListe = this.quizService.GetAllQuizNotSendet();
+
+                foreach(Quiz q in quizListe)
+                {
+                    try
+                    {
+                        // Quiz_Frage-Objekte werden noch benötigt!
+
+
+                        await this.mcappwebservice.sendQuizauswertung(q);
+
+  
+
+                        q.auswertung_gesendet = true;
+                        quizService.UpdateQuiz(q);
+
+                    }
+                    catch(Exception e)
+                    {
+                        Console.WriteLine(e);
+                    }
+
+
+
+
+
+
+                }
+
+
+
+
+
+            }
+            catch (MCAPPWebserviceException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+
 
         private async Task synchronisiereThemen()
         {

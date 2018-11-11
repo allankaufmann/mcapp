@@ -78,9 +78,39 @@ namespace MCAPP_Project.Core.Repositories
                 return !f.richtig_beantwortet;
             }
 
-
-
             return false;
+        }
+
+        public List<Quiz> GetAllQuizNotSendet()
+        {
+            List<Quiz> quizList = new List<Quiz>();
+
+            try
+            {
+                quizList = connection.Table<Quiz>()
+                .Where(v => v.auswertung_gesendet == false)
+                .OrderByDescending(v => v.datum)
+                .ToList();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            return quizList;
+        }
+
+        public Quiz Update(Quiz quiz)
+        {
+            try
+            {
+                connection.Update(quiz);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            return quiz;
         }
     }
 }

@@ -15,6 +15,8 @@ namespace MCAPP_Project.Core.Services
 
         Task<Boolean> isAlive();
 
+        Task<Boolean> sendQuizauswertung(Quiz quiz);
+
     }
 
     public class MCAPPWebService : IMCAPPWebService
@@ -39,6 +41,11 @@ namespace MCAPP_Project.Core.Services
         public Task<bool> isAlive()
         {
             return repo.isAlive();
+        }
+
+        public Task<bool> sendQuizauswertung(Quiz quiz)
+        {
+            return repo.sendQuizauswertung(quiz);
         }
     }
 
