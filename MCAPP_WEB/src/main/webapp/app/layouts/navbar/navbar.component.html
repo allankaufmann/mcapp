@@ -40,6 +40,17 @@
                 </a>
             </li>
 
+            <!-- Nutzung -->
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="nutzung" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon [icon]="'home'"></fa-icon>
+                        <span jhiTranslate="global.menu.auswertung.nutzung">Nutzung</span>
+                    </span>
+                </a>
+            </li>
+
+
 
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
             <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">

@@ -17,6 +17,7 @@ import { McappWebAppRoutingModule } from './app-routing.module';
 import { McappWebHomeModule } from './home/home.module';
 import { McappWebAccountModule } from './account/account.module';
 import { McappWebEntityModule } from './entities/entity.module';
+import { McappWebNutzungModule} from './auswertung/nutzung/nutzung.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
@@ -30,7 +31,8 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         McappWebCoreModule,
         McappWebHomeModule,
         McappWebAccountModule,
-        McappWebEntityModule
+        McappWebEntityModule,
+        McappWebNutzungModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],

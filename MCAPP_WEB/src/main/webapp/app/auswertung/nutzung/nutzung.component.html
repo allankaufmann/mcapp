@@ -1,0 +1,26 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="mcappWebApp.quiz.home.title">Quizzes</span>
+    </h2>
+    <jhi-alert></jhi-alert>
+
+    <br/>
+    <div class="table-responsive" *ngIf="quizzes">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><span jhiTranslate="global.field.id">ID</span></th>
+                <th><span jhiTranslate="mcappWebApp.quiz.datum">Datum</span></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let quiz of quizzes ;trackBy: trackId">
+                <td><a [routerLink]="['/quiz', quiz.id, 'view' ]">{{quiz.id}}</a></td>
+                <td>{{quiz.datum | date:'mediumDate'}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
