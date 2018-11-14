@@ -10,5 +10,11 @@ export interface IQuiz {
 }
 
 export class Quiz implements IQuiz {
-    constructor(public id?: number, public datum?: Moment, public quizFrageIDS?: IQuizFrage[], public tage?: number, public nutzung?: number) {}
+    constructor(
+        public id?: number,
+        public datum?: Moment,
+        public quizFrageIDS?: IQuizFrage[],
+        public tage?: number,
+        public nutzung?: number
+    ) {}
 }

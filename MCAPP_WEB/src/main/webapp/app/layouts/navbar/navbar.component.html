@@ -40,6 +40,16 @@
                 </a>
             </li>
 
+            <!-- Fragen -->
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="auswertung-frage" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon [icon]="'home'"></fa-icon>
+                        <span jhiTranslate="global.menu.auswertung.fragen">Fragen</span>
+                    </span>
+                </a>
+            </li>
+
             <!-- Nutzung -->
             <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="nutzung" (click)="collapseNavbar()">

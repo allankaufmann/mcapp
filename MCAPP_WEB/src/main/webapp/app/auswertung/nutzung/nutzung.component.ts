@@ -40,8 +40,7 @@ export class NutzungComponent implements OnInit, OnDestroy {
                     query: this.currentSearch
                 })
                 .subscribe(
-                    (res: HttpResponse<IQuiz[]>) => (
-                        this.quizzes = res.body),
+                    (res: HttpResponse<IQuiz[]>) => (this.quizzes = res.body),
                     (res: HttpErrorResponse) => this.onError(res.message)
                 );
             return;
@@ -55,8 +54,8 @@ export class NutzungComponent implements OnInit, OnDestroy {
                     let sevenDays = new Date(Date.now());
                     let thirtydays = new Date(Date.now());
 
-                    sevenDays.setDate(sevenDays.getDate()-7);
-                    thirtydays.setDate(thirtydays.getDate()-30);
+                    sevenDays.setDate(sevenDays.getDate() - 7);
+                    thirtydays.setDate(thirtydays.getDate() - 30);
 
                     console.log(sevenDays);
                     console.log(thirtydays);
@@ -64,7 +63,7 @@ export class NutzungComponent implements OnInit, OnDestroy {
                     let seven = 0;
                     let thirty = 0;
 
-                    this.quizzes.forEach(function (value) {
+                    this.quizzes.forEach(function(value) {
                         if (value.datum.toDate() >= sevenDays) {
                             seven++;
                         }
@@ -74,14 +73,14 @@ export class NutzungComponent implements OnInit, OnDestroy {
                     });
 
                     const quiz1 = new Quiz();
-                    quiz1.tage=7;
-                    quiz1.nutzung=seven;
+                    quiz1.tage = 7;
+                    quiz1.nutzung = seven;
 
                     const quiz2 = new Quiz();
-                    quiz2.tage=30;
-                    quiz2.nutzung=thirty;
+                    quiz2.tage = 30;
+                    quiz2.nutzung = thirty;
 
-                    this.quizzes=  [quiz1, quiz2];
+                    this.quizzes = [quiz1, quiz2];
                 }
             },
             (res: HttpErrorResponse) => this.onError(res.message)
