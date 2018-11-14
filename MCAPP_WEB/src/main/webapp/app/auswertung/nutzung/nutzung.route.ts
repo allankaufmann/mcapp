@@ -23,16 +23,12 @@ export class NutzungResolve implements Resolve<IQuiz> {
     }
 }
 
-export const nutzungRoute: Route =
-    {
-        path: 'nutzung',
-        component: NutzungComponent,
-        data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'mcappWebApp.quiz.home.title'
-        },
-        canActivate: [UserRouteAccessService]
-    }
-;
-
-
+export const nutzungRoute: Route = {
+    path: 'nutzung',
+    component: NutzungComponent,
+    data: {
+        authorities: ['ROLE_USER'],
+        pageTitle: 'mcappWebApp.quiz.home.title'
+    },
+    canActivate: [UserRouteAccessService]
+};

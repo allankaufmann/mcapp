@@ -3,7 +3,7 @@
     "mcappWebApp": {
         "quiz" : {
             "home": {
-                "title": "Quizzes",
+                "title": "Report for use of MC App",
                 "createLabel": "Create a new Quiz",
                 "createOrEditLabel": "Create or edit a Quiz",
                 "search": "Search for Quiz"
@@ -18,7 +18,10 @@
                 "title": "Quiz"
             },
             "datum": "Datum",
-            "quizFrageID": "Quiz Frage ID"
+            "quizFrageID": "Quiz Frage ID",
+            "nutzung": "The multiple choice app was used in the last ",
+            "tagen": "days",
+            "anzahl" : "times."
         }
     }
 }

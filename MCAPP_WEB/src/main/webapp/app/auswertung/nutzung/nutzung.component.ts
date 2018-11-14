@@ -5,8 +5,10 @@ import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
 import { IQuiz } from 'app/shared/model/quiz.model';
+import { Quiz } from 'app/shared/model/quiz.model';
 import { Principal } from 'app/core';
 import { NutzungService } from './nutzung.service';
+import { Moment } from 'moment';
 
 @Component({
     selector: 'jhi-quiz',
@@ -38,7 +40,8 @@ export class NutzungComponent implements OnInit, OnDestroy {
                     query: this.currentSearch
                 })
                 .subscribe(
-                    (res: HttpResponse<IQuiz[]>) => (this.quizzes = res.body),
+                    (res: HttpResponse<IQuiz[]>) => (
+                        this.quizzes = res.body),
                     (res: HttpErrorResponse) => this.onError(res.message)
                 );
             return;
@@ -47,6 +50,39 @@ export class NutzungComponent implements OnInit, OnDestroy {
             (res: HttpResponse<IQuiz[]>) => {
                 this.quizzes = res.body;
                 this.currentSearch = '';
+
+                if (this.quizzes) {
+                    let sevenDays = new Date(Date.now());
+                    let thirtydays = new Date(Date.now());
+
+                    sevenDays.setDate(sevenDays.getDate()-7);
+                    thirtydays.setDate(thirtydays.getDate()-30);
+
+                    console.log(sevenDays);
+                    console.log(thirtydays);
+
+                    let seven = 0;
+                    let thirty = 0;
+
+                    this.quizzes.forEach(function (value) {
+                        if (value.datum.toDate() >= sevenDays) {
+                            seven++;
+                        }
+                        if (value.datum.toDate() >= thirtydays) {
+                            thirty++;
+                        }
+                    });
+
+                    const quiz1 = new Quiz();
+                    quiz1.tage=7;
+                    quiz1.nutzung=seven;
+
+                    const quiz2 = new Quiz();
+                    quiz2.tage=30;
+                    quiz2.nutzung=thirty;
+
+                    this.quizzes=  [quiz1, quiz2];
+                }
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

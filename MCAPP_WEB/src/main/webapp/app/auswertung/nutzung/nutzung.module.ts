@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { McappWebSharedModule } from 'app/shared';
 import { nutzungRoute, NutzungComponent } from 'app/auswertung/nutzung';
 
-
 @NgModule({
     imports: [McappWebSharedModule, RouterModule.forChild([nutzungRoute])],
     declarations: [NutzungComponent],
