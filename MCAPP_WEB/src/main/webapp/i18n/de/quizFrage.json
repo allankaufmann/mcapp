@@ -3,7 +3,7 @@
     "mcappWebApp": {
         "quizFrage" : {
             "home": {
-                "title": "Quiz Frages",
+                "title": "Auswertung der Fragen",
                 "createLabel": "Quiz Frage erstellen",
                 "createOrEditLabel": "Quiz Frage erstellen oder bearbeiten",
                 "search": "Suche nach Quiz Frage"
@@ -19,7 +19,10 @@
             },
             "richtig": "Richtig",
             "frage": "Frage",
-            "quiz": "Quiz"
+            "quiz": "Quiz",
+            "anzgesamt": "Anz. Antworten",
+            "anzrichtig": "richtig beantwortet",
+            "anzfalsch": "falsch beantwortet"
         }
     }
 }

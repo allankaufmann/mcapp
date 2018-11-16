@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 import { Quiz } from 'app/shared/model/quiz.model';
 import { AuswertungFrageService } from './auswertung-frage.service';
 import { AuswertungFrageComponent } from './auswertung-frage.component';
-import {IQuizFrage, QuizFrage} from 'app/shared/model/quiz-frage.model';
+import { IQuizFrage, QuizFrage } from 'app/shared/model/quiz-frage.model';
 import { Route } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
