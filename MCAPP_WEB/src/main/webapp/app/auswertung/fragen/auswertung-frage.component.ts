@@ -51,29 +51,24 @@ export class AuswertungFrageComponent implements OnInit, OnDestroy {
                 if (this.quizFrages) {
                     let map = new Map<number, IQuizFrage>();
 
-                    this.quizFrages.forEach(function (value) {
+                    this.quizFrages.forEach(function(value) {
                         if (!map.get(value.frage.id)) {
-                            value.anzRichtig=0;
-                            value.anzFalsch=0;
-                            value.anzGesamt=0;
+                            value.anzRichtig = 0;
+                            value.anzFalsch = 0;
+                            value.anzGesamt = 0;
                             map.set(value.frage.id, value);
                         }
                         let quizfrage = map.get(value.frage.id);
                         quizfrage.anzGesamt++;
                         if (value.richtig) {
                             quizfrage.anzRichtig++;
-                        }  else {
+                        } else {
                             quizfrage.anzFalsch++;
                         }
                     });
 
-                    this.quizFrages=Array.from( map.values() );
-
+                    this.quizFrages = Array.from(map.values());
                 }
-
-
-
-
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

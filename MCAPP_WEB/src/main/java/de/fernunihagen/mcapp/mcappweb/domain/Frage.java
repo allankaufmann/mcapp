@@ -44,9 +44,11 @@ public class Frage implements Serializable {
     @OneToMany(mappedBy = "frage", fetch=FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONE)
     private Set<TextAntwort> textAntwortIDS = new HashSet<>();
+
     @OneToMany(mappedBy = "frage")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<BildAntwort> bildAntwortIDS = new HashSet<>();
+
     @OneToMany(mappedBy = "frage")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<QuizFrage> quizFrageIDS = new HashSet<>();

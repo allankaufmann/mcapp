@@ -2,7 +2,11 @@ package de.fernunihagen.mcapp.mcappweb.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import de.fernunihagen.mcapp.mcappweb.domain.Frage;
+import de.fernunihagen.mcapp.mcappweb.domain.QuizFrage;
+import de.fernunihagen.mcapp.mcappweb.domain.TextAntwort;
 import de.fernunihagen.mcapp.mcappweb.repository.FrageRepository;
+import de.fernunihagen.mcapp.mcappweb.repository.QuizFrageRepository;
+import de.fernunihagen.mcapp.mcappweb.repository.TextAntwortRepository;
 import de.fernunihagen.mcapp.mcappweb.repository.search.FrageSearchRepository;
 import de.fernunihagen.mcapp.mcappweb.web.rest.errors.BadRequestAlertException;
 import de.fernunihagen.mcapp.mcappweb.web.rest.util.HeaderUtil;
@@ -38,9 +42,17 @@ public class FrageResource {
 
     private final FrageSearchRepository frageSearchRepository;
 
-    public FrageResource(FrageRepository frageRepository, FrageSearchRepository frageSearchRepository) {
+    private final QuizFrageRepository quizfrageRepository;
+
+    private final TextAntwortRepository textAntwortRepository;
+
+
+
+    public FrageResource(FrageRepository frageRepository, FrageSearchRepository frageSearchRepository, QuizFrageRepository quizfrageRepository, TextAntwortRepository textAntwortRepository) {
         this.frageRepository = frageRepository;
         this.frageSearchRepository = frageSearchRepository;
+        this.quizfrageRepository=quizfrageRepository;
+        this.textAntwortRepository=textAntwortRepository;
     }
 
     /**
@@ -141,6 +153,21 @@ public class FrageResource {
     @Timed
     public ResponseEntity<Void> deleteFrage(@PathVariable Long id) {
         log.debug("REST request to delete Frage : {}", id);
+
+        List<TextAntwort> textantwortList = textAntwortRepository.findAll();
+        for (TextAntwort a : textantwortList) {
+            if (a.getFrage().getId().equals(id)) {
+                textAntwortRepository.delete(a);
+            }
+        }
+
+        List<QuizFrage> quizfrageList = quizfrageRepository.findAll();
+        for (QuizFrage a : quizfrageList) {
+            if (a.getFrage().getId().equals(id)) {
+                quizfrageRepository.delete(a);
+            }
+        }
+
 
         frageRepository.deleteById(id);
         frageSearchRepository.deleteById(id);

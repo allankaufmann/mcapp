@@ -4,6 +4,8 @@ import de.fernunihagen.mcapp.mcappweb.McappWebApp;
 
 import de.fernunihagen.mcapp.mcappweb.domain.Frage;
 import de.fernunihagen.mcapp.mcappweb.repository.FrageRepository;
+import de.fernunihagen.mcapp.mcappweb.repository.QuizFrageRepository;
+import de.fernunihagen.mcapp.mcappweb.repository.TextAntwortRepository;
 import de.fernunihagen.mcapp.mcappweb.repository.search.FrageSearchRepository;
 import de.fernunihagen.mcapp.mcappweb.web.rest.errors.ExceptionTranslator;
 
@@ -53,6 +55,12 @@ public class FrageResourceIntTest {
     @Autowired
     private FrageRepository frageRepository;
 
+    @Autowired
+    private TextAntwortRepository textAntwortRepository;
+
+    @Autowired
+    private QuizFrageRepository quizFrageRepository;
+
     /**
      * This repository is mocked in the de.fernunihagen.mcapp.mcappweb.repository.search test package.
      *
@@ -80,7 +88,7 @@ public class FrageResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final FrageResource frageResource = new FrageResource(frageRepository, mockFrageSearchRepository);
+        final FrageResource frageResource = new FrageResource(frageRepository, mockFrageSearchRepository, quizFrageRepository, textAntwortRepository);
         this.restFrageMockMvc = MockMvcBuilders.standaloneSetup(frageResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

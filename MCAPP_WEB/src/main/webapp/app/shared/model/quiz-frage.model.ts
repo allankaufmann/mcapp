@@ -12,10 +12,18 @@ export interface IQuizFrage {
 }
 
 export class QuizFrage implements IQuizFrage {
-    constructor(public id?: number, public richtig?: boolean, public frage?: IFrage, public quiz?: IQuiz, public  anzGesamt?: number, public anzRichtig?:number, public anzFalsch?:number) {
+    constructor(
+        public id?: number,
+        public richtig?: boolean,
+        public frage?: IFrage,
+        public quiz?: IQuiz,
+        public anzGesamt?: number,
+        public anzRichtig?: number,
+        public anzFalsch?: number
+    ) {
         this.richtig = this.richtig || false;
-        this.anzGesamt=anzGesamt;
-        this.anzFalsch=anzFalsch;
-        this.anzRichtig=anzRichtig;
+        this.anzGesamt = anzGesamt;
+        this.anzFalsch = anzFalsch;
+        this.anzRichtig = anzRichtig;
     }
 }
