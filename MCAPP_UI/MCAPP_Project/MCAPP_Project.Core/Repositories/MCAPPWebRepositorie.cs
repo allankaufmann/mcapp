@@ -51,7 +51,7 @@ namespace MCAPP_Project.Core.Repositories
                 this.token = await holeToken();
             }
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.ID_TOKEN);
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "/api/frages");
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "api/frages");
             var response = httpClient.SendAsync(request).Result;
             var json = response.Content.ReadAsStringAsync().Result;
 
@@ -66,7 +66,7 @@ namespace MCAPP_Project.Core.Repositories
 
 
                 // Da Textantworten nicht mitgeliefert werden, werden diese zugeladen. 
-                request = new HttpRequestMessage(HttpMethod.Get, "/api/text-antworts");
+                request = new HttpRequestMessage(HttpMethod.Get, "api/text-antworts");
             response = httpClient.SendAsync(request).Result;
             json = response.Content.ReadAsStringAsync().Result;
 
@@ -113,7 +113,7 @@ namespace MCAPP_Project.Core.Repositories
                 this.token = await holeToken();
             }
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.ID_TOKEN);
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "/api/themas");
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "api/themas");
             var response = httpClient.SendAsync(request).Result;
             var json = response.Content.ReadAsStringAsync().Result;
 

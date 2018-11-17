@@ -168,10 +168,8 @@ namespace MCAPP_Project.Core.ViewModels
                 }
 
                 foreach (Frage f in fragenInDBDict.Values)
-                {
-
-                    // Todo löschen!
-                    //fragenService.gel
+                {                    
+                    fragenService.LoescheFrage(f);
                 }
 
 

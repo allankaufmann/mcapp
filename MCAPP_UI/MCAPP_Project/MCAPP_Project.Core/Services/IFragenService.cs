@@ -65,5 +65,7 @@ namespace MCAPP_Project.Core.Services
          * gezogen werden können. 
          */
         int[] CalcAnzahlProThema(List<Thema> gewaelteThemen, int anz);
+
+        int LoescheFrage(Frage frage);
     }
 }

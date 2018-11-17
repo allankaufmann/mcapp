@@ -39,5 +39,10 @@ namespace MCAPP_Project.Core.Services
 
         List<Quiz_Frage> GetAllQuiz_Frages(Quiz quiz);
 
+        /*
+         * Löscht Quiz_Fragen-Objekte, wenn Fragen nicht mehr vorhanden sind.
+         */
+        int LoescheAuswertungFragen(Frage frage);
+
     }
 }

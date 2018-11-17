@@ -178,5 +178,28 @@ namespace MCAPP_Project.Core.Repositories
         {
             return connection.InsertOrReplace(thema);
         }
+
+        public int LoescheFrage(Frage frage)
+        {
+            List<Textantwort> antworten = connection.Table<Textantwort>()
+                .Where(v => v.frage_id == frage.id)
+                .ToList<Textantwort>();
+
+            try
+            {
+                foreach(Textantwort a in antworten)
+                {
+                    connection.Delete(a);
+                }
+
+            } catch (Exception e)
+            {
+                return 0;
+            }
+
+
+
+            return connection.Delete(frage);            
+        }
     }
 }

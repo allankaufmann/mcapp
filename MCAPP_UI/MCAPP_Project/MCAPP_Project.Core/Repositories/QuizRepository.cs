@@ -128,5 +128,28 @@ namespace MCAPP_Project.Core.Repositories
             }
             return frageList;
         }
+
+        public int LoescheAuswertungFragen(Frage frage)
+        {
+            int loeschen = 0;
+
+            List<Quiz_Frage> fragen = connection.Table<Quiz_Frage>()
+            .Where(v => v.frageID == frage.id)
+            .ToList();
+
+            try
+            {
+                foreach (Quiz_Frage f in fragen)
+                {
+                    loeschen = connection.Delete(f);
+                }
+            }
+            catch (Exception e)
+            {
+                loeschen = 0;
+            }
+
+            return loeschen;                      
+        }
     }
 }

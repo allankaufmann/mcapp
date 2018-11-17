@@ -24,6 +24,8 @@ namespace MCAPP_Project.Core.Repositories
          */
         List<Quiz_Frage> GetAllQuiz_Frages(Quiz quiz);
 
+        int LoescheAuswertungFragen(Frage frage);
+
 
     }
 }

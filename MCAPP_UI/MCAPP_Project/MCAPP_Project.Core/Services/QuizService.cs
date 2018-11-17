@@ -121,5 +121,9 @@ namespace MCAPP_Project.Core.Services
             return quizRepo.GetAllQuiz_Frages(quiz);
         }
 
+        public int LoescheAuswertungFragen(Frage frage)
+        {
+            return quizRepo.LoescheAuswertungFragen(frage);
+        }
     }
 }

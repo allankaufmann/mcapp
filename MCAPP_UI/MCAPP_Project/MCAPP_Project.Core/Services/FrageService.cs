@@ -340,5 +340,15 @@ namespace MCAPP_Project.Core.Services
             return zufallsFragen;
 
         }
+
+        public int LoescheFrage(Frage frage)
+        {
+            int loeschen = quizService.LoescheAuswertungFragen(frage);
+
+            loeschen = repository.LoescheFrage(frage);
+
+
+            return loeschen;
+        }
     }
 }
