@@ -3,7 +3,7 @@
     "mcappWebApp": {
         "textAntwort" : {
             "home": {
-                "title": "Text Antworts",
+                "title": "Answers as text",
                 "createLabel": "Create a new Text Antwort",
                 "createOrEditLabel": "Create or edit a Text Antwort",
                 "search": "Search for Text Antwort"

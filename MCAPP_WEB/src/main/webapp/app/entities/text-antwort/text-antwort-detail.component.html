@@ -20,7 +20,7 @@
                 <dt><span jhiTranslate="mcappWebApp.textAntwort.frage">Frage</span></dt>
                 <dd>
                     <div *ngIf="textAntwort.frage">
-                        <a [routerLink]="['/frage', textAntwort.frage?.id, 'view']">{{textAntwort.frage?.id}}</a>
+                        <a [routerLink]="['/frage', textAntwort.frage?.id, 'view']">{{textAntwort.frage?.id}} {{textAntwort.frage?.frageText}}</a>
                     </div>
                 </dd>
             </dl>
