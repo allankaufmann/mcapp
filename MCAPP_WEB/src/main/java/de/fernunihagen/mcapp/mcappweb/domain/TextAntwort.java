@@ -35,7 +35,7 @@ public class TextAntwort implements Serializable {
     private String text;
 
     @ManyToOne
-    @JsonIgnoreProperties("textAntwortIDS")
+    @JsonIgnoreProperties({"bildAntwortIDS", "textAntwortIDS"})
     private Frage frage;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

@@ -3,7 +3,7 @@
     "mcappWebApp": {
         "bildAntwort" : {
             "home": {
-                "title": "Bild Antworts",
+                "title": "Antworten in Bildform",
                 "createLabel": "Bild Antwort erstellen",
                 "createOrEditLabel": "Bild Antwort erstellen oder bearbeiten",
                 "search": "Suche nach Bild Antwort"

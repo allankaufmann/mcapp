@@ -42,11 +42,12 @@
                 </button>
             </div>
         </form>
-        <form>
+        <!-- form für Textantworten-->
+        <form *ngIf="frage.frageTyp === 'TEXT'">
             <div>
                 <br/>
                 <br/>
-                <!-- DIV für Textantworten-->
+
                 <div>
                     <h2 id="page-heading">
                         <span jhiTranslate="mcappWebApp.textAntwort.home.title">Text Antworts</span>
@@ -105,6 +106,82 @@
                     </table>
                 </div>
             </div>
+        </form>
+
+        <!-- form für Bildantworten-->
+        <form *ngIf="frage.frageTyp === 'BILD'">
+            <div>
+                <br/>
+                <br/>
+                <h2 id="page-heading2">
+                    <span jhiTranslate="mcappWebApp.bildAntwort.home.title">Bild Antworts</span>
+                    <button id="jh-create-entity2" class="btn btn-primary float-right jh-create-entity create-bild-antwort" [routerLink]="['/bild-antwort/new']" [queryParams]="{frageid:frage.id}" [disabled]="frage.id==null || frage.bildAntwortIDS.length==8 || frage.frageTyp === 'TEXT'">
+                        <fa-icon [icon]="'plus'"></fa-icon>
+                        <span class="hidden-sm-down"  jhiTranslate="mcappWebApp.bildAntwort.home.createLabel">
+                            Create new Bild Antwort
+                        </span>
+                    </button>
+                </h2>
+                <jhi-alert></jhi-alert>
+                <br/>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th><span jhiTranslate="global.field.id">ID</span></th>
+                            <!--<th><span jhiTranslate="mcappWebApp.bildAntwort.position">Position</span></th>-->
+                            <th><span jhiTranslate="mcappWebApp.bildAntwort.bild">Bild</span></th>
+                            <th><span jhiTranslate="mcappWebApp.bildAntwort.wahr">Wahr</span></th>
+                            <th><span jhiTranslate="mcappWebApp.bildAntwort.frage">Frage</span></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let bildAntwort of frage.bildAntwortIDS ;trackBy: trackId">
+                            <td><a [routerLink]="['/bild-antwort', bildAntwort.id, 'view' ]">{{bildAntwort.id}}</a></td>
+                            <!--<td>{{bildAntwort.position}}</td>-->
+                            <td>
+                                <a *ngIf="bildAntwort.bild" (click)="openFile(bildAntwort.bildContentType, bildAntwort.bild)">
+                                    <img [src]="'data:' + bildAntwort.bildContentType + ';base64,' + bildAntwort.bild" style="max-height: 30px;" alt="bildAntwort image"/>
+                                </a>
+                                <!--<span *ngIf="bildAntwort.bild">{{bildAntwort.bildContentType}}, {{byteSize(bildAntwort.bild)}}</span>-->
+                            </td>
+                            <td>{{bildAntwort.wahr}}</td>
+                            <td>
+                                <div *ngIf="bildAntwort.frage">
+                                    <a [routerLink]="['../frage', bildAntwort.frage?.id, 'view' ]" >{{bildAntwort.frage?.id}}</a>
+                                </div>
+                            </td>
+                            <td class="text-right">
+                                <div class="btn-group flex-btn-group-container">
+                                    <button type="submit"
+                                            [routerLink]="['/bild-antwort', bildAntwort.id, 'view' ]"
+                                            class="btn btn-info btn-sm">
+                                        <fa-icon [icon]="'eye'"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                    </button>
+                                    <button type="submit"
+                                            [routerLink]="['/bild-antwort', bildAntwort.id, 'edit']"
+                                            class="btn btn-primary btn-sm">
+                                        <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                    </button>
+                                    <button type="submit"
+                                            [routerLink]="['/', { outlets: { popup: 'bild-antwort/'+ bildAntwort.id + '/delete'} }]"
+                                            replaceUrl="true"
+                                            queryParamsHandling="merge"
+                                            class="btn btn-danger btn-sm">
+                                        <fa-icon [icon]="'times'"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </form>
 
     </div>

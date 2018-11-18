@@ -3,7 +3,7 @@
     "mcappWebApp": {
         "thema" : {
             "home": {
-                "title": "Themas",
+                "title": "Themen",
                 "createLabel": "Thema erstellen",
                 "createOrEditLabel": "Thema erstellen oder bearbeiten",
                 "search": "Suche nach Thema"

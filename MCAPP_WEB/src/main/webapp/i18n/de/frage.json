@@ -3,7 +3,7 @@
     "mcappWebApp": {
         "frage" : {
             "home": {
-                "title": "Frages",
+                "title": "Fragen",
                 "createLabel": "Frage erstellen",
                 "createOrEditLabel": "Frage erstellen oder bearbeiten",
                 "search": "Suche nach Frage"

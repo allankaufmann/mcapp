@@ -3,7 +3,7 @@
     "mcappWebApp": {
         "thema" : {
             "home": {
-                "title": "Themas",
+                "title": "Topic",
                 "createLabel": "Create a new Thema",
                 "createOrEditLabel": "Create or edit a Thema",
                 "search": "Search for Thema"

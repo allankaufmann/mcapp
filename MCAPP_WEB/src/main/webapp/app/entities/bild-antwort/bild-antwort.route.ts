@@ -11,6 +11,8 @@ import { BildAntwortDetailComponent } from './bild-antwort-detail.component';
 import { BildAntwortUpdateComponent } from './bild-antwort-update.component';
 import { BildAntwortDeletePopupComponent } from './bild-antwort-delete-dialog.component';
 import { IBildAntwort } from 'app/shared/model/bild-antwort.model';
+import {TextAntwort} from "app/shared/model/text-antwort.model";
+import {Frage} from "app/shared/model/frage.model";
 
 @Injectable({ providedIn: 'root' })
 export class BildAntwortResolve implements Resolve<IBildAntwort> {
@@ -21,7 +23,15 @@ export class BildAntwortResolve implements Resolve<IBildAntwort> {
         if (id) {
             return this.service.find(id).pipe(map((bildAntwort: HttpResponse<BildAntwort>) => bildAntwort.body));
         }
-        return of(new BildAntwort());
+        const frageid = route.queryParams['frageid'] ? route.queryParams['frageid'] : null;
+        var t = new BildAntwort();
+        if (frageid && !isNaN(frageid)) {
+            let f = new Frage();
+            f.id = Number(frageid);
+            t.frage = f;
+        }
+
+        return of(t);
     }
 }
 

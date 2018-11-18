@@ -32,7 +32,7 @@ export class TextAntwortResolve implements Resolve<ITextAntwort> {
          */
 
         const frageid = route.queryParams['frageid'] ? route.queryParams['frageid'] : null;
-        var t = new TextAntwort();
+        const t = new TextAntwort();
 
         // Prüfen, ob frageID übergeben wurde und numerisch ist
         if (frageid && !isNaN(frageid)) {
