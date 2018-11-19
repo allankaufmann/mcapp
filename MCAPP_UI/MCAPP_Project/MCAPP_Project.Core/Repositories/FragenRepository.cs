@@ -41,6 +41,7 @@ namespace MCAPP_Project.Core.Repositories
             connection.CreateTable<Textantwort>();
             connection.CreateTable<Quiz_Frage>();
             connection.CreateTable<Quiz>();
+            connection.CreateTable<Bildantwort>();
 
             loadThemen();
         }
@@ -159,6 +160,15 @@ namespace MCAPP_Project.Core.Repositories
                         antwortRows+= connection.InsertOrReplace(a);
                     }
                 }
+
+                if (frage.bildantworten != null && frage.bildantworten.Count > 0)
+                {
+                    foreach (Antwort a in frage.bildantworten)
+                    {
+                        antwortRows += connection.InsertOrReplace(a);
+                    }
+                }
+
             }
             catch (Exception e)
             {

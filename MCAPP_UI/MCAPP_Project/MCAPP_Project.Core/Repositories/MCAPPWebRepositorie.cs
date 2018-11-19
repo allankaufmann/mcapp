@@ -66,7 +66,7 @@ namespace MCAPP_Project.Core.Repositories
 
 
                 // Da Textantworten nicht mitgeliefert werden, werden diese zugeladen. 
-                request = new HttpRequestMessage(HttpMethod.Get, "api/text-antworts");
+            request = new HttpRequestMessage(HttpMethod.Get, "api/text-antworts");
             response = httpClient.SendAsync(request).Result;
             json = response.Content.ReadAsStringAsync().Result;
 
@@ -97,9 +97,44 @@ namespace MCAPP_Project.Core.Repositories
                 {
                     f.antworten = antwortDict[f.id];
                 }
-            }           
-          
-            // Muss noch in lokale DB gespeichert werden.....
+            }
+
+            // Da Textantworten nicht mitgeliefert werden, werden diese zugeladen. 
+            request = new HttpRequestMessage(HttpMethod.Get, "api/bild-antworts");
+            response = httpClient.SendAsync(request).Result;
+            json = response.Content.ReadAsStringAsync().Result;
+
+            // Neben Textantworten können auch Bildantworten geliefert werden:
+            List<Bildantwort> bildAntworten = JsonConvert.DeserializeObject<List<Bildantwort>>(json);
+
+            Dictionary<long, List<Bildantwort>> bildantwortDict = new Dictionary<long, List<Bildantwort>>();
+
+            foreach (Bildantwort a in bildAntworten)
+            {
+                if (a.frage != null)
+                {
+                    // Muss sein, damit lokale DB die richtige ID erhält.
+                    a.frage_id = a.frage.id;
+                }
+
+
+                if (!bildantwortDict.ContainsKey(a.frage_id))
+                {
+                    bildantwortDict.Add(a.frage_id, new List<Bildantwort>());
+                }
+                List<Bildantwort> list = bildantwortDict[a.frage_id];
+                list.Add(a);
+            }
+
+            foreach (Frage f in fragen)
+            {
+                if (bildantwortDict.ContainsKey(f.id))
+                {
+                    f.bildantworten = bildantwortDict[f.id];
+                }
+            }
+
+            // Problem - wenn es sowohl Text- als auch Bildantworten gibt, dann wird dies überschrieben!
 
 
             return fragen;

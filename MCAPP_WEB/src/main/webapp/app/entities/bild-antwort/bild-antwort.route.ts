@@ -11,8 +11,8 @@ import { BildAntwortDetailComponent } from './bild-antwort-detail.component';
 import { BildAntwortUpdateComponent } from './bild-antwort-update.component';
 import { BildAntwortDeletePopupComponent } from './bild-antwort-delete-dialog.component';
 import { IBildAntwort } from 'app/shared/model/bild-antwort.model';
-import {TextAntwort} from "app/shared/model/text-antwort.model";
-import {Frage} from "app/shared/model/frage.model";
+import { TextAntwort } from 'app/shared/model/text-antwort.model';
+import { Frage } from 'app/shared/model/frage.model';
 
 @Injectable({ providedIn: 'root' })
 export class BildAntwortResolve implements Resolve<IBildAntwort> {

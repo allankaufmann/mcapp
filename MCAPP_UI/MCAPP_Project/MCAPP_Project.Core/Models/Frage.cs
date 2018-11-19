@@ -31,6 +31,9 @@ namespace MCAPP_Project.Core.Models
         [Ignore]
         public List<Textantwort> antworten { get; set; }
 
+        [Ignore]
+        public List<Bildantwort> bildantworten { get; set; }
+
         /*
          * Für die lokale DB wird der primitive Wert benötigt, 
          * für die Webservice hingegen das Thema-Objekt. Daher wird hier
