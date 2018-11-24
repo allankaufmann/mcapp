@@ -16,6 +16,10 @@ namespace MCAPP_Project.Core
         // wenn lokale DB leer und Web-Service nicht vorhanden ist oder keine Themen angelegt wurden.
         static public Boolean DEMO_MODUS = false;
 
+        // 
+        static readonly public String DATENBANK_IN_SMARTPHONE = "/Users/allan/test.db";
+
+        static readonly public String DATENBANK_IN_SMARTPHONE_NAME = "mcapp.db";
 
     }
 }

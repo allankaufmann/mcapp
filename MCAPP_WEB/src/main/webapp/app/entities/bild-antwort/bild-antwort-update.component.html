@@ -9,16 +9,11 @@
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="bildAntwort.id" readonly />
                 </div>
-                <div class="form-group">
+                <!--<div class="form-group">
                     <label class="form-control-label" jhiTranslate="mcappWebApp.bildAntwort.position" for="field_position">Position</label>
                     <input type="number" class="form-control" name="position" id="field_position"
                         [(ngModel)]="bildAntwort.position" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="mcappWebApp.bildAntwort.wahr" for="field_wahr">Wahr</label>
-                    <input type="checkbox" class="form-control" name="wahr" id="field_wahr"
-                        [(ngModel)]="bildAntwort.wahr" />
-                </div>
+                </div>-->
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="mcappWebApp.bildAntwort.bild" for="field_bild">Bild</label>
                     <div>
@@ -32,10 +27,18 @@
                         <input type="file" id="file_bild" (change)="setFileData($event, bildAntwort, 'bild', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
                     </div>
                     <input type="hidden" class="form-control" name="bild" id="field_bild"
-                        [(ngModel)]="bildAntwort.bild" />
+                           [(ngModel)]="bildAntwort.bild" />
                     <input type="hidden" class="form-control" name="bildContentType" id="field_bildContentType"
-                        [(ngModel)]="bildAntwort.bildContentType" />
+                           [(ngModel)]="bildAntwort.bildContentType" />
                 </div>
+
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mcappWebApp.bildAntwort.wahr" for="field_wahr">Wahr</label>
+                    <input type="checkbox" class="form-control" name="wahr" id="field_wahr"
+                        [(ngModel)]="bildAntwort.wahr" />
+                </div>
+
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="mcappWebApp.bildAntwort.frage" for="field_frage">Frage</label>

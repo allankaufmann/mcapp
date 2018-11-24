@@ -17,8 +17,6 @@ namespace MCAPP_Project.Core.ViewModels
 
         readonly IMvxNavigationService navigationService;
 
-        // Sollte nach Navigation gesetzt werden...
-
         Quiz quiz;
 
         public QuestionTableViewModel(IMvxNavigationService navigationService)
@@ -70,7 +68,7 @@ namespace MCAPP_Project.Core.ViewModels
 
             if (quiz.fragen.Count> (newpos))
             {
-                _interaction.Raise(this.quiz.ended);
+                //_interaction.Raise(this.quiz.ended);
 
                 this.quiz.position = this.quiz.position + 1;
                 await navigationService.Navigate(typeof(QuestionTableViewModel), this.quiz);
@@ -80,8 +78,8 @@ namespace MCAPP_Project.Core.ViewModels
             }            
         }
 
-        private MvxInteraction<Boolean> _interaction = new MvxInteraction<Boolean>();
-        public IMvxInteraction<Boolean> Interaction => _interaction;
+        //private MvxInteraction<Boolean> _interaction = new MvxInteraction<Boolean>();
+        //public IMvxInteraction<Boolean> Interaction => _interaction;
 
 
 

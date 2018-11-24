@@ -14,18 +14,16 @@ namespace MCAPP_Project.Core.Repositories
         readonly SQLiteConnection connection;
 
         public QuizRepository()
-        {
-            // Später wird auf LocalStorage umgestellt, für
-            // Entwicklung ist es aber mühseelig immer den Pfad auf dem
-            // Geärt herauszusuchen, daher wird erstmal unter /Users gespeichert!
-            
-            //var local = FileSystem.Current.LocalStorage.Path;
-            //var datafile = PortablePath.Combine(local, "test2.db");
-            //connection = new SQLiteAsyncConnection(datafile);
-
-            connection = new SQLiteConnection("/Users/allan/test.db");
-
-            
+        {         
+            if (MCAPP_PROPERTIES.DATENBANK_IN_SMARTPHONE!=null && MCAPP_PROPERTIES.DATENBANK_IN_SMARTPHONE.Length>0)
+            {
+                connection = new SQLiteConnection(MCAPP_PROPERTIES.DATENBANK_IN_SMARTPHONE);
+            } else
+            {
+                var local = FileSystem.Current.LocalStorage.Path;
+                var datafile = PortablePath.Combine(local, MCAPP_PROPERTIES.DATENBANK_IN_SMARTPHONE_NAME);
+                connection = new SQLiteConnection(datafile);
+            }
             connection.CreateTable<Quiz_Frage>();
             connection.CreateTable<Quiz>();
         }

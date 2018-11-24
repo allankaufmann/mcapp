@@ -17,25 +17,25 @@ namespace MCAPP_Project.Core.Repositories
      */
     public class FragenRepository : IFragenRepository
     {
-
-        //private List<Frage> alleFragen;
         private List<Thema> themen;
 
-        //readonly SQLiteAsyncConnection connection;
         readonly SQLiteConnection connection;
 
 
         public FragenRepository()
         {
-            // Später wird auf LocalStorage umgestellt, für
-            // Entwicklung ist es aber mühseelig immer den Pfad auf dem
-            // Geärt herauszusuchen, daher wird erstmal unter /Users gespeichert!
 
-            //var local = FileSystem.Current.LocalStorage.Path;
-            //var datafile = PortablePath.Combine(local, "test2.db");
-            //connection = new SQLiteAsyncConnection(datafile);
+            if (MCAPP_PROPERTIES.DATENBANK_IN_SMARTPHONE != null && MCAPP_PROPERTIES.DATENBANK_IN_SMARTPHONE.Length > 0)
+            {
+                connection = new SQLiteConnection(MCAPP_PROPERTIES.DATENBANK_IN_SMARTPHONE);
+            }
+            else
+            {
+                var local = FileSystem.Current.LocalStorage.Path;
+                var datafile = PortablePath.Combine(local, MCAPP_PROPERTIES.DATENBANK_IN_SMARTPHONE_NAME);
+                connection = new SQLiteConnection(datafile);
+            }
 
-            connection = new SQLiteConnection("/Users/allan/test.db");
             connection.CreateTable<Frage>();
             connection.CreateTable<Thema>();
             connection.CreateTable<Textantwort>();
@@ -45,12 +45,6 @@ namespace MCAPP_Project.Core.Repositories
 
             loadThemen();
         }
-
-
-
-
-
-
 
         public List<Thema> GetAllThemen()
         {
@@ -225,9 +219,6 @@ namespace MCAPP_Project.Core.Repositories
             {
                 return 0;
             }
-
-
-
             return connection.Delete(frage);            
         }
     }

@@ -13,7 +13,7 @@ namespace MCAPP_Project.iOS.Views
     public partial class QuestionTableAntwortTextCell : MvxTableViewCell
     {
 
-        private IMvxInteraction<Boolean> _interaction;
+        /*private IMvxInteraction<Boolean> _interaction;
         public IMvxInteraction<Boolean> Interaction
         {
             get => _interaction;
@@ -36,7 +36,7 @@ namespace MCAPP_Project.iOS.Views
             var status = await ShowDialog(yesNoQuestion.Question);
             yesNoQuestion.YesNoCallback(status == DialogStatus.Yes);*/
 
-        }
+        //}*/
 
 
 
@@ -66,9 +66,9 @@ namespace MCAPP_Project.iOS.Views
                 set.Apply();
 
 
-                var set2 = this.CreateBindingSet<QuestionTableAntwortTextCell, QuestionTableViewModel>();
-                set2.Bind(this).For(view => view.Interaction).To(viewModel => viewModel.Interaction);
-                set2.Apply();
+                //var set2 = this.CreateBindingSet<QuestionTableAntwortTextCell, QuestionTableViewModel>();
+                //set2.Bind(this).For(view => view.Interaction).To(viewModel => viewModel.Interaction);
+                //set2.Apply();
 
 
             });
