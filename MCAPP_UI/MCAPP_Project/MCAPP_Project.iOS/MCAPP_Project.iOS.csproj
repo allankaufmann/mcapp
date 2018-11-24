@@ -94,12 +94,16 @@
     <PackageReference Include="MvvmCross.Binding" Version="5.2.1" />
     <PackageReference Include="MvvmCross.Core" Version="5.2.1" />
     <PackageReference Include="MvvmCross.Platform" Version="5.2.1" />
+    <PackageReference Include="Xamarin.FFImageLoading">
+      <Version>2.4.4.859</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DebugTrace.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="MCAPPUtilsIOS.cs" />
     <Compile Include="Views\Auswertung\AuswertungTabelle.cs" />
     <Compile Include="Views\Auswertung\AuswertungTabelle.designer.cs">
       <DependentUpon>AuswertungTabelle.cs</DependentUpon>
@@ -113,6 +117,7 @@
       <DependentUpon>ThemaAuswertungCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Auswertung\ThemaAuswertungSouce.cs" />
+    <Compile Include="Views\Fragentabelle\BytesToUIImageConverter.cs" />
     <Compile Include="Views\Fragentabelle\QuestionTableAntwortTextCell.cs" />
     <Compile Include="Views\Fragentabelle\QuestionTableAntwortTextCell.designer.cs">
       <DependentUpon>QuestionTableAntwortTextCell.cs</DependentUpon>
@@ -130,6 +135,10 @@
       <DependentUpon>QuestionTableViewThemaCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Fragentabelle\QuestionTableViewSource.cs" />
+    <Compile Include="Views\Fragentabelle\QuestionTableBildantwortTextCell.cs" />
+    <Compile Include="Views\Fragentabelle\QuestionTableBildantwortTextCell.designer.cs">
+      <DependentUpon>QuestionTableBildantwortTextCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SampleQuestion.cs" />
     <Compile Include="Views\SampleQuestion.designer.cs">
       <DependentUpon>SampleQuestion.cs</DependentUpon>
@@ -177,6 +186,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
+    <BundleResource Include="Views\Fragentabelle\logo1x.png" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">

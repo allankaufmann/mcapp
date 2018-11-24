@@ -14,8 +14,6 @@ namespace MCAPP_Project.Core.ViewModels
     {
         private Quiz quiz;
 
-        private Textantwort antwort;
-
         private Frage frage;
 
         readonly private IFragenService service;
@@ -28,7 +26,7 @@ namespace MCAPP_Project.Core.ViewModels
             service = Mvx.Resolve<IFragenService>();
         }
 
-        public QuestionViewModel(Quiz parameter, Textantwort antwort)
+        public QuestionViewModel(Quiz parameter, Antwort antwort)
         {
             this.quiz = parameter;
             this.antwort = antwort;
@@ -43,8 +41,37 @@ namespace MCAPP_Project.Core.ViewModels
 
         public String AntwortText
         {
-            get { return this.antwort.Text;  }
+            get {
+                if (this.antwort.GetType() == typeof(Textantwort))
+                {
+                    return ((Textantwort)this.antwort).Text;
+                }
+                return "";
+
+            }
         }
+
+        
+
+        public byte[] AntwortBild
+        {
+            get
+            {
+                if (this.antwort==null)
+                {
+                    return null;
+                }
+
+                if (this.antwort.GetType() == typeof(Bildantwort))
+                {
+                    return ((Bildantwort)this.antwort).Bild;
+                }
+                return null;
+            }
+        }
+
+
+
 
         public Boolean AntwortAuswahl
         {
@@ -85,6 +112,11 @@ namespace MCAPP_Project.Core.ViewModels
             get { return !this.quiz.ended;  }
         }
 
+        public Antwort antwort
+        {
+            get;
+            set;
+        }
 
     }
 }

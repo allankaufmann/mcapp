@@ -50,6 +50,16 @@ namespace MCAPP_Project.Core.ViewModels
                     Tables.Add(new QuestionViewModel(parameter, a));
                 }
             }
+
+            if (frage.bildantworten != null)
+            {
+                foreach (Bildantwort a in frage.bildantworten)
+                {
+                    Tables.Add(new QuestionViewModel(parameter, a));
+                }
+            }
+
+
         }
 
         public IMvxAsyncCommand NextButtonCommand { get; }

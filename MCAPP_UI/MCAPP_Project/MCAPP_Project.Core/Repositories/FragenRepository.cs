@@ -63,7 +63,11 @@ namespace MCAPP_Project.Core.Repositories
 
             foreach (Frage f in this.GetAlleFragen())
             {
-                if (f.thema_id == themaID && (f.antworten!=null && f.antworten.Count > 0))
+                if (f.thema_id == themaID && 
+                        (
+                            (f.antworten!=null && f.antworten.Count > 0) || (f.bildantworten != null && f.bildantworten.Count > 0)
+                        )
+                    )
                 {
                     fragen.Add(f);
                 }
@@ -116,6 +120,21 @@ namespace MCAPP_Project.Core.Repositories
                         f.antworten.Add(a);
                     }
                 }
+
+                List<Bildantwort> bildantworten = connection.Table<Bildantwort>().ToList<Bildantwort>();
+                foreach(Bildantwort a in bildantworten) {
+                    if (alleFragenDict.ContainsKey(a.frage_id))
+                    {
+                        Frage f = alleFragenDict[a.frage_id];
+                        if (f.bildantworten == null)
+                        {
+                            f.bildantworten = new List<Bildantwort>();
+                        }
+                        f.bildantworten.Add(a);
+                    }
+                }
+
+
                 return alleFragen;
             }
             catch (Exception ex)

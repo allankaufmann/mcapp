@@ -91,17 +91,37 @@ namespace MCAPP_Project.Core.Services
         {
             Boolean fragerichtig = true;
 
-            foreach (Textantwort a in frage.antworten)
+            if (frage.antworten!=null && frage.antworten.Count!=0)
             {
-                if (a.wahr && !a.Auswahl)
+                foreach (Textantwort a in frage.antworten)
                 {
-                    fragerichtig = false;
+                    if (a.wahr && !a.Auswahl)
+                    {
+                        fragerichtig = false;
+                    }
+                    else if (!a.wahr && a.Auswahl)
+                    {
+                        fragerichtig = false;
+                    }
                 }
-                else if (!a.wahr && a.Auswahl)
+            } else if (frage.bildantworten!=null && frage.bildantworten.Count!=0)
+            {
+                foreach (Bildantwort a in frage.bildantworten)
                 {
-                    fragerichtig = false;
+                    if (a.wahr && !a.Auswahl)
+                    {
+                        fragerichtig = false;
+                    }
+                    else if (!a.wahr && a.Auswahl)
+                    {
+                        fragerichtig = false;
+                    }
                 }
             }
+
+
+
+
 
             return fragerichtig;
         }

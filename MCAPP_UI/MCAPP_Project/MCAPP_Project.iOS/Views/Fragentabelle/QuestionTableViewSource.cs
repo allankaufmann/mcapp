@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 
 using Foundation;
+using MCAPP_Project.Core.Models;
+using MCAPP_Project.Core.ViewModels;
 using MvvmCross.Binding.iOS.Views;
 using UIKit;
 
@@ -19,6 +21,8 @@ namespace MCAPP_Project.iOS.Views
 
         protected override UITableViewCell GetOrCreateCellFor(UITableView tableView, NSIndexPath indexPath, object item)
         {
+            QuestionViewModel view = (QuestionViewModel)item;
+
             if (indexPath.LongRow == 0)
             {
                 return (QuestionTableViewThemaCell)tableView.DequeueReusableCell("QuestionTableCell");
@@ -28,8 +32,15 @@ namespace MCAPP_Project.iOS.Views
                 return (QuestionTableViewFrageCell)tableView.DequeueReusableCell("QuestionTableFrageCell");
             }
             else
-            {
+            { 
+                if (view.antwort.GetType() == typeof(Bildantwort))
+                {
+                    return (QuestionTableBildantwortTextCell)tableView.DequeueReusableCell("QuestionBildantwortCell");
+                }
+
                 return (QuestionTableAntwortTextCell)tableView.DequeueReusableCell("QuestionTableAntwortText");
+
+
             }            
         }
 
