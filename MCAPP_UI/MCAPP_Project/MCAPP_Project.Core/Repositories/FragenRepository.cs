@@ -99,7 +99,7 @@ namespace MCAPP_Project.Core.Repositories
                 }
 
                 alleFragen = connection.Table<Frage>().ToList<Frage>();
-                Dictionary<long, Frage> alleFragenDict = MCAPPUtils.convertListToDictionary(alleFragen);
+                Dictionary<long, Frage> alleFragenDict = MCAPPUtils.convertFrageListToDictionary(alleFragen);
 
                 List<Textantwort> antworten = connection.Table<Textantwort>().ToList<Textantwort>();
                 foreach (Textantwort a in antworten)
@@ -219,7 +219,33 @@ namespace MCAPP_Project.Core.Repositories
             {
                 return 0;
             }
+
+            List<Bildantwort> bildantworten = connection.Table<Bildantwort>()
+                .Where(v => v.frage_id == frage.id)
+                .ToList<Bildantwort>();
+
+            try
+            {
+                foreach (Bildantwort a in bildantworten)
+                {
+                    connection.Delete(a);
+                }
+
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+
+
             return connection.Delete(frage);            
         }
+
+        public int LoescheThema(Thema t)
+        {
+            return connection.Delete(t);
+        }
+
+
     }
 }

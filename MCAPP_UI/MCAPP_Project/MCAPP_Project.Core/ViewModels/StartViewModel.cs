@@ -90,6 +90,10 @@ namespace MCAPP_Project.Core.ViewModels
             try
             {
                 List<Thema> themenWeb = await mcappwebservice.GetThemen();
+                List<Thema> themenDB = fragenService.GetAllThemen();
+                Dictionary<long, Thema> themaInDBDict = MCAPPUtils.convertThemaListToDictionary(themenDB);
+
+
                 Console.WriteLine("erg: " + themenWeb.Count);
 
                 Boolean refresh = false;
@@ -110,6 +114,7 @@ namespace MCAPP_Project.Core.ViewModels
                     {
                         // Neues Thema
                         fragenService.SaveThema(t);
+                        themaInDBDict.Remove(themaInDB.id);
                         refresh = true;
                     }
                     else
@@ -119,9 +124,16 @@ namespace MCAPP_Project.Core.ViewModels
                         {
                             themaInDB.ThemaText = t.ThemaText;
                             fragenService.SaveThema(t);
+                            themaInDBDict.Remove(themaInDB.id);
                         }
                         refresh = true;
                     }
+                }
+
+                foreach (Thema t in themaInDBDict.Values)
+                {
+                    fragenService.LoescheThema(t);
+                    refresh = true;
                 }
 
                 if (refresh)
@@ -144,7 +156,7 @@ namespace MCAPP_Project.Core.ViewModels
 
                 List<Frage> fragenInDB = fragenService.GetAllFragen();
 
-                Dictionary<long, Frage> fragenInDBDict = MCAPPUtils.convertListToDictionary(fragenInDB);
+                Dictionary<long, Frage> fragenInDBDict = MCAPPUtils.convertFrageListToDictionary(fragenInDB);
 
                 Boolean refresh = false;
 

@@ -350,5 +350,13 @@ namespace MCAPP_Project.Core.Services
 
             return loeschen;
         }
+
+        public int LoescheThema(Thema t)
+        {
+            int loeschen = repository.LoescheThema(t);
+            return loeschen;
+        }
+
+
     }
 }

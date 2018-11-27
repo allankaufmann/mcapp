@@ -7,7 +7,7 @@ namespace MCAPP_Project.Core.Utils
 {
     public class MCAPPUtils
     {
-        public static Dictionary<long, Frage> convertListToDictionary(List<Frage> fragenList)
+        public static Dictionary<long, Frage> convertFrageListToDictionary(List<Frage> fragenList)
         {
             Dictionary<long, Frage> fragenDict = new Dictionary<long, Frage>();
             foreach (Frage f in fragenList)
@@ -21,7 +21,21 @@ namespace MCAPP_Project.Core.Utils
             return fragenDict;
         }
 
-        
+        public static Dictionary<long, Thema> convertThemaListToDictionary(List<Thema> themaList)
+        {
+            Dictionary<long, Thema> themaDict = new Dictionary<long, Thema>();
+            foreach (Thema f in themaList)
+            {
+                if (!themaDict.ContainsKey(f.id))
+                {
+                    themaDict.Add(f.id, f);
+                }
+            }
+
+            return themaDict;
+        }
+
+
 
     }
 }

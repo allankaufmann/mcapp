@@ -44,5 +44,7 @@ namespace MCAPP_Project.Core.Repositories
         List<Frage> GetFragen(long themaID);
 
         int LoescheFrage(Frage frage);
+
+        int LoescheThema(Thema t);
     }
 }
