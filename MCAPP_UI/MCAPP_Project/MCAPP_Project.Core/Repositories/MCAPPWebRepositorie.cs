@@ -143,19 +143,26 @@ namespace MCAPP_Project.Core.Repositories
 
         public async Task<List<Thema>> GetThemen()
         {
-            if (token == null)
-            {            
-                this.token = await holeToken();
+            try
+            {
+                if (token == null)
+                {
+                    this.token = await holeToken();
+                }
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.ID_TOKEN);
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "api/themas");
+                var response = httpClient.SendAsync(request).Result;
+                var json = response.Content.ReadAsStringAsync().Result;
+
+                List<Thema> themen = JsonConvert.DeserializeObject<List<Thema>>(json);
+
+                return themen;
             }
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.ID_TOKEN);
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "api/themas");
-            var response = httpClient.SendAsync(request).Result;
-            var json = response.Content.ReadAsStringAsync().Result;
-
-            List<Thema> themen = JsonConvert.DeserializeObject<List<Thema>>(json);
-
-            return themen;
-
+            catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
         }
 
         public async Task<Token> holeToken()
@@ -180,7 +187,13 @@ namespace MCAPP_Project.Core.Repositories
         public async Task<bool> isAlive()
         {
             HttpClient testhttpclient = new HttpClient();
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Head, MCAPP_PROPERTIES.SERVER_BASE_URL+"/api");
+            testhttpclient.DefaultRequestHeaders.Accept
+            .Add(new MediaTypeWithQualityHeaderValue("application/json"));//ACCEPT header
+            testhttpclient.BaseAddress = new Uri(MCAPP_PROPERTIES.SERVER_BASE_URL);
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "api/authenticate");
+            request.Content = new StringContent("{\"password\":\"" + MCAPP_PROPERTIES.SERVER_PASSWORD + "\",\"username\":\"" + MCAPP_PROPERTIES.SERVER_USER + "\", \"rememberMe\":true}",
+                                    Encoding.UTF8,
+                                    "application/json");//CONTENT-TYPE header       
             testhttpclient.Timeout = TimeSpan.FromSeconds(2);
 
             try
