@@ -21,9 +21,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ThemaText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="936">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ThemaText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="936" numberOfLines="0">
                                             <rect key="frame" x="20" y="12" width="374" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17" weight="medium"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -32,6 +32,7 @@
                                         <constraint firstAttribute="trailing" secondItem="936" secondAttribute="trailing" constant="20" id="18626"/>
                                         <constraint firstItem="936" firstAttribute="leading" secondItem="931" secondAttribute="leading" constant="20" id="18627"/>
                                         <constraint firstItem="936" firstAttribute="top" secondItem="931" secondAttribute="top" constant="12" id="18628"/>
+                                        <constraint id="33954" firstAttribute="bottom" secondItem="936" secondAttribute="bottom" constant="11"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
