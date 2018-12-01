@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
     <div class="col-8">
-        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+        <form name="editForm" role="form"  (ngSubmit)="save()" #editForm="ngForm">
             <h2 id="jhi-thema-heading" jhiTranslate="mcappWebApp.thema.home.createOrEditLabel">Create or edit a Thema</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="mcappWebApp.thema.themaText" for="field_themaText">Thema Text</label>
                     <input type="text" class="form-control" name="themaText" id="field_themaText"
-                        [(ngModel)]="thema.themaText" />
+                        [(ngModel)]="thema.themaText" maxlength=255/>
                 </div>
 
             </div>
