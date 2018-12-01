@@ -273,9 +273,17 @@ namespace MCAPP_Project.Core.Services
 
         public Frage GetSampleFrage()
         {
-            Frage beispiel = new Frage();
-            beispiel.Fragetext = "Wie hoch ist die MWSt in Deutschland?";
-            return beispiel;
+            FragenBuilder builder = new FragenBuilder();
+            return builder.createFrage(1, "Wie hoch ist die MWSt in Deutschland ?", 1)
+                .WithAntwort("7 %", true)
+                .WithAntwort("15 %", false)
+                .WithAntwort("16 %", false)
+                .WithAntwort("19 %", true)
+                .WithAntwort("23 %", false)
+                .WithAntwort("24 %", false)
+                .WithAntwort("50 %", false)
+                .WithAntwort("keine der Antworten ist richtig", false)
+                .Build();
         }
 
         public Thema GetThema(long themaID)

@@ -81,23 +81,6 @@ namespace MCAPP_Project.Core.Repositories
 
             try
             {
-                if (MCAPP_PROPERTIES.DEMO_MODUS)
-                {
-                    FragenBuilder builder = new FragenBuilder();
-                    Frage frage = builder.createFrage(0, "Demo Frage", 0)
-                        .WithAntwort("Demo Antwort 1", true)
-                        .WithAntwort("Demo Antwort 2", false)
-                        .WithAntwort("Demo Antwort 3", false)
-                        .WithAntwort("Demo Antwort 4", false)
-                        .WithAntwort("Demo Antwort 5", false)
-                        .WithAntwort("Demo Antwort 6", false)
-                        .WithAntwort("Demo Antwort 7", false)
-                        .WithAntwort("Demo Antwort 8", false)
-                        .Build();
-                    alleFragen.Add(frage);
-                    return alleFragen;
-                }
-
                 alleFragen = connection.Table<Frage>().ToList<Frage>();
                 Dictionary<long, Frage> alleFragenDict = MCAPPUtils.convertFrageListToDictionary(alleFragen);
 
@@ -127,6 +110,23 @@ namespace MCAPP_Project.Core.Repositories
                         f.bildantworten.Add(a);
                     }
                 }
+
+                if (MCAPP_PROPERTIES.DEMO_MODUS)
+                {
+                    FragenBuilder builder = new FragenBuilder();
+                    Frage frage = builder.createFrage(0, "Demo Frage", 0)
+                        .WithAntwort("Demo Antwort 1", true)
+                        .WithAntwort("Demo Antwort 2", false)
+                        .WithAntwort("Demo Antwort 3", false)
+                        .WithAntwort("Demo Antwort 4", false)
+                        .WithAntwort("Demo Antwort 5", false)
+                        .WithAntwort("Demo Antwort 6", false)
+                        .WithAntwort("Demo Antwort 7", false)
+                        .WithAntwort("Demo Antwort 8", false)
+                        .Build();
+                    alleFragen.Add(frage);
+                }
+
 
 
                 return alleFragen;

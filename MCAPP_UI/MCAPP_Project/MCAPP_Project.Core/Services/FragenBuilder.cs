@@ -43,10 +43,5 @@ namespace MCAPP_Project.Core.Services
             frage.antworten = this.antworten;
             return frage;
         }
-
-
-
-
-
     }
 }

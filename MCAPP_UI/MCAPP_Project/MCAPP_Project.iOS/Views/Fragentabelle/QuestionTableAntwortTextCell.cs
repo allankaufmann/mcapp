@@ -13,35 +13,6 @@ namespace MCAPP_Project.iOS.Views
     public partial class QuestionTableAntwortTextCell : MvxTableViewCell
     {
 
-        /*private IMvxInteraction<Boolean> _interaction;
-        public IMvxInteraction<Boolean> Interaction
-        {
-            get => _interaction;
-            set
-            {
-                if (_interaction != null)
-                    _interaction.Requested -= OnInteractionRequested;
-
-                _interaction = value;
-                _interaction.Requested += OnInteractionRequested;
-            }
-        }
-
-        private async void OnInteractionRequested(object sender, MvxValueEventArgs<Boolean> eventArgs)
-        {
-            var editable = eventArgs.Value;
-            AntwortTextView.Editable = editable;
-            /*var yesNoQuestion = eventArgs.Value;
-            // show dialog
-            var status = await ShowDialog(yesNoQuestion.Question);
-            yesNoQuestion.YesNoCallback(status == DialogStatus.Yes);*/
-
-        //}*/
-
-
-
-
-
         protected QuestionTableAntwortTextCell(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
@@ -62,15 +33,7 @@ namespace MCAPP_Project.iOS.Views
                 set.Bind(LblLoesung).For(v => v.Hidden).To(vm => vm.Editable);
                 set.Bind(SchalterLoesung).For(v => v.Hidden).To(vm => vm.Editable);
 
-
                 set.Apply();
-
-
-                //var set2 = this.CreateBindingSet<QuestionTableAntwortTextCell, QuestionTableViewModel>();
-                //set2.Bind(this).For(view => view.Interaction).To(viewModel => viewModel.Interaction);
-                //set2.Apply();
-
-
             });
 
 

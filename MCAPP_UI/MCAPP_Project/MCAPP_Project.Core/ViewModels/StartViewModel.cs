@@ -94,8 +94,6 @@ namespace MCAPP_Project.Core.ViewModels
                 Dictionary<long, Thema> themaInDBDict = MCAPPUtils.convertThemaListToDictionary(themenDB);
 
 
-                Console.WriteLine("erg: " + themenWeb.Count);
-
                 Boolean refresh = false;
 
                 foreach (Thema t in themenWeb)
@@ -103,6 +101,7 @@ namespace MCAPP_Project.Core.ViewModels
                     if (MCAPP_PROPERTIES.DEMO_MODUS)
                     {
                         fragenService.SaveThema(t);
+                        themaInDBDict.Remove(0); // Demo-Thema muss aus Map wieder entfernt werden!
                         refresh = true;
                         MCAPP_PROPERTIES.DEMO_MODUS = false;
                         continue;
@@ -114,7 +113,6 @@ namespace MCAPP_Project.Core.ViewModels
                     {
                         // Neues Thema
                         fragenService.SaveThema(t);
-                        themaInDBDict.Remove(themaInDB.id);
                         refresh = true;
                     }
                     else
@@ -124,14 +122,19 @@ namespace MCAPP_Project.Core.ViewModels
                         {
                             themaInDB.ThemaText = t.ThemaText;
                             fragenService.SaveThema(t);
-                            themaInDBDict.Remove(themaInDB.id);
                         }
+                        themaInDBDict.Remove(themaInDB.id);
                         refresh = true;
                     }
                 }
 
                 foreach (Thema t in themaInDBDict.Values)
                 {
+                    if (t.id==0)
+                    {
+                        continue; // Demo-Thema muss nicht gelöscht werden!
+                    }
+
                     fragenService.LoescheThema(t);
                     refresh = true;
                 }
@@ -165,6 +168,7 @@ namespace MCAPP_Project.Core.ViewModels
                     if (MCAPP_PROPERTIES.DEMO_MODUS)
                     {
                         fragenService.SaveFrage(f);
+                        fragenInDBDict.Remove(0); // Demo-Thema muss aus Map wieder entfernt werden!
                         refresh = true;
                         MCAPP_PROPERTIES.DEMO_MODUS = false;
                         continue;
@@ -181,9 +185,14 @@ namespace MCAPP_Project.Core.ViewModels
 
                 foreach (Frage f in fragenInDBDict.Values)
                 {                    
-                    fragenService.LoescheFrage(f);
-                }
+                    if (f.id==0)
+                    {
+                        continue; // Demo-Frage muss nicht gelöscht werden
+                    }
 
+                    fragenService.LoescheFrage(f);
+                    refresh = true;
+                }
 
 
                 if (refresh)

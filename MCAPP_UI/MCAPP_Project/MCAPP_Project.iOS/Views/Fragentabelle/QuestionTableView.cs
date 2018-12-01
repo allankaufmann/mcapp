@@ -29,11 +29,8 @@ namespace MCAPP_Project.iOS.Views
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
             var button = new UIBarButtonItem(UIBarButtonSystemItem.FastForward);
-            NavigationItem.SetRightBarButtonItem(button, false);
-            
-
+            NavigationItem.SetRightBarButtonItem(button, false);          
 
             TableView.RowHeight = UITableView.AutomaticDimension;
             TableView.EstimatedRowHeight = 500f;
@@ -45,8 +42,6 @@ namespace MCAPP_Project.iOS.Views
             set.Bind(source).To(vm => vm.Tables);
             set.Bind(button).To(vm => vm.NextButtonCommand);
             set.Apply();
-
-
         }
 
 

@@ -74,7 +74,7 @@ namespace MCAPP_Test.Tests
 
             this.alleFragen.Add(
                 builder.createFrage(frageID++, "Welche der folgenden Aussagen treffen zu?", 2)
-                .WithAntwort("Zum Chipsatz eines PC´s gehören im Wesentlichen die Brückenbausteine, welche die unterschiedlichen Geschwindigkeiten angeschlossener Systeme ausgleichen, und der Hauptspeicher", false)
+                .WithAntwort("  ", false)
                 .WithAntwort("Ein PC ist in der Regel einem bestimmten Benutzer zugeordnet, ein Server hingegen liefert Dienstleistungen für viele angekoppelte Desktops oder Notebooks", true)
                 .WithAntwort("Die Definition einer Spur ist sowohl für Festplatten als auch für CD-Roms identisch", false)
                 .WithAntwort("Linux verwaltet die Festplattenadressen durch Verkettung einzelner Speicherblöcke.Diese Speicherblöcke werden auch Inodes genannt", false)
