@@ -118,11 +118,6 @@ namespace MCAPP_Project.Core.Services
                     }
                 }
             }
-
-
-
-
-
             return fragerichtig;
         }
 

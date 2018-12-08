@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using UIKit;
 
 namespace MCAPP_Project.Core.ViewModels
 {
@@ -39,22 +40,31 @@ namespace MCAPP_Project.Core.ViewModels
             initViews();
         }
 
+        private ThemaViewModel anzahlView = null;
+
         private void initViews()
         {
-            Tables.Add(new ThemaViewModel(StartQuizCommand));
+            Tables.Add(new ThemaViewModel(StartQuizCommand)); // Überschrift
 
             foreach (Thema t in themenListe)
             {
-                Tables.Add(new ThemaViewModel(StartQuizCommand, t));
+                Tables.Add(new ThemaViewModel(StartQuizCommand, t, fragenService));
             }
 
-            Tables.Add(new ThemaViewModel(StartQuizCommand));
+            anzahlView = new ThemaViewModel(StartQuizCommand);
+
+            Tables.Add(anzahlView); // Fragen anzahl
+            Tables.Add(new ThemaViewModel(StartQuizCommand)); // Button
         }      
 
         public IMvxAsyncCommand StartQuizCommand { get; }
 
+
+
+
         async Task StartQuiz()
         {
+            
             List<Thema> gewaelteThemen = new List<Thema>();
             foreach (Thema t in themenListe)
             {
@@ -65,7 +75,15 @@ namespace MCAPP_Project.Core.ViewModels
             }
 
             List<Frage> gezogeneFragen = new List<Frage>();
-            gezogeneFragen = await fragenService.GetFragen(gewaelteThemen, 10);
+
+            var anz = 10;
+
+            if (this.anzahlView!=null && this.anzahlView.AnzahlFrage>0)
+            {
+                anz = this.anzahlView.AnzahlFrage;
+            }
+
+            gezogeneFragen = await fragenService.GetFragen(gewaelteThemen, anz);
 
             if (gezogeneFragen == null || gezogeneFragen.Count==0)
             {

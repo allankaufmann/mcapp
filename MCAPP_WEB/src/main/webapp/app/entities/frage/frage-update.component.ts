@@ -8,11 +8,14 @@ import { IFrage } from 'app/shared/model/frage.model';
 import { FrageService } from './frage.service';
 import { IThema } from 'app/shared/model/thema.model';
 import { ThemaService } from 'app/entities/thema';
+//import { NgForm } from '@angular/forms';
+//import { ViewChild } from '@angular/core';
 
 @Component({
     selector: 'jhi-frage-update',
     templateUrl: './frage-update.component.html'
 })
+
 export class FrageUpdateComponent implements OnInit {
     frage: IFrage;
     isSaving: boolean;
@@ -56,6 +59,7 @@ export class FrageUpdateComponent implements OnInit {
         result.subscribe((res: HttpResponse<IFrage>) => this.onSaveSuccess(), (res: HttpErrorResponse) => this.onSaveError());
     }
 
+    //@ViewChild('taskForm') myForm: NgForm;
     private onSaveSuccess() {
         this.isSaving = false;
         this.previousState();

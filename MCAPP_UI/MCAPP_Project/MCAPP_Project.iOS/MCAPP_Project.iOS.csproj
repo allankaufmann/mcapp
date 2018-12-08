@@ -147,6 +147,10 @@
     <Compile Include="Views\StartView.designer.cs">
       <DependentUpon>StartView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Themenwahl\AnzahlFragenCell.cs" />
+    <Compile Include="Views\Themenwahl\AnzahlFragenCell.designer.cs">
+      <DependentUpon>AnzahlFragenCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Themenwahl\StartButtonCell.cs" />
     <Compile Include="Views\Themenwahl\StartButtonCell.designer.cs">
       <DependentUpon>StartButtonCell.cs</DependentUpon>
@@ -168,7 +172,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <InterfaceDefinition Include="Views\SampleQuestion.storyboard" />
     <InterfaceDefinition Include="Views\Fragentabelle\QuestionTableView.storyboard" />
-    <InterfaceDefinition Include="Views\Themenwahl\ThemenwahlView.storyboard" />
+    <InterfaceDefinition Include="Views\Themenwahl\ThemenwahlView.storyboard">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
     <InterfaceDefinition Include="Views\Auswertung\AuswertungTabelle.storyboard">
       <SubType>Designer</SubType>
     </InterfaceDefinition>

@@ -160,7 +160,6 @@ namespace MCAPP_Project.Core.Repositories
             }
             catch(Exception e)
             {
-                Console.WriteLine(e.ToString());
                 return null;
             }
         }
@@ -194,7 +193,7 @@ namespace MCAPP_Project.Core.Repositories
             request.Content = new StringContent("{\"password\":\"" + MCAPP_PROPERTIES.SERVER_PASSWORD + "\",\"username\":\"" + MCAPP_PROPERTIES.SERVER_USER + "\", \"rememberMe\":true}",
                                     Encoding.UTF8,
                                     "application/json");//CONTENT-TYPE header       
-            testhttpclient.Timeout = TimeSpan.FromSeconds(2);
+            testhttpclient.Timeout = TimeSpan.FromSeconds(MCAPP_PROPERTIES.TIMEOUT_IN_SECONDS_FOR_ALIVE_CHECK);
 
             try
             {
@@ -249,7 +248,7 @@ namespace MCAPP_Project.Core.Repositories
                     );
                     response = await httpClient.SendAsync(request);
                     Quiz_Frage quizFrageServer = JsonConvert.DeserializeObject<Quiz_Frage>(json);
-                    Console.WriteLine(quizFrageServer.quiz_Frage_ID);
+                    //Console.WriteLine(quizFrageServer.quiz_Frage_ID);
                 }
                 catch (Exception e)
                 {

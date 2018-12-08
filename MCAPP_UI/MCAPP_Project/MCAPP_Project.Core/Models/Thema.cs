@@ -26,7 +26,5 @@ namespace MCAPP_Project.Core.Models
         {
             get; set;
         }
-
-
     }
 }

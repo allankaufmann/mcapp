@@ -70,13 +70,8 @@ namespace MCAPP_Project.iOS.Views
             if (!found)
             {
                 // hier kommt man an, wenn der "Zurück"-Button betätigt wurde.
-
-                Console.WriteLine("zurueck");
+                //Console.WriteLine("zurueck");
             }
-
-
-
-
             base.ViewWillDisappear(animated);
         }
 

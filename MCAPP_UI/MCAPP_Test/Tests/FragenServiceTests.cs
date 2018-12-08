@@ -97,7 +97,7 @@ namespace MCAPP_Test.Tests
         }
 
         [Test]
-        public async System.Threading.Tasks.Task FragenMitFesterAnzahlAsync()
+        public async System.Threading.Tasks.Task FragenMitFesterAnzahl()
         {
             List<Thema> themen = new List<Thema>();
             themen.Add(service.GetThema(1));
@@ -109,7 +109,7 @@ namespace MCAPP_Test.Tests
         }
 
         [Test]
-        public async System.Threading.Tasks.Task FragenMitHoherFesterAnzahlAsync()
+        public async System.Threading.Tasks.Task FragenMitHoherFesterAnzahl()
         {
             List<Thema> themen = new List<Thema>();
             themen.Add(service.GetThema(1));
@@ -135,7 +135,7 @@ namespace MCAPP_Test.Tests
         }
 
         [Test]
-        public async System.Threading.Tasks.Task FragenNachThemenGleichverteiltAsync()
+        public async System.Threading.Tasks.Task FragenNachThemenGleichverteilt()
         {
             List<Thema> themen = new List<Thema>();
             themen.Add(service.GetThema(1));
@@ -167,7 +167,7 @@ namespace MCAPP_Test.Tests
         }
 
         [Test] 
-        public async System.Threading.Tasks.Task zufallsFragenNotSameAsync()
+        public async System.Threading.Tasks.Task zufallsFragenNotSame()
         {
             Thema t = service.GetThema(1);
             Frage f1 = (await service.GetZufallsFragen(t, 1))[0];

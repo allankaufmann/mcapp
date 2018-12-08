@@ -35,6 +35,21 @@ namespace MCAPP_Test.Tests
             throw new NotImplementedException();
         }
 
+        public List<Quiz> GetAllQuizNotSendet()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Quiz_Frage> GetAllQuiz_Frages(Quiz quiz)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int LoescheAuswertungFragen(Frage frage)
+        {
+            throw new NotImplementedException();
+        }
+
         public Quiz Save(Quiz quiz)
         {
 
@@ -45,6 +60,11 @@ namespace MCAPP_Test.Tests
         }
 
         public Quiz_Frage SaveQuiz_Frage(Quiz_Frage quizFrage)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Quiz Update(Quiz quiz)
         {
             throw new NotImplementedException();
         }

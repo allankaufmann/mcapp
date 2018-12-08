@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Foundation;
+using MCAPP_Project.iOS.Views.Themenwahl;
 using MvvmCross.Binding.iOS.Views;
 using UIKit;
 
@@ -28,7 +29,12 @@ namespace MCAPP_Project.iOS.Views
             } else if (indexPath.LongRow == (count-1))
             {
                 return (StartButtonCell)tableView.DequeueReusableCell("StartbuttonCell");
-            } else
+            }
+            else if (indexPath.LongRow == (count - 2))
+            {
+                return (AnzahlFragenCell)tableView.DequeueReusableCell("AnzFragenCell");
+            }
+            else
             {
                 return (ThemenwahlCell)tableView.DequeueReusableCell("ThemenwahlCell");
             }

@@ -234,5 +234,15 @@ namespace MCAPP_Test.Tests
         {
             throw new NotImplementedException();
         }
+
+        public int LoescheFrage(Frage frage)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int LoescheThema(Thema t)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

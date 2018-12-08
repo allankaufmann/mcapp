@@ -199,76 +199,8 @@ namespace MCAPP_Project.Core.Services
                 }
 
             }
-
-
-
             return fragenListe;
         }
-
-        /* Ersetzt.... ggfls. kann Dictionary noch an anderer Stelle verwendet werden!
-            public List<Frage> GetFragen2(List<Thema> gewaelteThemen, int anz)
-        {
-            if (gewaelteThemen==null || gewaelteThemen.Count==0 || anz == 0)
-            {
-                return new List<Frage>();
-            }
-
-            int anzahlAlleGewaehltenFragen = GetFragen(gewaelteThemen).Count;
-            Dictionary<long, List<Frage>> fragenDict = GetFragenDictionary(gewaelteThemen);
-            List<Frage> fragenListe = new List<Frage>();
-
-
-            List<int> themenCounter = new List<int>();
-            foreach (Thema t in gewaelteThemen) {
-                themenCounter.Add(0);
-            }
-
-
-            int anzahlFrageProThema = anz / gewaelteThemen.Count;
-
-            for (int i = 0; i < anz; i++)
-            {               
-                // Es dürfen nicht mehr Fragen gezogen werden, als vorhanden sind!
-                if (anzahlAlleGewaehltenFragen> (i))
-                {
-                    Boolean foundFrage = false;
-                    for (int j = 0; j < gewaelteThemen.Count; j++)
-                    {
-                        if (foundFrage)
-                        {
-                            continue;
-                        }
-
-
-                        if (themenCounter[j]<anzahlFrageProThema)
-                        {
-                            int fragenIndex = themenCounter[j];
-
-                            if (fragenIndex < fragenDict[gewaelteThemen[j].ThemaID].Count)
-                            {
-                                fragenListe.Add(fragenDict[gewaelteThemen[j].ThemaID][fragenIndex]);
-                                foundFrage = true;
-                                themenCounter[j]++;
-                            }
-                        }
-                    }
-
-                    if (!foundFrage)
-                    {
-                        long letzteThemenID = gewaelteThemen[gewaelteThemen.Count - 1].ThemaID;
-                        int themenIndex = themenCounter[gewaelteThemen.Count - 1];
-                        if (fragenDict[letzteThemenID].Count > themenIndex)
-                        {
-                            fragenListe.Add(fragenDict[letzteThemenID][themenIndex]);
-                        }
-                        themenCounter[gewaelteThemen.Count - 1]++;                        
-                    }
-                    
-                }
-            }
-            return fragenListe;
-        }
-        */
 
 
         public Frage GetSampleFrage()
@@ -322,9 +254,7 @@ namespace MCAPP_Project.Core.Services
             foreach (Frage f in nichtBeantworteteFragen)
             {
                 alleFragen.Remove(f);
-            }
-            
-
+            }           
 
             for (int i = 0; i < anz; i++)
             {
@@ -338,7 +268,6 @@ namespace MCAPP_Project.Core.Services
 
                     List<Frage> fragenListe = (nichtBeantworteteFragen.Count > 0) ? nichtBeantworteteFragen : alleFragen;
 
-
                     int index = random.Next(0, fragenListe.Count);
                     zufallsFragen.Add(fragenListe[index]);
                     fragenListe.RemoveAt(index);
@@ -346,7 +275,6 @@ namespace MCAPP_Project.Core.Services
             }
 
             return zufallsFragen;
-
         }
 
         public int LoescheFrage(Frage frage)

@@ -32,7 +32,6 @@ namespace MCAPP_Project.Core.ViewModels
         public AuswertungThemaViewModel(IMvxNavigationService navigationService, Thema thema, Quiz quiz)
         {
             this.navigationService = navigationService;
-            //navigationService.Close(this);
             quizService = Mvx.Resolve<IQuizService>();
             this.ReStartQuizCommand = new MvxAsyncCommand(StartQuiz, startEnabled);
 
@@ -58,13 +57,11 @@ namespace MCAPP_Project.Core.ViewModels
         public override void ViewDisappeared() 
         {
             base.ViewDisappeared();
-            Console.WriteLine("hm....moment");
         }
 
         protected override void ReloadFromBundle(IMvxBundle state)
         {
             base.ReloadFromBundle(state);
-            Console.WriteLine("hm....moment");
         }
 
 

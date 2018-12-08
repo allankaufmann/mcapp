@@ -1,4 +1,5 @@
 ﻿using MCAPP_Project.Core.Models;
+using MCAPP_Project.Core.Services;
 using MvvmCross.Core.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,21 +14,36 @@ namespace MCAPP_Project.Core.ViewModels
 
         private IMvxAsyncCommand startCommand;
 
+        private readonly IFragenService fragenService;
+
         public ThemaViewModel(IMvxAsyncCommand startCommand)
         {
             this.startCommand = startCommand;
         }
 
 
-        public ThemaViewModel(IMvxAsyncCommand startCommand, Thema thema)
+        public ThemaViewModel(IMvxAsyncCommand startCommand, Thema thema, IFragenService fragenService)
         {
             this.startCommand = startCommand;
             this.thema = thema;
+            this.fragenService = fragenService;
         }
 
         public String ThemaText
         {
-            get { return this.thema.ThemaText; }
+            get {
+                String s = "";
+                s += this.thema.ThemaText;
+
+                List<Frage> fragen = fragenService.GetFragen(this.thema.id);
+
+                if (fragen!=null)
+                {
+                    s += " (";
+                    s += fragen.Count;
+                    s += " Fragen)";
+                }
+                return s; }
         }
 
         public Boolean ThemaGewaehlt
@@ -40,6 +56,19 @@ namespace MCAPP_Project.Core.ViewModels
         }
 
         public IMvxAsyncCommand StartQuizCommand { get { return this.startCommand; } }
+
+        private int anzahlFrage = 10;
+
+        public int AnzahlFrage { get { return this.anzahlFrage; }
+            set { this.anzahlFrage = value;
+                RaisePropertyChanged(() => AnzahlFrage);
+            }
+        }
+
+        public String anzahlText
+        {
+            get { return "max Anzahl Fragen: "; }
+        }
 
     }
 }

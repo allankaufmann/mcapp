@@ -22,6 +22,8 @@ namespace MCAPP_Project.Core.Models
 
         public bool richtig_beantwortet { get; set; }
 
+        // Datum wird für Sortierung der Quiz_Frage-Liste verwendet, wenn Auswertung erstellt wird. Das führende Datum
+        // steht jedoch im Quiz-Objekt. Nur das Datum aus dem Quiz-Objekt wird später an Server gesendet. 
         public DateTime datum { get; set; }
     }
 }

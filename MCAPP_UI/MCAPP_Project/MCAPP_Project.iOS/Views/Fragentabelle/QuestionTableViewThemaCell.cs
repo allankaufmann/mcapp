@@ -11,7 +11,6 @@ namespace MCAPP_Project.iOS.Views
     public partial class QuestionTableViewThemaCell : MvxTableViewCell
     {
 
-
         protected QuestionTableViewThemaCell(IntPtr handle) : base(handle)
         {
             this.DelayBind(() =>
@@ -19,7 +18,6 @@ namespace MCAPP_Project.iOS.Views
                 var set = this.CreateBindingSet<QuestionTableViewThemaCell, QuestionViewModel>();
                 set.Bind(ThemaText).To(vm => vm.Thema);
                 set.Apply();
-
             });
         }
 
