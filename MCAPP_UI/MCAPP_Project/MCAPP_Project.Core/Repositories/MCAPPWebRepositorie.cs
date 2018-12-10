@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Security.Authentication;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,6 +43,26 @@ namespace MCAPP_Project.Core.Repositories
             httpClient.DefaultRequestHeaders.Accept
                 .Add(new MediaTypeWithQualityHeaderValue("application/json"));//ACCEPT header
             httpClient.BaseAddress = new Uri(MCAPP_PROPERTIES.SERVER_BASE_URL);
+
+            if (MCAPP_PROPERTIES.WITH_SSL)
+            {
+                try
+                {
+
+                    var handler = new HttpClientHandler();
+                    handler.ClientCertificateOptions = ClientCertificateOption.Manual;
+                    handler.SslProtocols = SslProtocols.Tls12;
+                    handler.ClientCertificates.Add(
+                       new X509Certificate2(MCAPP_PROPERTIES.PF12_ZERTIFKAT));
+
+                    // Certificate is located in bin/debug folder 
+                    httpClient = new HttpClient(handler);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+            }
         }
 
 
@@ -189,6 +211,29 @@ namespace MCAPP_Project.Core.Repositories
             testhttpclient.DefaultRequestHeaders.Accept
             .Add(new MediaTypeWithQualityHeaderValue("application/json"));//ACCEPT header
             testhttpclient.BaseAddress = new Uri(MCAPP_PROPERTIES.SERVER_BASE_URL);
+
+            if (MCAPP_PROPERTIES.WITH_SSL)
+            {
+                try
+                {
+
+                    var handler = new HttpClientHandler();
+                    handler.ClientCertificateOptions = ClientCertificateOption.Manual;
+                    handler.SslProtocols = SslProtocols.Tls12;
+                    handler.ClientCertificates.Add(
+                       new X509Certificate2(MCAPP_PROPERTIES.PF12_ZERTIFKAT));
+
+                    // Certificate is located in bin/debug folder 
+                    testhttpclient = new HttpClient(handler);
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+            }
+
+
+
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "api/authenticate");
             request.Content = new StringContent("{\"password\":\"" + MCAPP_PROPERTIES.SERVER_PASSWORD + "\",\"username\":\"" + MCAPP_PROPERTIES.SERVER_USER + "\", \"rememberMe\":true}",
                                     Encoding.UTF8,

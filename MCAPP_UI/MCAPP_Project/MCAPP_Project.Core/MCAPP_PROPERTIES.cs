@@ -6,7 +6,11 @@ namespace MCAPP_Project.Core
 {
     public class MCAPP_PROPERTIES
     {
-        static readonly public String SERVER_BASE_URL = "http://192.168.178.34:8080/";
+
+        static readonly public Boolean WITH_SSL = false; // Wenn SSL auf Server aktiviert wurde, dann auf TRUE setzen für Verschlüsselung.
+
+
+        static readonly public String SERVER_BASE_URL = ((WITH_SSL) ? "https://192.168.56.1:8080/" : "http://192.168.178.34:8080/");
 
         static readonly public String SERVER_USER = "user";
 
@@ -16,7 +20,7 @@ namespace MCAPP_Project.Core
         // längere Zeit hängt, wird mit dieser Variable ein Timeout vereinbart. Wenn der Server innerhalb dieser
         // Sekunden nicht reagiert, findet kein Abgleich statt. Im Entwicklungssystem waren 5 Sekunden ausreichend. Später im WWW-Betrieb
         // könnte hier aber ein längeres Timeout eingestellt werden.
-        static readonly public long TIMEOUT_IN_SECONDS_FOR_ALIVE_CHECK = 5; 
+        static readonly public long TIMEOUT_IN_SECONDS_FOR_ALIVE_CHECK = 10; 
 
         // Wird von Anwendung auf true gesetzt, 
         // wenn lokale DB leer und Web-Service nicht vorhanden ist oder keine Themen angelegt wurden.
@@ -27,6 +31,8 @@ namespace MCAPP_Project.Core
         static readonly public String DATENBANK_IN_SMARTPHONE = "/Users/allan/test.db";
 
         static readonly public String DATENBANK_IN_SMARTPHONE_NAME = "mcapp.db";
+
+        static readonly public String PF12_ZERTIFKAT = "/Users/allan/keystore.p12";
 
     }
 }
