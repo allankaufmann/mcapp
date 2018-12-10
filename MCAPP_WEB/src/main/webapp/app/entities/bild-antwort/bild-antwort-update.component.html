@@ -44,7 +44,7 @@
                     <label class="form-control-label" jhiTranslate="mcappWebApp.bildAntwort.frage" for="field_frage">Frage</label>
                     <select class="form-control" id="field_frage" name="frage" [(ngModel)]="bildAntwort.frage" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="frageOption.id === bildAntwort.frage?.id ? bildAntwort.frage : frageOption" *ngFor="let frageOption of frages; trackBy: trackFrageById">{{frageOption.id}}</option>
+                        <option [ngValue]="frageOption.id === bildAntwort.frage?.id ? bildAntwort.frage : frageOption" *ngFor="let frageOption of frages; trackBy: trackFrageById">{{frageOption.frageText}}</option>
                     </select>
                 </div>
             </div>

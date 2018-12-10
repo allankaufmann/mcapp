@@ -15,7 +15,6 @@ import { ThemaService } from 'app/entities/thema';
     selector: 'jhi-frage-update',
     templateUrl: './frage-update.component.html'
 })
-
 export class FrageUpdateComponent implements OnInit {
     frage: IFrage;
     isSaving: boolean;

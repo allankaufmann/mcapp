@@ -141,5 +141,5 @@
         "idexists": "Ein neuer {{entityName}} kann noch keine ID haben",
         "idnull": "Invalid ID"
     },
-    "footer": "Dies ist Ihre Fußzeile"
+    "footer": ""
 }

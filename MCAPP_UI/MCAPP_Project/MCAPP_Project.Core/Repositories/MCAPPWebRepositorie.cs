@@ -248,7 +248,6 @@ namespace MCAPP_Project.Core.Repositories
                     );
                     response = await httpClient.SendAsync(request);
                     Quiz_Frage quizFrageServer = JsonConvert.DeserializeObject<Quiz_Frage>(json);
-                    //Console.WriteLine(quizFrageServer.quiz_Frage_ID);
                 }
                 catch (Exception e)
                 {
@@ -258,14 +257,6 @@ namespace MCAPP_Project.Core.Repositories
 
             return true;
         }
-
-        /*private async Task<bool> sendQuizFragen(long quizServerID)
-        {
-            return null;
-        }*/
-
-
-
     }
 
 

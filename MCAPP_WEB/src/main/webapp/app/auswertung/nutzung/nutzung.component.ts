@@ -53,13 +53,8 @@ export class NutzungComponent implements OnInit, OnDestroy {
                 if (this.quizzes) {
                     let sevenDays = new Date(Date.now());
                     let thirtydays = new Date(Date.now());
-
                     sevenDays.setDate(sevenDays.getDate() - 7);
                     thirtydays.setDate(thirtydays.getDate() - 30);
-
-                    console.log(sevenDays);
-                    console.log(thirtydays);
-
                     let seven = 0;
                     let thirty = 0;
 

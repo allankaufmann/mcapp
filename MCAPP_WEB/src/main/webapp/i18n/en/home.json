@@ -1,7 +1,7 @@
 {
     "home": {
         "title": "Welcome!",
-        "subtitle": "This is the Autorenzugang",
+        "subtitle": "This is the Autorenzugang for the multiple-choice app!",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },
