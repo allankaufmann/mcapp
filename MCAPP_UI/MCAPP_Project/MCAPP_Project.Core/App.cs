@@ -19,9 +19,6 @@ namespace MCAPP_Project.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
-            //RegisterNavigationServiceAppStart<ViewModels.SampleQuestionViewModel>();
-            //RegisterNavigationServiceAppStart<ViewModels.QuestionTableViewModel>();
-            //RegisterNavigationServiceAppStart<ViewModels.ThemenwahlViewModel>();
             RegisterNavigationServiceAppStart<ViewModels.StartViewModel>();
 
             Mvx.RegisterType<IFragenRepository, FragenRepository>();
@@ -29,11 +26,6 @@ namespace MCAPP_Project.Core
             Mvx.RegisterType<IQuizRepository, QuizRepository>();
             Mvx.RegisterType<IMCAPPWebRepositorie, MCAPPWebRepositorie>();
             Mvx.RegisterType<IMCAPPWebService, MCAPPWebService>();
-            
-
-
-
-            //
         }
     }
 }

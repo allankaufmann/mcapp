@@ -13,9 +13,7 @@ namespace MCAPP_Project.iOS.Views
 
         protected ThemenwahlUeberschriftCell(IntPtr handle) : base(handle)
         {
-            //this.ThemaTextLabel.Text = "Themengebiet wählen:";
-            //Console.WriteLine("OK");
-            // Note: this .ctor should not contain any initialization logic.
+
         }
     }
 }

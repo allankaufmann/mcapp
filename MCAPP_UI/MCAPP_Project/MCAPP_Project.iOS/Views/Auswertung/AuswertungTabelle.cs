@@ -51,10 +51,6 @@ namespace MCAPP_Project.iOS.Views.Auswertung
 
             // Zurück-Button entfernen
             NavigationController.TopViewController.NavigationItem.SetHidesBackButton(true, true);
-
-
-
-
         }
 
         public override void ViewWillAppear(bool animated)

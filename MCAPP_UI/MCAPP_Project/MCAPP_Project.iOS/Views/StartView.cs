@@ -37,20 +37,6 @@ namespace MCAPP_Project.iOS.Views
             set.Apply();
 
             BildStart.Image = UIImage.FromBundle("hagenlogo");
-
-
-            /*
-              Beispiel für Dialog
-            var okAlertController = UIAlertController.Create("Title", "The message", UIAlertControllerStyle.Alert);
-            //Add Action
-            okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
-
-            // Present Alert
-            PresentViewController(okAlertController, true, null);*/
-
-
-
-            // Perform any additional setup after loading the view, typically from a nib.
         }
 
         public override void ViewWillAppear(bool animated)

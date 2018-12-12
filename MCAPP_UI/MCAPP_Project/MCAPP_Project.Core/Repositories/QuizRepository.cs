@@ -10,7 +10,7 @@ namespace MCAPP_Project.Core.Repositories
 {
     public class QuizRepository : IQuizRepository
     {
-        //readonly SQLiteAsyncConnection connection;
+
         readonly SQLiteConnection connection;
 
         public QuizRepository()
@@ -47,11 +47,6 @@ namespace MCAPP_Project.Core.Repositories
             return quizFrage;
         }
 
-
-        /*public Task<List<Quiz>> GetAll()
-        {
-            return connection.Table<Quiz>().ToList();
-        }*/
 
         public async Task<bool> FrageNochNichtRichtigBeantwortet(long frageID)
         {

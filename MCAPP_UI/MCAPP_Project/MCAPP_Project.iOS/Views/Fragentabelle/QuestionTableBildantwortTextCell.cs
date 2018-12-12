@@ -45,24 +45,7 @@ namespace MCAPP_Project.iOS.Views
             });
         }
 
-        /*private UIImage ImageFromBytes(byte[] bytes, nfloat width, nfloat height)
-        {
-            try
-            {
-                NSData data = NSData.FromArray(bytes);
-                UIImage image = UIImage.LoadFromData(data);
-                CGSize scaleSize = new CGSize(width, height);
-                UIGraphics.BeginImageContextWithOptions(scaleSize, false, 0);
-                image.Draw(new CGRect(0, 0, scaleSize.Width, scaleSize.Height));
-                UIImage resizedImage = UIGraphics.GetImageFromCurrentImageContext();
-                UIGraphics.EndImageContext();
-                return resizedImage;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }*/
+
 
         UIImage antwortImage
         {
@@ -79,20 +62,5 @@ namespace MCAPP_Project.iOS.Views
             }
 
         }
-
-
-        /*private UIImage toUIImage(byte[] img)
-        {
-            if (img==null)
-            {
-                return null;
-            }
-
-            var data = NSData.FromArray(img);
-            var uiimage = UIImage.LoadFromData(data);
-            return uiimage;
-        }*/
-
-
     }
 }

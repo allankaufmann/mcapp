@@ -14,17 +14,6 @@ namespace MCAPP_Project.iOS.Views.Fragentabelle
     {
         protected override UIImage Convert(byte[] value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            /*if (value == null)
-                return null;
-
-            var byteArray = new byte[value.Pixels.Length * 4];
-            Buffer.BlockCopy(value.Pixels, 0, byteArray, 0, byteArray.Length);
-
-            using (var colorSpace = CGColorSpace.CreateDeviceRGB())
-            using (var bitmapContext = new CGBitmapContext(byteArray, value.Width, value.Height, 8, 4 * value.Width, colorSpace, CGBitmapFlags.PremultipliedLast | CGBitmapFlags.ByteOrderDefault))
-            using (var image = bitmapContext.ToImage())
-                return new UIImage(image);*/
-
             if (value == null)
             {
                 return null;
